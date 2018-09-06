@@ -162,6 +162,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Create a Wiki/Guide
   * [ ] ...in english and german
 * [ ] Create a Flowchart
+* [ ] eBook ready to Download with all Information and Tutorial
 * [ ] Create two videos and share it on [Twitter](https://twitter.com/TheAmadeus25)/[YouTube](https://www.youtube.com/channel/UCwWUDIxHP5eyUSW02_msNTw)/Facebook
 * [ ] Say "Thank You" for all who helped me
 * [ ] Say "Thank You" for those who shared they library
