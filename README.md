@@ -63,6 +63,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Clock (of course 😄)
 ## Software/Converter to program them
 * Arduino [**1.6.0**](https://www.arduino.cc/en/Main/OldSoftwareReleases#previous) (Colorduino doesn't work properly on 1.8.6. It shows wrong color so you need to download an older version)
+* Arduino 1.8.6 for ESP8266 (funny he?)
 * [USB to TTL-Converter with CP2102](https://www.amazon.de/SODIAL-USB-TTL-Konverter-Modul-eingebautem-CP2102/dp/B008RF73CS/ref=sr_1_fkmr0_2?ie=UTF8&qid=1534713779&sr=8-2-fkmr0&keywords=cp2102+breakout) (or similar)
 * (Library incoming)
 * Help of the community
@@ -116,9 +117,10 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Print String on Colorduino
 * [ ] Scroll String on Colorduino across
 * [X] OTA for ESP8266 implementation (not optimized, yet)
-* [ ] Print progressbar on Colorduino while Updating
+* [ ] Print progressbar on Colorduino while Updating ESP8266
 * [ ] Print progressbar on Colorduino for Widget (e.g. Spotify Track position)
 * [ ] Boot Logo/Animation
+* [ ] White-Balance Testscreen
 * [ ] Wait until all devices are ready (or something similary for sync)
 * [ ] Enable I²C
 * [ ] ...
@@ -139,6 +141,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Parsing Sensors
 * [ ] Parsing Button
 * [ ] Parsing Ambientlight
+* [ ] Compute all Information's
 * [ ] Optimize Watchdog for reset after some weeks (~44 Days)
 * [ ] ...
 
