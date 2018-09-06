@@ -2,7 +2,7 @@
 I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 (01 or NodeMCU) for the connection to the Internet. It's build for everdays use like showing your Subscribers on YouTube, the current track on Spotify, how strong is the Euro, or the weather at the moment. There is (in the future) everthing for everbody and everthing is selfmade!
 
 
-**Note: I got everything, so I'll start programming and this will take time. I did some charset and logos but I need to write my own protocol for communication, parsing those information, control the matrix and many more. Meanwhile, I did a checklist to show you, what I (try) to programm them. Maybe somebody can help me, too. Maybe I need to change some parts like the ESP8266 (my sourcecode goes out of memory or similar) or the Step-down Power Supply is to weak. The Datasheet of the Colorduino isn't the best I ever read and there are at least 2 version of them. Don't worry, I try to help with and guide and something like a wiki here on github.  And last but not least, English isn't my native language but it's the language of programming. It help's more people on the world if you ask in english than in german!**
+**Note: I got everything, so I'll start programming and this will take time. A hugh amount of time. I did some charset and logos but I need to write my own protocol for communication, parsing those information, control the matrix and many more. Meanwhile, I did a checklist to show you, what I (try) to programm them. Maybe somebody can help me, too. Maybe I need to change some parts like the ESP8266 (my sourcecode goes out of memory or similar) or the Step-down Power Supply is to weak. The Datasheet of the Colorduino isn't the best I ever read and there are at least 2 version of them. Don't worry, I try to help with and guide and something like a wiki here on github.  And last but not least, English isn't my native language but it's the language of programming. It help's more people on the world if you ask in english than in german!**
  
 ## I plan to add things like
 * [ ] Twitch
@@ -23,6 +23,21 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
   * [ ] Bitcoin
 * [ ] GoogleMail notification
 * [ ] Steam Server state
+* [ ] State for CS:GO (if I got it already running 😡😤)
+  * [ ] Kills
+  * [ ] Deaths
+  * [ ] Time Played
+  * [ ] Planted Bombs
+  * [ ] Defused Bombs
+  * [ ] Wins
+  * [ ] Damage Done
+  * [ ] Money Earned
+  * [ ] Rescued Hostages
+  * [ ] Headshot
+  * [ ] MVP
+  * [ ] Last Match
+  * [ ] Weapon Kill
+  * [ ] ...and many many many more
 * [ ] Spotify
   * [ ] Current Track
 * [ ] [Weather](https://openweathermap.org/weather-conditions)
@@ -60,7 +75,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * 5x Colorduino Matrix Shield (it's possible up to 254 but never testing)
 * 5x Colorduino Matrix 8x8 RGB LED Full Dot/Square (Feel free to mixed them up)
   * 1st shows the symbol/logo, everything else shows the information
-* LDR (if it's dark, watchface change to clock with lowest light so you can sleep at night)
+* LDR (if it's dark, watchface change to clock with lowest light so you can sleep at night without any glare)
 * 3x Button (not planed to use all of them at the moment)
 * BME280 for indoor use
 * ADS1115 or similar for those Buttons and LDR. (Yeah, 15-bit resolution is an overkill 😄)
@@ -68,7 +83,6 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * DC-DC 12V to 5V and 3.3V Step-down Power Supply
   * We need at least 3.3V/5V for ESP8266 and 6.5V to 7.5V for RGB Matrix, at least 1A+.
 * Messing Spacer (for mounting)
-
 
 ## Character Set
 * [X] A-Z
@@ -89,6 +103,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Dollar
 * [ ] Ä, Ö, Ü, É, etc.
 * [ ] [Japanese Katakana](http://www.electronic-engineering.ch/microchip/datasheets/lcd/charset.gif)
+* [ ] ...
 
 ## Worksteps for Slave Colorduino's
 * [X] Read and Parse Integer
@@ -105,18 +120,46 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Print progressbar on Colorduino for Widget (e.g. Spotify Track position)
 * [ ] Boot Logo/Animation
 * [ ] Wait until all devices are ready (or something similary for sync)
+* [ ] Enable I²C
+* [ ] ...
 
 ## Worksteps for Master Colorduino
 * [ ] Enable I²C
 * [ ] Sync all Colorduino
 * [ ] Timer for changing Widget
+* [ ] ...
 
 ## Worksteps for ESP8266
 * [X] WiFi connection
 * [ ] WiFi Manager
-* [ ] 
-* [ ]
-* [ ]
-* [ ]
-* [ ]
+* [X] OTA for ESP8266 implementation (not optimized, yet)
+* [ ] EEPROM for Setting
+* [ ] Webpage for Settings and Debug
+* [ ] Enable I²C
+* [ ] Parsing Sensors
+* [ ] Parsing Button
+* [ ] Parsing Ambientlight
+* [ ] Optimize Watchdog for reset after some weeks (~44 Days)
+* [ ] ...
 
+## Worksteps for circuit board
+* [ ] Soldering all parts
+* [ ] ...
+
+## Worksteps for mounting
+* [ ] Backplate (Wood, Metal or Plastic)
+* [ ] Baking paper for diffusing light
+* [ ] Black Glass/Plastic for lowering brightness after diffusing light
+* [ ] Mounting on messing spacer and screw's
+* [ ] Two holes for mounting on the Wall
+* [ ] ...
+
+## Worksteps for Github
+* [ ] Learn english (orthography etc. 😄)
+* [ ] Create a Wiki/Guide
+  * [ ] ...in english and german
+* [ ] Create a Flowchart
+* [ ] Create two videos and share it on [Twitter](https://twitter.com/TheAmadeus25)/[YouTube](https://www.youtube.com/channel/UCwWUDIxHP5eyUSW02_msNTw)/Facebook
+* [ ] Say "Thank You" for all who helped me
+* [ ] Say "Thank You" for those who shared they library
+* [ ] ...
