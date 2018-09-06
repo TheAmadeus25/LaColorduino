@@ -2,7 +2,7 @@
 I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 (01 or NodeMCU) for the connection to the Internet. It's build for everdays use like showing your Subscribers on YouTube, the current track on Spotify, how strong is the Euro, or the weather at the moment. There is (in the future) everthing for everbody and everthing is selfmade!
 
 
-**Note: This project isn't started, yet. I'm still waiting for my parts from China but hey, you get what you paid. If I got everything, I'll start programming and this will take time, too. I did some charset and logos but I need to write my own protocol for communication, parsing those information, control the matrix and many more. Meanwhile, I did a checklist to show you, what I (try) to programm them. Maybe somebody can help me, too. Maybe I need to change some parts like the ESP8266 (my sourcecode goes out of memory or similar) or the Step-down Power Supply is to weak. The Datasheet of the Colorduino isn't the best I ever read and there are at least 2 version of them. Don't worry, I try to help with and guide and something like a wiki here on github.  And last but not least, English isn't my native language but it's the language of programming. It help's more people on the world if you ask in english than in german!**
+**Note: I got everything, so I'll start programming and this will take time. I did some charset and logos but I need to write my own protocol for communication, parsing those information, control the matrix and many more. Meanwhile, I did a checklist to show you, what I (try) to programm them. Maybe somebody can help me, too. Maybe I need to change some parts like the ESP8266 (my sourcecode goes out of memory or similar) or the Step-down Power Supply is to weak. The Datasheet of the Colorduino isn't the best I ever read and there are at least 2 version of them. Don't worry, I try to help with and guide and something like a wiki here on github.  And last but not least, English isn't my native language but it's the language of programming. It help's more people on the world if you ask in english than in german!**
  
 ## I plan to add things like
 * [ ] Twitch
@@ -90,5 +90,33 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Ä, Ö, Ü, É, etc.
 * [ ] [Japanese Katakana](http://www.electronic-engineering.ch/microchip/datasheets/lcd/charset.gif)
 
+## Worksteps for Slave Colorduino's
+* [X] Read and Parse Integer
+* [X] Print Integer on Colorduino
+* [X] Read and Parse Float
+* [ ] Print Float on Colorduino
+* [ ] Read and Parse Char
+* [ ] Print Char on Colorduino
+* [ ] Read and Parse String
+* [ ] Print String on Colorduino
+* [ ] Scroll String on Colorduino across
+* [X] OTA for ESP8266 implementation (not optimized, yet)
+* [ ] Print progressbar on Colorduino while Updating
+* [ ] Print progressbar on Colorduino for Widget (e.g. Spotify Track position)
+* [ ] Boot Logo/Animation
+* [ ] Wait until all devices are ready (or something similary for sync)
 
+## Worksteps for Master Colorduino
+* [ ] Enable I²C
+* [ ] Sync all Colorduino
+* [ ] Timer for changing Widget
+
+## Worksteps for ESP8266
+* [X] WiFi connection
+* [ ] WiFi Manager
+* [ ] 
+* [ ]
+* [ ]
+* [ ]
+* [ ]
 
