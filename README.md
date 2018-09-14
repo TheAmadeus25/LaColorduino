@@ -110,10 +110,10 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [X] Read and Parse Integer
 * [X] Print Integer on Colorduino
 * [X] Read and Parse Float
-* [ ] Print Float on Colorduino
+* [X] Print Float on Colorduino
 * [ ] Read and Parse Char
 * [ ] Print Char on Colorduino
-* [ ] Read and Parse String
+* [X] Read and Parse String
 * [ ] Print String on Colorduino
 * [ ] Scroll String on Colorduino across
 * [X] OTA for ESP8266 implementation (not optimized, yet)
@@ -138,9 +138,9 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] EEPROM for Setting
 * [ ] Webpage for Settings and Debug
 * [ ] Enable I²C
-* [ ] Parsing Sensors
-* [ ] Parsing Button
-* [ ] Parsing Ambientlight
+* [X] Parsing Sensors
+* [X] Parsing Button
+* [X] Parsing Ambientlight
 * [ ] Compute all Information's
 * [ ] Optimize Watchdog for reset after some weeks (~44 Days)
 * [ ] ...
