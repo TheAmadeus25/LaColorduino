@@ -144,6 +144,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [X] Parsing Sensors
 * [X] Parsing Button
 * [X] Parsing Ambientlight
+  * [ ] Hysteresis
 * [ ] Compute all Information's
 * [ ] Optimize Watchdog for reset after some weeks (~44 Days)
 * [ ] ...
