@@ -43,15 +43,15 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
   * [ ] ...and many many many more
 * [ ] Spotify
   * [ ] Current Track
-* [ ] [Weather](https://openweathermap.org/weather-conditions)
-  * [ ] Thunderstorm
-  * [ ] Drizzle
-  * [ ] Rain
-  * [ ] Snow
-  * [ ] Atmospere
-  * [ ] Clear
+* [X] [Weather](https://openweathermap.org/weather-conditions)
+  * [X] Thunderstorm
+  * [X] Drizzle
+  * [X] Rain
+  * [X] Snow
+  * [X] Atmospere
+  * [X] Clear
   * [ ] Moon Phase
-  * [ ] Clouds
+  * [X] Clouds
   * [ ] Wind
 * [ ] Indoor
   * [ ] Temperature
@@ -61,7 +61,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Github
   * [ ] Subscription (or something)
 * [ ] Webinterface (to read data or change settings via web)
-* [ ] Update over-the-air (ESP8266 only)
+* [X] Update over-the-air (ESP8266 only)
 * [ ] Calendar
 * [ ] Clock (of course 😄)
 ## Software/Converter to program them
@@ -137,7 +137,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 ## Worksteps for ESP8266
 * [X] WiFi connection
 * [ ] WiFi Manager
-* [X] OTA for ESP8266 implementation (not optimized, yet)
+* [X] OTA for ESP8266 implementation
 * [ ] EEPROM for Setting
 * [ ] Webpage for Settings and Debug
 * [ ] Enable I²C
