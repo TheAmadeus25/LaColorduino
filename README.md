@@ -54,7 +54,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
   * [X] Clouds
   * [ ] Wind
 * [ ] Indoor
-  * [ ] Temperature
+  * [X] Temperature
   * [ ] Humidity
   * [ ] Barometric
   * [ ] (Air Quality, if I/you buy a CCS811 or similar)
