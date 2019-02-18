@@ -384,9 +384,25 @@ void loop() {
       case 20:
         Print_Temperatur(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Environment.Temperatur, Environment.Temp_Unit_2);
         break;
+        
+      case 21:
+        
+        break;
       
       case 30:
         Print_Temperatur(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Temperatur, Weather.Temp_Unit_2);
+        break;
+        
+      case 31:
+        Print_Pressure(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Pressure, Weather.Temp_Unit_2);
+        break;
+        
+      case 32: 
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Humidity);
+        break;
+        
+      case 33:  // Darstellungsfehler
+        Print_Float(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Wind_Speed);
         break;
         
       case 40:

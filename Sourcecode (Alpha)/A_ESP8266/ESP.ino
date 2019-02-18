@@ -73,7 +73,7 @@ void InitWiFi() {
     SerialOutput();
     Device.WiFi_Skin++;
 
-    if (Device.WiFi_Skin > 1) {
+    if (Device.WiFi_Skin > 3) {
       Device.WiFi_Skin = 0;
     }
 

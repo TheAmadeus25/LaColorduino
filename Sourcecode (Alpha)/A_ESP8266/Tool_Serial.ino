@@ -15,8 +15,11 @@
   │                                                                                  ┃
   │                                                                                  ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.1 - ALPHA                    Date: 27.Jan.2019                      ┃
+  │ Version: 0.0.3 - ALPHA                    Date: 01.Jan.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
+  │ + Weather.Pressure                                                               ┃
+  │ + Weather.Humidity                                                               ┃
+  │ + Weather.Wind_Speed                                                             ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -57,6 +60,19 @@ void SerialOutput() {
       Serial.print(Environment.SET_Ambientlight);
       //Serial.print(Environment.Ambientlight);
       break;
+
+    case 21:
+      //Serial.print(Weather.Pressure);
+      Serial.print(Environment.Pressure);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 22:
+      Serial.print(Weather.Humidity);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
     
     case 30:
       Serial.print(Weather.Icon);
@@ -68,6 +84,25 @@ void SerialOutput() {
       Serial.print(";");
       Serial.print(Environment.SET_Ambientlight);
       //Serial.print(Environment.Ambientlight);
+      break;
+
+    case 31:
+      Serial.print(Weather.Pressure);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 32:
+      //Serial.print(Weather.Humidity);
+      Serial.print(Environment.Humidity);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 33:
+      Serial.print(Weather.Wind_Speed);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
       break;
 
     case 40:

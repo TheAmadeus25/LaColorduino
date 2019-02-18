@@ -350,9 +350,24 @@ void loop() {
       case 20:
         Symbolic_Temperature(Environment.Temperatur);
         break;
+        
+      case 21:
+        break;
 
       case 30:
         Symbolic_Weather();
+        break;
+      
+      case 31:
+        Symbolic_Barometric();
+        break;
+        
+      case 32:
+        Symbolic_Humidity();
+        break;
+        
+      case 33:
+        Symbolic_Wind();
         break;
 
       case 40:
@@ -372,6 +387,7 @@ void loop() {
         break;
 
       default:
+        Symbolic_Error();
         break;
     }
 

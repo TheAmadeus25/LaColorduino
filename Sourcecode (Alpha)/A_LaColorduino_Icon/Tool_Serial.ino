@@ -57,12 +57,32 @@ void ParseSerial() {
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
       
+    case 21:
+      Environment.Pressure         = Serial.parseFloat();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
     case 30:
     // 30;30;50n;12.4;5;1;
       Weather.Icon                 = Serial.readStringUntil(';');
       Weather.Temperatur           = Serial.parseFloat();
       //Weather.Temp_Unit            = Serial.readStringUntil(';');
       Weather.Temp_Unit_2          = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 31:
+      Weather.Pressure             = Serial.parseFloat();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 32:
+      Weather.Humidity             = Serial.parseFloat();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 33:
+      Weather.Wind_Speed           = Serial.parseFloat();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
     

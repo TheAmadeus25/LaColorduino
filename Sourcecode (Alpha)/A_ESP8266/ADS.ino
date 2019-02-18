@@ -15,7 +15,7 @@
   │                                                                                  ┃
   │                                                                                  ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.1 - ALPHA                    Date: 27.Jan.2019                      ┃
+  │ Version: 0.0.2 - ALPHA                    Date: 31.Jan.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
   └────────────────────────────────────────────────────┘
 */
@@ -42,14 +42,28 @@ void InitADS1115() {
 void GetADS1115() {
   Environment.OldData = Environment.SET_Ambientlight;
   
-  //Environment.RAW_Ambientlight = ads.readADC_SingleEnded(0);
-  //Pressed.Button_One   =         ads.readADC_SingleEnded(1);
-  //Pressed.Button_Two   =         ads.readADC_SingleEnded(2);
-  //Pressed.Button_Three =         ads.readADC_SingleEnded(3);
+  //Pressed.Button_One   =         ads.readADC_SingleEnded(0);
+  //Pressed.Button_Two   =         ads.readADC_SingleEnded(1);
+  //Pressed.Button_Three =         ads.readADC_SingleEnded(2);
   
-  Pressed.Button_One   =         ads.readADC_SingleEnded(0);
-  Pressed.Button_Two   =         ads.readADC_SingleEnded(1);
-  Pressed.Button_Three =         ads.readADC_SingleEnded(2);
+  if ( ads.readADC_SingleEnded(0) < 10000 ) {
+    Pressed.Button_One = false;
+  } else {
+    Pressed.Button_One = true;
+  }
+  
+  if ( ads.readADC_SingleEnded(1) < 10000 ) {
+    Pressed.Button_Two = false;
+  } else {
+    Pressed.Button_Two = true;
+  }
+
+  if ( ads.readADC_SingleEnded(2) < 10000 ) {
+    Pressed.Button_Three = false;
+  } else {
+    Pressed.Button_Three = true;
+  }
+  
   Environment.RAW_Ambientlight = ads.readADC_SingleEnded(3);
 
   Environment.Ambientlight = map(Environment.RAW_Ambientlight, 0, 17600, 0, 100);
@@ -78,6 +92,7 @@ void GetADS1115() {
   
   return;
 }
+
 
 void CalculateAmbientlight(short Temp) {
   bool MasterRefresh = false;

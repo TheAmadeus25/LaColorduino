@@ -660,6 +660,21 @@ void Symbolic_Wind() {
   return;
 }
 
+void Symbolic_Barometric() {
+  Colorduino.SetPixel(5, 7, 0, 0, 255);
+  Colorduino.SetPixel(2, 7, 0, 0, 255);
+  GFX_HLine(3, 6, 4, 0, 0, 255);
+  
+  GFX_HLine(0, 4, 7, 255, 255, 255);
+  GFX_HLine(0, 3, 7, 255, 255, 255);
+  
+  GFX_HLine(3, 1, 4, 255, 0, 0);
+  Colorduino.SetPixel(5, 0, 255, 0, 0);
+  Colorduino.SetPixel(2, 0, 255, 0, 0);
+  
+  return;
+}
+
 void Symbolic_Humidity() {
   GFX_Fill(0, 0, 0);
 
