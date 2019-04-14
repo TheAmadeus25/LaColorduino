@@ -17,10 +17,10 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Facebook Fan count
 * [ ] Twitter followers
 * [ ] YouTube
-  * [ ] Total Subscribers
-  * [ ] Total Comments
+  * [X] Total Subscribers
+  * [X] Total Comments
   * [ ] Total Watchtime
-  * [ ] Total View
+  * [X] Total View
 * [ ] Currency
   * [ ] Euro
   * [ ] US Dollar
@@ -58,7 +58,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
   * [ ] Wind
 * [ ] Indoor
   * [X] Temperature
-  * [ ] Humidity
+  * [X] Humidity
   * [ ] Barometric
   * [ ] (Air Quality, if I/you buy a CCS811 or similar)
 * [ ] Github
@@ -93,7 +93,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 
 ## Character Set
 * [X] A-Z
-* [x] a-z (it will convert to uppercase)
+* [ ] a-z ~(it will convert to uppercase)~
 * [X] 0-9 (dec)
 * [X] Semi-/colon
 * [X] Simply Math operation
@@ -147,7 +147,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [X] Parsing Sensors
 * [X] Parsing Button
 * [X] Parsing Ambientlight
-  * [ ] Hysteresis
+  * [X] Hysteresis
 * [ ] Compute all Information's
 * [ ] Optimize Watchdog for reset after some weeks (~44 Days)
 * [ ] ...
