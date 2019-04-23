@@ -1,3 +1,25 @@
+/*
+  ┌────────────────────────────────────────────────────┐
+  │ LaColorduino by TheAmadeus25                                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ https://theamadeus25.github.io/LaColorduino/                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ IMPORTANT! Read the Wiki on GitHub. Otherwise you will not understand how to     ┃
+  │ install all THREE Sourcecodes. For problems, the Wiki is a good place to find    ┃
+  │ out, how to solve it.                                                            ┃
+  ├────────────────────────────────────────────────────┤
+  │ Letter(): Draw letter                                                            ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  ├──────────────────────────┬─────────────────────────┤
+  │ Version: 0.0.3 - ALPHA                    Date: 27.Mar.2019                      ┃
+  ├──────────────────────────┴─────────────────────────┤
+  └────────────────────────────────────────────────────┘
+*/
+
 short Letter(short x, short y, bool light, char Letter) {
   int n_red      = 1;
   int n_green    = 1;
@@ -514,7 +536,10 @@ short Letter(short x, short y, bool light, char Letter) {
         Colorduino.SetPixel(1 + x, 6 - y, n_red, n_green, n_blue);
         Colorduino.SetPixel(1 + x, 4 - y, n_red, n_green, n_blue);
       }
-
+      
+      Spacer(x, y);
+      Spacer(x, y);
+      
       break;
 
     case ';':

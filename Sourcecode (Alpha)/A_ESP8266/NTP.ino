@@ -22,7 +22,7 @@
 
 void InitNTP() {
   timeClient.begin();
-  // timeClient.setTimeOffset(3600);
+  timeClient.setTimeOffset(7200);
   
   return;
 }
@@ -37,6 +37,8 @@ void GetNTP() {
   Time.Second     = timeClient.getSeconds();
   Time.Epoch      = timeClient.getEpochTime();
   Time.Epoch_Date = timeClient.getFormattedTime();
+
+  
 
   if (Debug_Serial == true) {
     Serial.println("----------------------------------");
@@ -74,5 +76,27 @@ void GetNTP() {
   }
   //Serial.println("----------------------------------");
 
+  //CalcNTP();
+  
   return;
+}
+
+void CalcNTP() {
+    Time.Second++;
+    
+    if(Time.Second > 59){
+      Time.Second = 0;
+      Time.Minute++;
+    }
+
+    if(Time.Minute > 59){
+      Time.Minute = 0;
+      Time.Hour++;
+    }
+    
+    if(Time.Hour > 23){
+      Time.Hour = 0;
+    }
+
+  
 }

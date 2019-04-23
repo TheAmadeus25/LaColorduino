@@ -15,11 +15,12 @@
   │                                                                                  ┃
   │                                                                                  ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.3 - ALPHA                    Date: 01.Jan.2019                      ┃
+  │ Version: 0.0.4 - ALPHA                    Date: 14.Apr.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
   │ + Weather.Pressure                                                               ┃
   │ + Weather.Humidity                                                               ┃
   │ + Weather.Wind_Speed                                                             ┃
+  │ + Clock                                                                          ┃ 
   └────────────────────────────────────────────────────┘
 */
 
@@ -28,7 +29,7 @@ void InitSerial() {
 }
 //----------------------------------------------------------------------------
 void SerialOutput() {
-
+  digitalWrite(ESP_Led, LOW);
   Serial.print(Device.Mode);
   Serial.print(";");
   Serial.print(Device.Set);
@@ -52,6 +53,16 @@ void SerialOutput() {
       Serial.print("1");      //Ambientlight
       break;
 
+    case 10:// 10;10;12;4;1;
+      Serial.print(Time.Hour);
+      Serial.print(";");
+      Serial.print(Time.Minute);
+      Serial.print(";");
+      //Serial.print(Date.Day);
+      //Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
     case 20:
       Serial.print(Environment.Temperatur, 1);  // Ursprünglich gesetzt
       Serial.print(";");
@@ -68,7 +79,7 @@ void SerialOutput() {
       Serial.print(Environment.SET_Ambientlight);
       break;
 
-    case 22:
+    case 22:  // 22;22;123;1;
       Serial.print(Weather.Humidity);
       Serial.print(";");
       Serial.print(Environment.SET_Ambientlight);
@@ -107,11 +118,14 @@ void SerialOutput() {
 
     case 40:
       Serial.print(YouTube.Subscriber);
+      //Serial.print(Date.Day);
+      //Serial.print(Time.Hour);
+      //Serial.print(Time.Minute);
       Serial.print(";");
       Serial.print(Environment.SET_Ambientlight);
       break;
 
-    case 41:
+    case 41:// 41;41;12345678;1;
       Serial.print(YouTube.View);
       Serial.print(";");
       Serial.print(Environment.SET_Ambientlight);
@@ -137,7 +151,7 @@ void SerialOutput() {
   Serial.println(";");
   Serial.print('\0');
   Setting.last_refresh = millis();
-
+  digitalWrite(ESP_Led, HIGH);
   return;
 }
 //----------------------------------------------------------------------------

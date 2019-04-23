@@ -1,0 +1,24 @@
+﻿Zuletzt geprüft								: 29.11.2018
+
+Arduino IDE for ESP8266	  	 	   			: 1.8.7 installer
+Arduino IDE for Colorduino	 	   			: 1.6.0 zip
+
+ESP8266 				by ESP8266 Community: 2.4.1
+
+*NTPClient 				by Fabrice Weinberg	: 3.1.0
+Adafruit ADS1X15 		by Adafruit 	   	: 1.0.0
+Adafruit BME280 Library by Adafruit			: 1.0.7
+Adafruit Unified Sensor by Adafruit			: 1.0.2
+ArduinoJson 			by Benoit Blanchon	: 5.13.2
+Json Streaming Parser 	by Daniel Eichhorn	: 1.0.5
+CoinMarketCapApi 		by Brian Lough    	: 1.1.0
+FacebookApi 			by Brian Lough		: 1.0.0
+TwitterApi 				by Brian Lough		: 1.0.0
+YouTubeApi 				by Brian Lough		: 1.1.0
+Time					by Michael Margolis	: 1.5.0
+OpenWeatherMap			
+
+
+TwitchApi				by Brian Lough		: 1.0.0
+InstagramStats			by Brian Lough		: 1.0.1
+InstructableApi			by Brian Lough		: 1.1.0

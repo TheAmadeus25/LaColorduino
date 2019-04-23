@@ -27,7 +27,7 @@ void InitWeather() {
 void GetWeather() {
   OWM_conditions *ow_cond = new OWM_conditions;
   // default: Kelvin, metric: Celsius, imperial: Fahrenheit
-  owCC.updateConditions(ow_cond, ow_key, "gb", "London", Setting.Global_Unit);
+  owCC.updateConditions(ow_cond, ow_key, COUNTRY_ID, TOWN_ID, Setting.Global_Unit);
   //Serial.print("Latitude & Longtitude: ");
   //Serial.print("<" + ow_cond->longtitude + " " + ow_cond->latitude + "> @" + dateTime(ow_cond->dt) + ": ");
   //Serial.println("icon: " + ow_cond->icon + ", " + " temp.: " + ow_cond->temp + ", press.: " + ow_cond->pressure);

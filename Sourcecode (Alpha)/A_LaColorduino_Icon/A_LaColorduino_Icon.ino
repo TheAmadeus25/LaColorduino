@@ -346,6 +346,10 @@ void loop() {
       case  9:
         OTA_Update();
         break;
+        
+      case 10:
+        Symbolic_Clock();
+        break;
 
       case 20:
         Symbolic_Temperature(Environment.Temperatur);

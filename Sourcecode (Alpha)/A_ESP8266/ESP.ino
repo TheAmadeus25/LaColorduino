@@ -8,8 +8,9 @@
   │ install all THREE Sourcecodes. For problems, the Wiki is a good place to find    ┃
   │ out, how to solve it.                                                            ┃
   ├────────────────────────────────────────────────────┤
-  │ InitESP():  Configuration of the ESP8266 HW                                      ┃
-  │ SetESP() :  Configuration of Global Unit                                         ┃
+  │ InitESP() : Configuration of the ESP8266 HW                                      ┃
+  │ SetESP()  : Set Global Unit like Temperature                                     ┃
+  │ SetESP()  : Configuration of Global Unit                                         ┃
   │ InitWiFi(): Configuration of WiFi                                                ┃
   │                                                                                  ┃
   │                                                                                  ┃
@@ -20,8 +21,6 @@
   └────────────────────────────────────────────────────┘
 */
 
-char ssid[] = "*****";       // your network SSID (name)
-char password[] = "*****";  // your network key
 
 long rssi = 0;
 
@@ -89,8 +88,8 @@ void InitWiFi() {
   Device.WiFi_Skin = 2;
   SerialOutput();
   
-  Device.Mode = 20;
-  Device.Set  = 20;
+  Device.Mode = 10;
+  Device.Set  = 10;
 
   Setting.change_refresh = millis();
 

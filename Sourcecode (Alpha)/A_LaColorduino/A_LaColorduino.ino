@@ -1,12 +1,35 @@
+/*
+  ┌────────────────────────────────────────────────────┐
+  │ LaColorduino by TheAmadeus25                                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ https://theamadeus25.github.io/LaColorduino/                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ IMPORTANT! Read the Wiki on GitHub. Otherwise you will not understand how to     ┃
+  │ install all THREE Sourcecodes. For problems, the Wiki is a good place to find    ┃
+  │ out, how to solve it.                                                            ┃
+  ├────────────────────────────────────────────────────┤
+  │ I build my own clone of "LaMetric"-Smartwatch but with some Colorduino. It this  ┃
+  │ kind of project how it should be and for free. It's build for everydays use like ┃
+  │ showing your Subscribers on YouTube, the current track on Spotify, how strong is ┃
+  │ the Euro, or the weather at the moment. There is (in the future) everything for  ┃
+  │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
+  │ there is something new.                                                          ┃
+  ├──────────────────────────┬─────────────────────────┤
+  │ Version: 0.0.4 - ALPHA                    Date: 22.Apr.2019                      ┃
+  ├──────────────────────────┴─────────────────────────┤
+  │ + Move Variable                                                                  ┃
+  │ + Add Header Comment                                                             ┃ 
+  └────────────────────────────────────────────────────┘
+*/
+
 #include <Colorduino.h>
 #include <ColorTools.h>
-//#include <ctype.h>
 
 // ### Choose your Position for each Colorduino ###
 // Count from left to right
 // 0        : 1st Colorduino for Symbol only. It has it own sourcecode.
 // 1 to 255 : 2nd to 254th Colorduino for Text/Number/Information
-#define Unit_Pos 4
+#define Unit_Pos 1
 
 short True_Pos = -((Unit_Pos - 1) * 8);
 short Cursor_Pos = True_Pos;
@@ -21,239 +44,8 @@ long SubscriberCount = 0;
 
 int Weather_Icon[] = {200, 300, 500, 511, 600, 701, 800, 801, 802, 803};
 
+#include "A_Variable.h"
 
-//----------------------------------------------------------------------------
-// ESP8266
-// http://www.c-howto.de/tutorial/praeprozessor/vordefinierte-konstanten/
-// https://forum.arduino.cc/index.php?topic=376816.0
-//############################################################################
-//############################################################################
-//############################################################################
-//----------------------------------------------------------------------------
-struct {
-  unsigned int f1: 1;
-  // https://www.tutorialspoint.com/cprogramming/c_structures.htm
-
-  const long    refresh_delay = 5000;
-  unsigned long last_refresh  = 0;
-} Setting;
-//----------------------------------------------------------------------------
-struct {
-  long   Epoch;
-  String Epoch_Date;
-  short  Hour;
-  short  Minute;
-  short  Second;
-  short  UTC;
-  short  Summertime;
-
-  const long    refresh_delay = 300000;
-  unsigned long last_refresh  = 0;
-} Time, Temp; // http://www.c-howto.de/tutorial/strukturierte-datentypen/bitfelder/
-// http://www.c-howto.de/tutorial/zeitfunktionen/
-//----------------------------------------------------------------------------
-struct {
-  short Day;
-  short DayofWeek;
-  short DayofMonth;
-  short DayofYear;
-  short Month;
-  short Year;
-  //enum {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
-  //enum Week {So, Mo, Di, Mi, Do, Fr, Sa};
-  byte Setting;
-} Date;
-//----------------------------------------------------------------------------
-struct {
-  unsigned long View;
-  unsigned long Comment;
-  unsigned long Subscriber;
-  bool HiddenSubscriber;
-  unsigned long Video;
-  byte Setting;
-  bool Enable;
-  const long    refresh_delay = 300000;
-  unsigned long last_refresh  = 0;
-} YouTube;
-//----------------------------------------------------------------------------
-struct {
-  unsigned long Fan;
-  unsigned long Friends;
-  byte Setting;
-  bool Enable;
-} Facebook;
-//----------------------------------------------------------------------------
-struct {
-  unsigned long Follower;
-  byte Setting;
-  bool Enable;
-} Twitter;
-//----------------------------------------------------------------------------
-struct {
-  float EUR_to_USD;
-  float EUR_to_GBP;
-  float EUR_to_JPY;
-  float EUR_to_Bitcoin;
-
-  float USD_to_EUR;
-  float USD_to_GBP;
-  float USD_to_JPY;
-  float USD_to_Bitcoin;
-
-  float JPY_to_USD;
-  float JPY_to_GBP;
-  float JPY_to_EUR;
-  float JPY_to_Bitcoin;
-
-  float Bitcoin_to_USD;
-  float Bitcoin_to_GBP;
-  float Bitcoin_to_JPY;
-  float Bitcoin_to_EUR;
-  byte  Setting;  // Note: 8-bit
-  bool Enable;
-
-  const long    refresh_delay = 600000;
-  unsigned long last_refresh  = 0;
-} Currency;
-//----------------------------------------------------------------------------
-
-struct {
-  String  ID;
-  String Name;
-  String Symbol;
-  int    Rank;
-  double Value_to_USD;
-  double Value;
-  long   Supply_Available;
-  long   Supply_Max;
-  double Change_1h;
-  double Change_24h;
-  double Change_7d;
-  long   Last_Update;
-
-  const long    refresh_delay = 600000;
-  unsigned long last_refresh  = 0;
-} Bitcoin, Ethereum, Dogecoin;
-
-//----------------------------------------------------------------------------
-struct {
-  short Mail;
-  byte Setting;
-  bool Enable;
-} Google;
-//----------------------------------------------------------------------------
-struct {
-  short State;
-  byte Setting;
-  bool Enable;
-} SteamServer;
-//----------------------------------------------------------------------------
-struct {
-  String Interpreter;
-  String Track;
-  short  Position;
-  byte   Setting;
-  bool   Enable;
-} Spotify;
-//----------------------------------------------------------------------------
-struct {
-  float  Longtitude;
-  float  Latitude;
-  String ID;
-  String Icon;
-  String Main;
-  String Description;
-  float  Temperatur;
-  String Temp_Unit;
-  short  Temp_Unit_2;
-  int    Wind;
-  int    Humidity;
-  int    Pressure;
-  int    Day_Min;
-  int    Day_Max;
-  float  Visibility;
-  char   Vis_Unit;
-  float  Wind_Speed;      // m/s
-  short  Wind_Direction;  // Kommt aus Himmelsrichtung
-  char   Cardinal;
-  String Condition;
-  String Condition_Value;
-  String Sunrise;         // Ohne Zeitzone und ohne Sommerzeit
-  String Sunset;          // Ohne Zeitzone und ohne Sommerzeit
-  byte   Setting;
-  bool   Enable;
-  const long    refresh_delay = 600000;
-  unsigned long last_refresh  = 0;
-} Weather;
-//----------------------------------------------------------------------------
-struct {
-  float Volts;
-  float Amps;
-  float Watts;
-  byte  Setting;
-  bool  Enable;
-} Power;
-//----------------------------------------------------------------------------
-struct {
-  long  RAW_Ambientlight;
-  int   SET_Ambientlight = 1;
-  long  Ambientlight;
-  short OldData;
-  float Temperatur;
-  char  Unit;
-  short Temp_Unit_2;
-  float Pressure;
-  float Altitude;
-  float ApproxAltitude;
-  short Humidity;
-  float Barometric;
-  short AirQuality;
-  byte  Setting;
-  bool  Enable;
-} Environment;
-//----------------------------------------------------------------------------
-struct {
-  unsigned long Subscription;
-  byte Setting;
-  bool Enable;
-} Github;
-//----------------------------------------------------------------------------
-struct {
-  bool Button_One;
-  bool Button_Two;
-  bool Button_Three;
-  byte Setting;
-  bool Enable;
-} Pressed;
-//----------------------------------------------------------------------------
-struct {
-  short Device;
-  short Colorduino;
-  short Communication;
-  byte Setting;
-  bool Enable;
-} Err;
-//----------------------------------------------------------------------------
-struct {
-  float Device;
-  byte  Setting;
-  bool  Enable;
-  short State = 0;
-} Updating;
-//----------------------------------------------------------------------------
-struct {
-  short rssi;
-  byte Setting;
-  bool Enable;
-  int  Mode  = 12;
-  int  State = 0;
-  int  Set   = 12;
-  short WiFi_Skin = 0;
-} Device;
-//----------------------------------------------------------------------------
-//############################################################################
-//############################################################################
-//############################################################################
 void setup() {
   Colorduino.Init();
   unsigned char whiteBalVal[3];
@@ -289,13 +81,6 @@ void setup() {
       whiteBalVal[2] = 63;  // Blue
       break;                // Leicht Blau, Leicht Rot
   }
-
-  //unsigned char whiteBalVal[3] = {18, 39, 63}; // RGB
-  // #0 26, 58, 63      Ref. Weiss
-  // #1 18, 39, 63      Stark Grün, leicht Blau
-  // #2 15, 39, 63      Stark Blau leicht Rot
-  // #3 15, 39, 63      Leicht Grün, Leicht Rot
-  // #4 12, 38, 63 ???  Leicht Blau, Leicht Rot
 
   Colorduino.SetWhiteBal(whiteBalVal);
   InitSerial();
@@ -380,6 +165,11 @@ void loop() {
         //OTA_Update();
         Print_OTA(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Updating.Device, '%');
         break;
+        
+      case 10:
+        //Clock
+        Print_Clock(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Time.Hour, Time.Minute);
+        break;
       
       case 20:
         Print_Temperatur(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Environment.Temperatur, Environment.Temp_Unit_2);
@@ -387,6 +177,10 @@ void loop() {
         
       case 21:
         
+        break;
+        
+      case 22:
+        Print_Percent(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Humidity);
         break;
       
       case 30:
@@ -398,7 +192,7 @@ void loop() {
         break;
         
       case 32: 
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Humidity);
+        Print_Percent(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Humidity);
         break;
         
       case 33:  // Darstellungsfehler
@@ -406,7 +200,7 @@ void loop() {
         break;
         
       case 40:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Subscriber);
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Video);  //---getauscht
         break;
 
       case 41:
@@ -418,7 +212,7 @@ void loop() {
         break;
 
       case 43:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Video);
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Subscriber); //---getauscht
         break;  
       
       default:

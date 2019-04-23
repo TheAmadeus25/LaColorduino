@@ -49,6 +49,12 @@ void ParseSerial() {
       
       OTA_Update();
       break;
+      
+    case 10:
+      Time.Hour                    = Serial.parseInt();
+      Time.Minute                  = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
     
     case 20:
     // 20;20;25.5;5;1;
@@ -105,6 +111,21 @@ void ParseSerial() {
       YouTube.Video                = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
+      
+    //---
+    
+    case 50:  // Twitch
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 60:  // Facebook
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 70:  // Instructables
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
     
     
     default:

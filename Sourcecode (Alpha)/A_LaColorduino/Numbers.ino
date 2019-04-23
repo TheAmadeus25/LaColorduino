@@ -1,3 +1,25 @@
+/*
+  ┌────────────────────────────────────────────────────┐
+  │ LaColorduino by TheAmadeus25                                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ https://theamadeus25.github.io/LaColorduino/                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ IMPORTANT! Read the Wiki on GitHub. Otherwise you will not understand how to     ┃
+  │ install all THREE Sourcecodes. For problems, the Wiki is a good place to find    ┃
+  │ out, how to solve it.                                                            ┃
+  ├────────────────────────────────────────────────────┤
+  │ Number(): Draw number                                                            ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  ├──────────────────────────┬─────────────────────────┤
+  │ Version: 0.0.3 - ALPHA                    Date: 27.Mar.2019                      ┃
+  ├──────────────────────────┴─────────────────────────┤
+  └────────────────────────────────────────────────────┘
+*/
+
 void Number(short x, short y, bool light, int Number) {
   int n_red   = 1;
   int n_green = 1;

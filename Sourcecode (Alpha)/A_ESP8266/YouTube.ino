@@ -8,7 +8,7 @@
   │ install all THREE Sourcecodes. For problems, the Wiki is a good place to find    ┃
   │ out, how to solve it.                                                            ┃
   ├────────────────────────────────────────────────────┤
-  │ GetYouTube(): Parse Information                                                  ┃
+  │ GetYouTube(): Parsing Information                                                ┃
   │                                                                                  ┃
   │                                                                                  ┃
   │                                                                                  ┃

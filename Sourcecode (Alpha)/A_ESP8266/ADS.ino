@@ -94,20 +94,22 @@ void GetADS1115() {
 }
 
 
-void CalculateAmbientlight(short Temp) {
+void CalculateAmbientlight(short Input) {
   bool MasterRefresh = false;
-
+  
   if (Environment.Ambientlight > Trigger) {
-    if (Temp == 0) {
+    if (Input == 0) {
       MasterRefresh = true;
     }
     Environment.SET_Ambientlight = 1;
 
-  } else if (Environment.Ambientlight <= Trigger) {
-    if (Temp == 1) {
+  } else if (Environment.Ambientlight < Trigger) {
+    if (Input == 1) {
       MasterRefresh = true;
     }
     Environment.SET_Ambientlight = 0;
+    Device.Mode = 10;
+    Device.Set = 10;
   }
 
   if (MasterRefresh == true) {
@@ -116,4 +118,13 @@ void CalculateAmbientlight(short Temp) {
   }
 
   return;
+}
+
+void NightMode() {
+  if(Environment.SET_Ambientlight == 0){
+    Setting.change_refresh = millis();
+    //Device.Mode = 10;
+    //Device.Set = 10;
+    //SerialOutput();
+  }
 }

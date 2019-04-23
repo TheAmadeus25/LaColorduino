@@ -1,3 +1,55 @@
+/*
+  ┌────────────────────────────────────────────────────┐
+  │ LaColorduino by TheAmadeus25                                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ https://theamadeus25.github.io/LaColorduino/                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ IMPORTANT! Read the Wiki on GitHub. Otherwise you will not understand how to     ┃
+  │ install all THREE Sourcecodes. For problems, the Wiki is a good place to find    ┃
+  │ out, how to solve it.                                                            ┃
+  ├────────────────────────────────────────────────────┤
+  │ Symbolic_Twitch()           : Show Symbolic                                      ┃
+  │ Symbolic_Twitch_Count()     : Show Symbolic                                      ┃
+  │ Symbolic_Clock()            : Show Symbolic                                      ┃
+  │ Symbolic_Like()             : Show Symbolic                                      ┃
+  │ Symbolic_Facebook()         : Show Symbolic                                      ┃
+  │ Symbolic_Twitter()          : Show Symbolic                                      ┃
+  │ Symbolic_Temperature()      : Show Symbolic                                      ┃
+  │ Symbolic_YouTube_Sub()      : Show Symbolic                                      ┃
+  │ Symbolic_YouTube_Comment()  : Show Symbolic                                      ┃
+  │ Symbolic_YouTube_WatchTime(): Show Symbolic                                      ┃
+  │ Symbolic_YouTube_View()     : Show Symbolic                                      ┃
+  │ Symbolic_YouTube_View_2()   : Show Symbolic                                      ┃
+  │ Symbolic_Dollar()           : Show Symbolic                                      ┃
+  │ Symbolic_Euro()             : Show Symbolic                                      ┃
+  │ Symbolic_GMail()            : Show Symbolic                                      ┃
+  │ Symbolic_WiFi()             : Show Symbolic                                      ┃
+  │ Symbolic_Stock()            : Show Symbolic                                      ┃
+  │ Symbolic_RSS()              : Show Symbolic                                      ┃
+  │ Symbolic_Analytics()        : Show Symbolic                                      ┃
+  │ Symbolic_Steam()            : Show Symbolic                                      ┃
+  │ Symbolic_Steam_2()          : Show Symbolic                                      ┃
+  │ Symbolic_Asteroid()         : Show Symbolic                                      ┃
+  │ Symbolic_Energie()          : Show Symbolic                                      ┃
+  │ Symbolic_Bitcoin()          : Show Symbolic                                      ┃
+  │ Symbolic_Spotify()          : Show Symbolic                                      ┃
+  │ Symbolic_Spotify_2()        : Show Symbolic                                      ┃
+  │ Symbolic_Spotify_3()        : Show Symbolic                                      ┃
+  │ Symbolic_PayPal()           : Show Symbolic                                      ┃
+  │ Symbolic_Fortnite()         : Show Symbolic                                      ┃
+  │ Symbolic_Github()           : Show Symbolic                                      ┃
+  │ Symbolic_Weather_Cloud()    : Show Symbolic                                      ┃
+  │ Symbolic_Wind()             : Show Symbolic                                      ┃
+  │ Symbolic_Humidity()         : Show Symbolic                                      ┃
+  │ Symbolic_Air()              : Show Symbolic                                      ┃
+  │ Symbolic_Error()            : Show Symbolic                                      ┃
+  │ Symbolic_Date()             : Show Symbolic                                      ┃
+  ├──────────────────────────┬─────────────────────────┤
+  │ Version: 0.0.3 - ALPHA                    Date: 27.Mar.2019                      ┃
+  ├──────────────────────────┴─────────────────────────┤
+  └────────────────────────────────────────────────────┘
+*/
+
 void Symbolic_Twitch() {
   GFX_Fill(0, 0, 0);
   // 100, 65, 165

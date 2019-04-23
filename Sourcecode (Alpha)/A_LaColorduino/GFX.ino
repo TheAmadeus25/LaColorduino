@@ -1,3 +1,25 @@
+/*
+  ┌────────────────────────────────────────────────────┐
+  │ LaColorduino by TheAmadeus25                                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ https://theamadeus25.github.io/LaColorduino/                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ IMPORTANT! Read the Wiki on GitHub. Otherwise you will not understand how to     ┃
+  │ install all THREE Sourcecodes. For problems, the Wiki is a good place to find    ┃
+  │ out, how to solve it.                                                            ┃
+  ├────────────────────────────────────────────────────┤
+  │ GFX_Fill()  : Fill hole screen with color                                        ┃
+  │ GFX_HLine() : Draw a horizontal line with color                                  ┃
+  │ GFX_VLine() : Draw a vertical line with color                                    ┃
+  │ GFX_Square(): Darw and fill a custom square with color                           ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  ├──────────────────────────┬─────────────────────────┤
+  │ Version: 0.0.3 - ALPHA                    Date: 27.Mar.2019                      ┃
+  ├──────────────────────────┴─────────────────────────┤
+  └────────────────────────────────────────────────────┘
+*/
+
 void GFX_Fill(int r, int g, int b) {
   for (short y = 0; y < 8; y++) {
     for (short x = 0; x < 8; x++) {

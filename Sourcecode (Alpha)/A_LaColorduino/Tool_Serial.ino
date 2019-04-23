@@ -1,3 +1,25 @@
+/*
+  ┌────────────────────────────────────────────────────┐
+  │ LaColorduino by TheAmadeus25                                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ https://theamadeus25.github.io/LaColorduino/                                     ┃
+  ├────────────────────────────────────────────────────┤
+  │ IMPORTANT! Read the Wiki on GitHub. Otherwise you will not understand how to     ┃
+  │ install all THREE Sourcecodes. For problems, the Wiki is a good place to find    ┃
+  │ out, how to solve it.                                                            ┃
+  ├────────────────────────────────────────────────────┤
+  │ InitSerial() : Configuration of Serial                                           ┃
+  │ SerialInput(): Wait of incoming via Serial                                       ┃
+  │ ParseSerial(): Parsing Information of Serial                                     ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  ├──────────────────────────┬─────────────────────────┤
+  │ Version: 0.0.3 - ALPHA                    Date: 27.Mar.2019                      ┃
+  ├──────────────────────────┴─────────────────────────┤
+  └────────────────────────────────────────────────────┘
+*/
+
 void InitSerial() {
   Serial.begin(9600);
 }
@@ -50,6 +72,14 @@ void ParseSerial() {
       //OTA_Update();
       break;
     
+    case 10:
+    // 10;10;12;23;1;
+      Time.Hour                    = Serial.parseInt();
+      Time.Minute                  = Serial.parseInt();
+      //Date.Day                     = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+    
     case 20:
     // 20;20;25.5;5;1;
       Environment.Temperatur       = Serial.parseFloat();
@@ -59,6 +89,11 @@ void ParseSerial() {
     
     case 21:
       Environment.Pressure         = Serial.parseFloat();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 22:
+      Weather.Humidity             = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
     
@@ -77,6 +112,7 @@ void ParseSerial() {
       break;
       
     case 32:
+    // 32;32;45;1;
       Weather.Humidity             = Serial.parseFloat();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
