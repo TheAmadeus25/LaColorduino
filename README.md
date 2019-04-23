@@ -66,7 +66,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Webinterface (to read data or change settings via web)
 * [X] Update over-the-air (ESP8266 only)
 * [ ] Calendar
-* [ ] Clock (of course 😄)
+* [X] Clock (of course 😄)
 ## Software/Converter to program them
 * Arduino [**1.6.0**](https://www.arduino.cc/en/Main/OldSoftwareReleases#previous) (Colorduino doesn't work properly on 1.8.6. It shows wrong color so you need to download an older version)
 * Arduino 1.8.6 for ESP8266 (funny he?)
