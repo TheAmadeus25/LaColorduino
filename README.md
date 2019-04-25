@@ -125,16 +125,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [X] OTA for ESP8266 implementation (not optimized, yet)
 * [ ] Print progressbar on Colorduino while Updating ESP8266
 * [ ] Print progressbar on Colorduino for Widget (e.g. Spotify Track position)
-* [ ] Boot Logo/Animation
 * [ ] White-Balance Testscreen
-* [ ] Wait until all devices are ready (or something similary for sync)
-* [ ] Enable I²C
-* [ ] ...
-
-## Worksteps for Master Colorduino
-* [ ] Enable I²C
-* [ ] Sync all Colorduino
-* [ ] Timer for changing Widget
 * [ ] ...
 
 ## Worksteps for ESP8266
@@ -143,12 +134,12 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [X] OTA for ESP8266 implementation
 * [ ] EEPROM for Setting
 * [ ] Webpage for Settings and Debug
-* [ ] Enable I²C
+* [X] Enable I²C
 * [X] Parsing Sensors
 * [X] Parsing Button
 * [X] Parsing Ambientlight
   * [X] Hysteresis
-* [ ] Compute all Information's
+* [X] Compute all Information's
 * [ ] Optimize Watchdog for reset after some weeks (~44 Days)
 * [ ] ...
 
@@ -162,6 +153,8 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Black Glass/Plastic for lowering brightness after diffusing light
 * [ ] Mounting on messing spacer and screw's
 * [ ] Two holes for mounting on the Wall
+* [ ] AutoCAD draw for Colorduino
+* [ ] AutoCAD draw for Back-/Frontplate
 * [ ] ...
 
 ## Worksteps for Github
