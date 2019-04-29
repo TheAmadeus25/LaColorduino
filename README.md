@@ -5,6 +5,8 @@
 
 [Click me for a short video demo](https://twitter.com/TheAmadeus25/status/1095430617074937860)
 
+[Click me for a newer video demo](https://twitter.com/TheAmadeus25/status/1120357283207237632)
+
 I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 (01 or NodeMCU) for the connection to the Internet. It's build for everdays use like showing your Subscribers on YouTube, the current track on Spotify, how strong is the Euro, or the weather at the moment. There is (in the future) everthing for everbody and everthing is selfmade!
 
 
@@ -15,11 +17,17 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
   * [ ] View
   * [ ] Is live now
 * [ ] Facebook Fan count
-* [ ] Twitter followers
+* [ ] Twitter
+  * [X] Followers
+  * [X] Friends
+  * [X] Favorites
+  * [X] Tweet counter
+  * [ ] Last Tweet Retweet
+  * [ ] Last Tweet Favorites
 * [ ] YouTube
   * [X] Total Subscribers
   * [X] Total Comments
-  * [ ] Total Watchtime
+  * [X] Total Watchtime
   * [X] Total View
 * [ ] Currency
   * [ ] Euro
@@ -68,7 +76,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Calendar
 * [X] Clock (of course 😄)
 ## Software/Converter to program them
-* Arduino [**1.6.0**](https://www.arduino.cc/en/Main/OldSoftwareReleases#previous) (Colorduino doesn't work properly on 1.8.6. It shows wrong color so you need to download an older version)
+* Arduino [**1.6.0**](https://www.arduino.cc/en/Main/OldSoftwareReleases#previous) (Colorduino doesn't work properly on 1.8.6. It shows wrong color so you need to download an older version, aswell)
 * Arduino 1.8.6 for ESP8266 (funny he?)
 * [USB to TTL-Converter with CP2102](https://www.amazon.de/SODIAL-USB-TTL-Konverter-Modul-eingebautem-CP2102/dp/B008RF73CS/ref=sr_1_fkmr0_2?ie=UTF8&qid=1534713779&sr=8-2-fkmr0&keywords=cp2102+breakout) (or similar)
 * (Library incoming)
@@ -109,7 +117,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] And-Sign
 * [ ] Dollar
 * [ ] Ä, Ö, Ü, É, etc.
-* [ ] [Japanese Katakana](http://www.electronic-engineering.ch/microchip/datasheets/lcd/charset.gif)
+* [ ] [Japanese Katakana](http://www.electronic-engineering.ch/microchip/datasheets/lcd/charset.gif) (HELP!)
 * [ ] ...
 
 ## Worksteps for Slave Colorduino's
@@ -126,6 +134,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] Print progressbar on Colorduino while Updating ESP8266
 * [ ] Print progressbar on Colorduino for Widget (e.g. Spotify Track position)
 * [ ] White-Balance Testscreen
+* [ ] AutoCAD File (2D/3D)
 * [ ] ...
 
 ## Worksteps for ESP8266
@@ -144,7 +153,8 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 * [ ] ...
 
 ## Worksteps for circuit board
-* [ ] Soldering all parts
+* [X] Soldering all parts
+* [ ] Simply circuit
 * [ ] ...
 
 ## Worksteps for mounting
