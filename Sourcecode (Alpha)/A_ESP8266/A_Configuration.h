@@ -15,9 +15,9 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.1 - ALPHA                    Date: 14.Apr.2019                      ┃
+  │ Version: 0.0.2 - ALPHA                    Date: 29.Apr.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
-  │ + Setting File                                                                   ┃
+  │ + Twitter Setting                                                                ┃
   │ + Comments                                                                       ┃
   └────────────────────────────────────────────────────┘
 */
@@ -29,6 +29,7 @@ char ssid[] = "******";                                        // Your network S
 char password[] = "******";                       // Your network Password
 
 #define Trigger 15                                          // Ambilight Trigger in percent (1% - 100%)
+                                                            // If ambilight is lower than trigger, it switch to Dark-Mode (Low-Light Clock only)
 
 #define API_KEY "******"   // Google apps API Token
 #define CHANNEL_ID "******"               // Url of channel
@@ -43,5 +44,17 @@ const char *ow_key = "******";    // Openweather API Token
 #define TWITCH_LOGIN "******"                         // Username of who you are getting the data for (e.g. "ninja")
 
 
+String screenName = "******";                         // Twitter "@xxx" (without '@'-sign) name
+bool haveBearerToken = false;                               //
+// Using curl to get bearer token
+// curl -u "$CONSUMER_KEY:$CONSUMER_SECRET" \
+//    --data 'grant_type=client_credentials' \
+//    'https://api.twitter.com/oauth2/token'
+// -------------------------------------------
+// It start something like this : AAAAAAAAAAAAAAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+// And YES, it IS so fcking long :D
+// DON'T USE THOSE ->: Twitter Owner, Twitter Owner ID, Twitter (Consumer) API Key, Twitter (Consumer Secret) API secret Key, Twitter Access Token, Twitter Access Token Secret
+// However, you need the "Twitter (Consumer) API Key" and  "Twitter (Consumer Secret) API secret Key" to generate a "Twitter Bearer Token", duh.
+#define BEARER_TOKEN "******" // Twitter BEARER TOKEN
 
 #endif

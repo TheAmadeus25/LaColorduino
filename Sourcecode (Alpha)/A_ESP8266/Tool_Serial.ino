@@ -17,10 +17,10 @@
   ├──────────────────────────┬─────────────────────────┤
   │ Version: 0.0.4 - ALPHA                    Date: 14.Apr.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
-  │ + Weather.Pressure                                                               ┃
-  │ + Weather.Humidity                                                               ┃
-  │ + Weather.Wind_Speed                                                             ┃
-  │ + Clock                                                                          ┃ 
+  │ +                                                                                ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
+  │                                                                                  ┃ 
   └────────────────────────────────────────────────────┘
 */
 
@@ -118,9 +118,6 @@ void SerialOutput() {
 
     case 40:
       Serial.print(YouTube.Subscriber);
-      //Serial.print(Date.Day);
-      //Serial.print(Time.Hour);
-      //Serial.print(Time.Minute);
       Serial.print(";");
       Serial.print(Environment.SET_Ambientlight);
       break;
@@ -143,6 +140,42 @@ void SerialOutput() {
       Serial.print(Environment.SET_Ambientlight);
       break;
 
+    case 50:
+      Serial.print(Twitch.Follower);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 51:
+      Serial.print(Twitch.View);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 80:
+      Serial.print(Twitter.Follower);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 81:
+      Serial.print(Twitter.Tweets);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 82:
+      Serial.print(Twitter.Last_Retweet);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 83:
+      Serial.print(Twitter.Last_Favorite);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+        
     default:
       break;
   }

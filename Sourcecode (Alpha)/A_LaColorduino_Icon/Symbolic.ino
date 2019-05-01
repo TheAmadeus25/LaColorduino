@@ -109,6 +109,48 @@ void Symbolic_Twitter() {
   return;
 }
 
+void Symbolic_Tweet() {
+  GFX_Fill(0, 0, 0);
+  
+  GFX_VLine(1, 5, 4, 0, 132, 180);
+  GFX_HLine(1, 3, 7, 0, 132, 180);
+  
+  Colorduino.SetPixel(6, 4, 0, 132, 180);
+  Colorduino.SetPixel(6, 2, 0, 132, 180);
+  
+  return;
+}
+
+void Symbolic_Retweet() {
+  GFX_Fill(0, 0, 0);
+  
+  GFX_VLine(1, 7, 1, 0, 255, 0);
+  GFX_VLine(6, 6, 0, 0, 255, 0);
+  
+  GFX_HLine(0, 6, 6, 0, 255, 0);
+  GFX_HLine(1, 1, 7, 0, 255, 0);
+  
+  Colorduino.SetPixel(3, 6, 0, 0, 0);
+  Colorduino.SetPixel(4, 1, 0, 0, 0);
+  
+  return;
+}
+
+void Symbolic_Favorite() {
+  GFX_Fill(0, 0, 0);
+  
+  GFX_HLine(1, 6, 2, 128, 0, 64);
+  GFX_HLine(5, 6, 6, 128, 0, 64);
+  
+  GFX_HLine(0, 5, 7, 128, 0, 64);
+  GFX_HLine(0, 4, 7, 128, 0, 64);
+  GFX_HLine(1, 3, 6, 128, 0, 64);
+  GFX_HLine(2, 2, 5, 128, 0, 64);
+  GFX_HLine(3, 1, 4, 128, 0, 64);
+  
+  return;  
+}
+
 void Symbolic_Temperature(float Celsius) {
   GFX_Fill(0, 0, 0);
 

@@ -29,7 +29,7 @@
 // Count from left to right
 // 0        : 1st Colorduino for Symbol only. It has it own sourcecode.
 // 1 to 255 : 2nd to 254th Colorduino for Text/Number/Information
-#define Unit_Pos 1
+#define Unit_Pos 4
 
 short True_Pos = -((Unit_Pos - 1) * 8);
 short Cursor_Pos = True_Pos;
@@ -213,7 +213,31 @@ void loop() {
 
       case 43:
         Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Subscriber); //---getauscht
-        break;  
+        break;
+      
+      case 50:
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitch.Follower);
+        break;
+      
+      case 51:
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitch.View);
+        break;
+      
+      case 80:
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Follower);
+        break;
+      
+      case 81:
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Tweets);
+        break;
+      
+      case 82:
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Last_Retweet);
+        break;
+      
+      case 83:
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Last_Favorite);
+        break;
       
       default:
         break;

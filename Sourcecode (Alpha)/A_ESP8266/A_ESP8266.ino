@@ -15,11 +15,11 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.3 - ALPHA                    Date: 14.Apr.2019                      ┃
+  │ Version: 0.0.4 - ALPHA                    Date: 30.Apr.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
-  │ + Button Three Support                                                           ┃
-  │ + Clock                                                                          ┃
-  │ + Comment                                                                        ┃
+  │ + Add Twitter                                                                    ┃
+  │ + AddcTwitch                                                                     ┃
+  │                                                                                  ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -101,6 +101,11 @@ NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 3600, 60000);
 #include <TwitchApi.h>
 TwitchApi twitch(client, TWITCH_CLIENT_ID);
 
+//--- Titter ---//
+#include <TwitterApi.h>
+TwitterApi api3(client);
+
+
 enum Units {Celsius = 5, Fahrenheit = 6, Kelvin = 7};       // 
 
 #include "A_Variable.h"                                     // Move Variable to it's own File
@@ -116,6 +121,7 @@ void setup() {
   InitBME280();                                             // @BME280         | Configuration of the Temperature/Pressure/Humidity Sensor
   InitWeather();                                            // @OpenWeatherMap | Configuration of WeatherAPI
   InitNTP();                                                // @NTP            | Configuration of the Time
+  InitTwitter();                                            // @Twitter        | Configuration of Twitter
 
                                                             // Just put some numbers into all variables for start
   digitalWrite(ESP_Led, LOW);                               // Lights-up built in LED
@@ -125,6 +131,8 @@ void setup() {
   GetADS1115();                                             // @ADS            | Parsing Information
   GetBitcoin();                                             // @Bitcoin        | Parsing Information
   GetNTP();                                                 // @NTP            | Parsing Information
+  GetTwitch();                                              // @Twitch         | Parsing Information
+  GetTwitter();                                             // @Twitter        | Parsing Information
   digitalWrite(ESP_Led, HIGH);                              // Lights-down built in LED
   
   Setting.change_refresh = millis();                        // Reset Timer counter
@@ -147,6 +155,7 @@ void loop() {
     digitalWrite(ESP_Led, LOW);                             // Lights-up built in LED
     GetWeather();                                           // @OpenWeatherMap | Parsing Information
     Weather.last_refresh = millis();                        // Reset Timer counter
+    SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
     digitalWrite(ESP_Led, HIGH);                            // Lights-down built in LED
   }//END IF
   
@@ -154,6 +163,7 @@ void loop() {
     digitalWrite(ESP_Led, LOW);                             // Lights-up built in LED
     GetYouTube();                                           // @YouTube        | Parsing Information
     YouTube.last_refresh = millis();                        // Reset Timer counter
+    SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
     digitalWrite(ESP_Led, HIGH);                            // Lights-down built in LED
   }//END IF
 
@@ -161,6 +171,7 @@ void loop() {
     digitalWrite(ESP_Led, LOW);                             // Lights-up built in LED
     GetNTP();                                               // @NTP            | Parsing Information
     Time.last_refresh = millis();                           // Reset Timer counter
+    SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
     digitalWrite(ESP_Led, HIGH);                            // Lights-down built in LED
   }//END IF
 
@@ -168,9 +179,26 @@ void loop() {
     digitalWrite(ESP_Led, LOW);                             // Lights-up built in LED
     GetBME280();                                            // @BME280         | Parsing Information
     Environment.last_refresh = millis();                    // Reset Timer counter
+    SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
     digitalWrite(ESP_Led, HIGH);                            // Lights-down built in LED
   }//END IF
 
+  if ( millis() - Twitch.last_refresh > Twitch.refresh_delay ) {                                               // If times up,...
+    digitalWrite(ESP_Led, LOW);                             // Lights-up built in LED
+    GetTwitch();                                            // @Twitch         | Parsing Information
+    Twitch.last_refresh = millis();                         // Reset Timer counter
+    SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
+    digitalWrite(ESP_Led, HIGH);                            // Lights-down built in LED
+  }//END IF
+
+  if ( millis() - Twitter.last_refresh > Twitter.refresh_delay ) {                                             // If times up,...
+    digitalWrite(ESP_Led, LOW);                             // Lights-up built in LED
+    GetTwitter();                                           // @Twitter        | Parsing Information
+    Twitter.last_refresh = millis();                        // Reset Timer counter
+    SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
+    digitalWrite(ESP_Led, HIGH);                            // Lights-down built in LED
+  }//END IF
+  
   // <- Add new Software for new Watchfaces
 
   NightMode();
@@ -187,7 +215,13 @@ void loop() {
       case 40:  Device.Mode = 41; Device.Set = 41;  break;  // YOUTUBE SUBSCRIBER
       case 41:  Device.Mode = 42; Device.Set = 42;  break;  // YOUTUBE VIEW
       case 42:  Device.Mode = 43; Device.Set = 43;  break;  // YOUTUBE COMMENT
-      case 43:  Device.Mode = 10; Device.Set = 10;  break;  // YOUTUBE VIDEO
+      case 43:  Device.Mode = 50; Device.Set = 50;  break;  // YOUTUBE VIDEO
+      case 50:  Device.Mode = 51; Device.Set = 51;  break;  // TWITCH FOLLOWER
+      case 51:  Device.Mode = 80; Device.Set = 80;  break;  // TWITCH VIEW
+      case 80:  Device.Mode = 81; Device.Set = 81;  break;  // TWITTER FOLLOWER
+      case 81:  Device.Mode = 82; Device.Set = 82;  break;  // TWITTER TWEETS
+      case 82:  Device.Mode = 83; Device.Set = 83;  break;  // TWITTER LAST_RETWEET
+      case 83:  Device.Mode = 10; Device.Set = 10;  break;  // TWITTER LAST_FAVORITE      
     }//END SWITCH
     
     SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino

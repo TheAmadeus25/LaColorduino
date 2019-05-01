@@ -393,13 +393,11 @@ void Print_Clock(short x, short y, bool light, short Hour, short Minute) {
   Digit[0] = ((int)Minute / 10) % 10;
   Digit[1] =  (int)Minute % 10;
 
-
   Print_Position = 0;
   while (Print_Position <= 1) {
     Number(Cursor_Pos, y, light, Digit[Print_Position]);
     Print_Position++;
   }
-
 
   Colorduino.FlipPage();
 

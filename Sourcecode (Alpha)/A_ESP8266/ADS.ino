@@ -11,11 +11,11 @@
   │ InitADS1115(): Configuration of the ADC                                          ┃
   │ GetADS1115() : Parsing Information                                               ┃
   │ CalculateAmbientlight(): It triggered the Day/Night Mode via Photoresistor       ┃
-  │                                                                                  ┃
+  │ NightMode()  : Activate NightMode if Ambientlight under Trigger                  ┃
   │                                                                                  ┃
   │                                                                                  ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.2 - ALPHA                    Date: 31.Jan.2019                      ┃
+  │ Version: 0.0.3 - ALPHA                    Date: 21.Apr.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
   └────────────────────────────────────────────────────┘
 */
@@ -92,7 +92,6 @@ void GetADS1115() {
   
   return;
 }
-
 
 void CalculateAmbientlight(short Input) {
   bool MasterRefresh = false;

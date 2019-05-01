@@ -111,22 +111,36 @@ void ParseSerial() {
       YouTube.Video                = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
-      
-    //---
     
-    case 50:  // Twitch
+    case 50:
+      Twitch.Follower              = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
-      
-    case 60:  // Facebook
+
+    case 51:
+      Twitch.View                  = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
-      
-    case 70:  // Instructables
+
+    case 80:  // Twitter
+      Twitter.Follower             = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
-      
     
+    case 81:
+      Twitter.Tweets               = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 82:
+      Twitter.Last_Retweet         = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+   case 83:
+      Twitter.Last_Favorite        = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;  
     
     default:
       break;

@@ -88,8 +88,8 @@ void InitWiFi() {
   Device.WiFi_Skin = 2;
   SerialOutput();
   
-  Device.Mode = 10;
-  Device.Set  = 10;
+  Device.Mode = 10;//10
+  Device.Set  = 10;//10
 
   Setting.change_refresh = millis();
 

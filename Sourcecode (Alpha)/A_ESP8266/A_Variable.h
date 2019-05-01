@@ -85,14 +85,25 @@ struct {  // Facebook
 } Facebook; 
 //----------------------------------------------------------------------------
 struct {  // Twitter
-  unsigned long Follower;                                   // 
+  unsigned long Follower;                                   // Current Follower count
+  unsigned long Friends;                                    // Current Friends count
+  unsigned long Favorites;                                  // Current Favorites count
+  unsigned long Tweets;                                     // Current Tweets count
+  unsigned long Last_Retweet;                               // Last Tweet, Retweet count
+  unsigned long Last_Favorite;                              // Last Tweet, Favorites count
   byte Setting;                                             // Setting for Watchface
   bool Enable;                                              // Watchface enable?
+  const long    refresh_delay = 60000;                      // How often checking for new Information | Don't lower this value!
+  unsigned long last_refresh  = 0;                          // Last time checking for new Information
 } Twitter;
 //----------------------------------------------------------------------------
 struct {  // Twitch
   unsigned long Follower;                                   // Current Follower
   unsigned long View;                                       // All-Time View
+  byte Setting;                                             // Setting for Watchface
+  bool Enable;                                              // Watchface enable?
+  const long    refresh_delay = 60000;                      // How often checking for new Information | Don't lower this value!
+  unsigned long last_refresh  = 0;                          // Last time checking for new Information
 } Twitch;
 //----------------------------------------------------------------------------
 struct {  // Currency
@@ -212,7 +223,7 @@ struct {  // Environment
   short AirQuality;                                         // [Missing HW atm]
   byte  Setting;                                            // Setting for Watchface
   bool  Enable;                                             // Watchface enable?
-  const long    refresh_delay = 10000;                      // How often checking for new Information | No need for lower value
+  const long    refresh_delay = 2500;                      // How often checking for new Information | No need for lower value
   unsigned long last_refresh  = 0;                          // Last time checking for new Information
 } Environment;
 //----------------------------------------------------------------------------

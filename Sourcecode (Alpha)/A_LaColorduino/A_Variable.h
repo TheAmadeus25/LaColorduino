@@ -85,10 +85,20 @@ struct {
 } Facebook;
 //----------------------------------------------------------------------------
 struct {
-  unsigned long Follower;
+  unsigned long Follower;                                   // Current Follower count
+  unsigned long Friends;                                    // Current Friends count
+  unsigned long Favorites;                                  // Current Favorites count
+  unsigned long Tweets;                                     // Current Tweets count
+  unsigned long Last_Retweet;                               // Last Tweet, Retweet count
+  unsigned long Last_Favorite;
   byte Setting;
   bool Enable;
 } Twitter;
+//----------------------------------------------------------------------------
+struct {  // Twitch
+  unsigned long Follower;                                   // Current Follower
+  unsigned long View;                                       // All-Time View
+} Twitch;
 //----------------------------------------------------------------------------
 struct {
   float EUR_to_USD;
@@ -117,7 +127,6 @@ struct {
   unsigned long last_refresh  = 0;
 } Currency;
 //----------------------------------------------------------------------------
-
 struct {
   String  ID;
   String Name;
@@ -135,7 +144,6 @@ struct {
   const long    refresh_delay = 600000;
   unsigned long last_refresh  = 0;
 } Bitcoin, Ethereum, Dogecoin;
-
 //----------------------------------------------------------------------------
 struct {
   short Mail;

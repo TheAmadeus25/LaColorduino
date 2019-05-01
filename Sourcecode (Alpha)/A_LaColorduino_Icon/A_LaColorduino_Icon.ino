@@ -89,10 +89,20 @@ struct {
 } Facebook;
 //----------------------------------------------------------------------------
 struct {
-  unsigned long Follower;
+  unsigned long Follower;                                   // Current Follower count
+  unsigned long Friends;                                    // Current Friends count
+  unsigned long Favorites;                                  // Current Favorites count
+  unsigned long Tweets;                                     // Current Tweets count
+  unsigned long Last_Retweet;                               // Last Tweet, Retweet count
+  unsigned long Last_Favorite;
   byte Setting;
   bool Enable;
 } Twitter;
+//----------------------------------------------------------------------------
+struct {  // Twitch
+  unsigned long Follower;                                   // Current Follower
+  unsigned long View;                                       // All-Time View
+} Twitch;
 //----------------------------------------------------------------------------
 struct {
   float EUR_to_USD;
@@ -139,7 +149,6 @@ struct {
   const long    refresh_delay = 600000;
   unsigned long last_refresh  = 0;
 } Bitcoin, Ethereum, Dogecoin;
-
 //----------------------------------------------------------------------------
 struct {
   short Mail;
@@ -389,12 +398,35 @@ void loop() {
       case 43:
         Symbolic_YouTube_View();
         break;
+      
+      case 50: // Twitch Follower
+        Symbolic_Twitch();
+        break;
+      
+      case 51: // Twitch View
+        Symbolic_Twitch_Count();
+        break;
+      
+      case 80: // Twitter Follower
+        Symbolic_Twitter();
+        break;
+      
+      case 81: // Twitter Tweets
+        Symbolic_Tweet();
+        break;
+      
+      case 82: // Twitter Last Retweets
+        Symbolic_Retweet();
+        break;
+      
+      case 83: // Twitter Last Favorite
+        Symbolic_Favorite();
+        break;
 
       default:
         Symbolic_Error();
         break;
     }
-
 
     if (Environment.SET_Ambientlight == 0) {
       GFX_Fill(0, 0, 0);
@@ -403,10 +435,6 @@ void loop() {
     Colorduino.FlipPage();
     IncomingComplete = false;
   }
-
-
-
-
 
 
   /*
@@ -497,7 +525,6 @@ void loop() {
           Symbolic_WiFi(1);
           Colorduino.FlipPage();
           delay(250);
-
 
           Symbolic_Stock();
           Colorduino.FlipPage();
@@ -608,7 +635,6 @@ void loop() {
               delay(100);
             }
           }
-
 
 
       for (short ICON = 0; ICON < 10; ICON++) {
