@@ -22,9 +22,9 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
   * [X] Friends
   * [X] Favorites
   * [X] Tweet counter
-  * [ ] Last Tweet Retweet
-  * [ ] Last Tweet Favorites
-* [ ] YouTube
+  * [X] Last Tweet Retweet
+  * [X] Last Tweet Favorites
+* [X] YouTube
   * [X] Total Subscribers
   * [X] Total Comments
   * [X] Total Watchtime
