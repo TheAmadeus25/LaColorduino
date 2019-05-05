@@ -14,10 +14,11 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
  
 ## I plan to add things like
 * [ ] Twitch
-  * [ ] View
+  * [X] View
+  * [X] Follower
   * [ ] Is live now
 * [ ] Facebook Fan count
-* [ ] Twitter
+* [X] Twitter
   * [X] Followers
   * [X] Friends
   * [X] Favorites
