@@ -7,6 +7,8 @@
 
 [Click me for a newer video demo](https://twitter.com/TheAmadeus25/status/1120357283207237632)
 
+[Click me for latest video](https://twitter.com/TheAmadeus25/status/1123351732531204096)
+
 I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 (01 or NodeMCU) for the connection to the Internet. It's build for everdays use like showing your Subscribers on YouTube, the current track on Spotify, how strong is the Euro, or the weather at the moment. There is (in the future) everthing for everbody and everthing is selfmade!
 
 
