@@ -7,24 +7,25 @@
 
 [Click me for a newer video demo](https://twitter.com/TheAmadeus25/status/1120357283207237632)
 
-I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 (01 or NodeMCU) for the connection to the Internet. It's build for everdays use like showing your Subscribers on YouTube, the current track on Spotify, how strong is the Euro, or the weather at the moment. There is (in the future) everthing for everbody and everthing is selfmade!
+[Click me for latest video](https://twitter.com/TheAmadeus25/status/1123351732531204096)
 
+I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 NodeMCU for the connection to the Internet. It's build for everdays use like showing your subscribers on YouTube, follower on Twitter, clicks on Twitch or the weather at the moment. There is (in the future) everthing for everbody and everthing is selfmade! Maybe we can create something very big for the world?
 
-**Note: I got everything, so I'll start programming and this will take time. A hugh amount of time. I did some charset and logos but I need to write my own protocol for communication, parsing those information, control the matrix and many more. Meanwhile, I did a checklist to show you, what I (try) to programm them. Maybe somebody can help me, too. Maybe I need to change some parts like the ESP8266 (my sourcecode goes out of memory or similar) or the Step-down Power Supply is to weak. The Datasheet of the Colorduino isn't the best I ever read and there are at least 2 version of them. Don't worry, I try to help with and guide and something like a wiki here on github.  And last but not least, English isn't my native language but it's the language of programming. It help's more people on the world if you ask in english than in german!**
  
 ## I plan to add things like
 * [ ] Twitch
-  * [ ] View
+  * [X] View
+  * [X] Follower
   * [ ] Is live now
 * [ ] Facebook Fan count
-* [ ] Twitter
+* [X] Twitter
   * [X] Followers
   * [X] Friends
   * [X] Favorites
   * [X] Tweet counter
-  * [ ] Last Tweet Retweet
-  * [ ] Last Tweet Favorites
-* [ ] YouTube
+  * [X] Last Tweet Retweet
+  * [X] Last Tweet Favorites
+* [X] YouTube
   * [X] Total Subscribers
   * [X] Total Comments
   * [X] Total Watchtime
