@@ -3,11 +3,9 @@
 ![Weather](https://raw.github.com/TheAmadeus25/LaColorduino/master/Photos/Weather/3.jpg)
 ![Indoor](https://raw.github.com/TheAmadeus25/LaColorduino/master/Photos/Indoor/4.jpg)
 
-[Click me for a short video demo](https://twitter.com/TheAmadeus25/status/1095430617074937860)
+[Click me for a short video demo (OLD)](https://twitter.com/TheAmadeus25/status/1095430617074937860)
 
-[Click me for a newer video demo](https://twitter.com/TheAmadeus25/status/1120357283207237632)
-
-[Click me for latest video](https://twitter.com/TheAmadeus25/status/1123351732531204096)
+[Sneak-Peak with comment in GER and ENG](http://bit.ly/UWGSmartwatch1)
 
 I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 NodeMCU for the connection to the Internet. It's build for everdays use like showing your subscribers on YouTube, follower on Twitter, clicks on Twitch or the weather at the moment. There is (in the future) everthing for everbody and everthing is selfmade! Maybe we can create something very big for the world?
 
