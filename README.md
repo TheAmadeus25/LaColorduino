@@ -1,5 +1,5 @@
 # LaColorduino - Your own Smartwatch how it should be
-![Thumbnail](https://raw.githubusercontent.com/TheAmadeus25/LaColorduino/master/IMG_2066.JPG)
+![Thumbnail](https://raw.githubusercontent.com/TheAmadeus25/LaColorduino/master/IMG_2067.JPG)
 
 [Click me for a short video demo (OLD)](https://twitter.com/TheAmadeus25/status/1095430617074937860)
 
