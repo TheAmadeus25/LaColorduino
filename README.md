@@ -1,7 +1,5 @@
 # LaColorduino - Your own Smartwatch how it should be
-![YouTube](https://raw.github.com/TheAmadeus25/LaColorduino/master/Photos/YouTube/1.jpg)
-![Weather](https://raw.github.com/TheAmadeus25/LaColorduino/master/Photos/Weather/3.jpg)
-![Indoor](https://raw.github.com/TheAmadeus25/LaColorduino/master/Photos/Indoor/4.jpg)
+![Thumbnail](https://raw.githubusercontent.com/TheAmadeus25/LaColorduino/master/IMG_2066.JPG)
 
 [Click me for a short video demo (OLD)](https://twitter.com/TheAmadeus25/status/1095430617074937860)
 
