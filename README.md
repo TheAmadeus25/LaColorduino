@@ -9,7 +9,10 @@
 
 I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 NodeMCU for the connection to the Internet. It's build for everdays use like showing your subscribers on YouTube, follower on Twitter, clicks on Twitch or the weather at the moment. There is (in the future) everthing for everbody and everthing is selfmade! Maybe we can create something very big for the world?
 
- 
+❔ Interested? Well, read the **[Wiki](https://github.com/TheAmadeus25/LaColorduino/wiki)*** and you will get Happy, yay.
+
+😥 However, the Wiki isn't completed, yet.
+
 ## I plan to add things like
 * [ ] Twitch
   * [X] View
