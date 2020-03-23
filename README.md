@@ -39,6 +39,14 @@ There is a watchface just for the current humidity.
 
 ![Preview Indoor Humidity](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0726.JPG?raw=true)
 
+## Weather
+
+Based on openweather.com it show the current weather at your location. It change the icon as well, depending on the weather.
+
+**Sunny**
+
+![Preview Weather](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0709.JPG?raw=true)
+
 ## YouTube
 
 The ESP8266 get its information directly from YouTube it's self. Sometimes, it doesn't show any value after startup but I'm working on it.
@@ -113,41 +121,45 @@ How often got your last tweet liked.
 
 ## CounterStrike: Global Offensive
 
+Yes my friend, it's true! It can show you your current stats as well! It show you:
+* Kill
+* Assist
+* Death
+* Health (as progressbar)
+* Who wins (CT or T)
+* Bomb state (defused or exploded)
 
+TBH, this watchface has a lot of problems and need additional script and software which I also uploaded here. Currently, it's not free of bugs and sometimes it just crashed. However, I'm working on it. At the moment, I'm just wondering about its input-lag. In my other project it acts in less then 6ms. Maybe I need to optimize my Smartwatch at the first place, before I start digging around.
 
-**CSGO Livestats**
+**Livestats**
 
+You can change the delimiter of this watchface into one of the following char:
+* space
+* slash
+* dot
+* vertical line
+* colon
+* hyphen
+* asterix
+
+![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0780.JPG?raw=true)
 ![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0778.JPG?raw=true)
 
-**CSGO Bomb Exploded**
+**Bomb Exploded**
 
 ![Preview CSGO Bomb Exploded](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0748.JPG?raw=true)
 
-**CSGO Bomb Defused**
+**Bomb Defused**
 
 ![Preview CSGO Bomb Defused](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0777.JPG?raw=true)
 
 
 ******
 
-## I plan to add things like
-* [ ] Twitch
-  * [X] View
-  * [X] Follower
-  * [ ] Is live now
+## I plan to add more things like
 * [ ] Facebook Fan count
-* [X] Twitter
-  * [X] Followers
-  * [X] Friends
-  * [X] Favorites
-  * [X] Tweet counter
-  * [X] Last Tweet Retweet
-  * [X] Last Tweet Favorites
 * [X] YouTube
-  * [X] Total Subscribers
-  * [X] Total Comments
-  * [X] Total Watchtime
-  * [X] Total View
+  * [ ] Last 32 Days as chart
 * [ ] Currency
   * [ ] Euro
   * [ ] US Dollar
@@ -156,21 +168,6 @@ How often got your last tweet liked.
   * [ ] Bitcoin
 * [ ] GoogleMail notification
 * [ ] Steam Server state
-* [ ] State for CS:GO (if I got it already running 😡😤)
-  * [ ] Kills
-  * [ ] Deaths
-  * [ ] Time Played
-  * [ ] Planted Bombs
-  * [ ] Defused Bombs
-  * [ ] Wins
-  * [ ] Damage Done
-  * [ ] Money Earned
-  * [ ] Rescued Hostages
-  * [ ] Headshot
-  * [ ] MVP
-  * [ ] Last Match
-  * [ ] Weapon Kill
-  * [ ] ...and many many many more
 * [ ] Spotify
   * [ ] Current Track
 * [X] [Weather](https://openweathermap.org/weather-conditions)
@@ -184,9 +181,6 @@ How often got your last tweet liked.
   * [X] Clouds
   * [ ] Wind
 * [ ] Indoor
-  * [X] Temperature
-  * [X] Humidity
-  * [ ] Barometric
   * [ ] (Air Quality, if I/you buy a CCS811 or similar)
 * [ ] Github
   * [ ] Subscription (or something)
@@ -199,7 +193,7 @@ How often got your last tweet liked.
 * Arduino 1.8.6 for ESP8266 (funny he?)
 * [USB to TTL-Converter with CP2102](https://www.amazon.de/SODIAL-USB-TTL-Konverter-Modul-eingebautem-CP2102/dp/B008RF73CS/ref=sr_1_fkmr0_2?ie=UTF8&qid=1534713779&sr=8-2-fkmr0&keywords=cp2102+breakout) (or similar)
 * (Library incoming)
-* Help of the community
+* ~Help of the community~
   * Testing
   * Bug fixing
   * Optimize
