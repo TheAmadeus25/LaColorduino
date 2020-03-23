@@ -37,7 +37,7 @@ It show the current temperature in Celsius (°C), Fahrenheit (°F) and Kelvin (K
 
 There is a watchface just for the current humidity.
 
-![Preview Indoor Humidity](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0724.JPG?raw=true)
+![Preview Indoor Humidity](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0726.JPG?raw=true)
 
 ## YouTube
 
