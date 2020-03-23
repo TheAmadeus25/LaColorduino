@@ -1,15 +1,81 @@
 # LaColorduino - Your own Smartwatch how it should be
 ![Thumbnail](https://raw.githubusercontent.com/TheAmadeus25/LaColorduino/master/IMG_2067.JPG)
 
-[Click me for a short video demo (OLD)](https://twitter.com/TheAmadeus25/status/1095430617074937860)
+**[Click me for a short video demo (OLD)](https://twitter.com/TheAmadeus25/status/1095430617074937860)**
 
-[Sneak-Peak with comment in GER and ENG](http://bit.ly/UWGSmartwatch1)
+**[Sneak-Peak with comment in GER and ENG](http://bit.ly/UWGSmartwatch1)**
 
 I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 NodeMCU for the connection to the Internet. It's build for everdays use like showing your subscribers on YouTube, follower on Twitter, clicks on Twitch or the weather at the moment. There is (in the future) everthing for everbody and everthing is selfmade! Maybe we can create something very big for the world?
 
 ❔ Interested? Well, read the **[Wiki](https://github.com/TheAmadeus25/LaColorduino/wiki)*** and you will get Happy, yay.
 
 😥 However, the Wiki isn't completed, yet.
+
+******
+# Preview of Watchfaces
+
+## Clock
+
+![Preview Clock](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0705.JPG?raw=true)
+
+**Indoor Temperature**
+
+![Preview Indoor Temperature](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0724.JPG?raw=true)
+
+**Indoor Humidity**
+
+![Preview Indoor Humidity](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Humidity/IMG_0726.JPG?raw=true)
+
+**YouTube Subscriber**
+
+![Preview YouTube Subscriber](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0730.JPG?raw=true)
+
+**YouTube View**
+
+![Preview YouTube View](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0738.JPG?raw=true)
+
+**YouTube Comment**
+
+![Preview YouTube Comment](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0739.jpg?raw=true)
+
+**YouTube Video**
+
+![Preview YouTube Video](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0737.JPG?raw=true)
+
+**Twitch Follower**
+
+![Preview Twitch Follower](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitch/IMG_0731.JPG?raw=true)
+
+**Twitch View**
+
+![Preview Twitch View](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitch/IMG_0732.JPG?raw=true)
+
+**Twitter Follower**
+
+![Preview Twitter Follower](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0733.JPG?raw=true)
+
+**Twitter Tweets**
+
+![Preview Twitter Tweets](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0734.JPG?raw=true)
+
+**Twitter Last Tweet Retweet**
+
+![Preview Twitter Last Tweet Retweets](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0735.JPG?raw=true)
+
+**CSGO Livestats**
+
+![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0778.JPG?raw=true)
+
+**CSGO Bomb Exploded**
+
+![Preview CSGO Bomb Exploded](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0748.JPG?raw=true)
+
+**CSGO Bomb Defused**
+
+![Preview CSGO Bomb Defused](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0777.JPG?raw=true)
+
+
+******
 
 ## I plan to add things like
 * [ ] Twitch
