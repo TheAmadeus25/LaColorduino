@@ -15,26 +15,49 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 # Preview of Watchfaces
 
 ## Clock
+It shows the current time downloaded from a NTP-Server. Currently, it shows the time in 24h. In the future I add AM/PM mode as well. Dark-Mode is supported which mean, it dims the light to the lowest value possible. It's very handy in the night. Icon isn't animated and doesn't show the current time. Maybe I update this.
 
 ![Preview Clock](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0705.JPG?raw=true)
 
-**Indoor Temperature**
+## Indoor
+Based on the BME280 sensor, it give you some information like temperature, humidity and air-pressure.
+
+**Temperature**
+
+It show the current temperature in Celsius (°C), Fahrenheit (°F) and Kelvin (K). The logo is animated. Depending on the current temperature it change it's color and the level indicator:
+* Ice-Blue
+* Blue
+* Green
+* Yellow
+* Red
 
 ![Preview Indoor Temperature](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0724.JPG?raw=true)
 
 **Indoor Humidity**
 
-![Preview Indoor Humidity](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Humidity/IMG_0726.JPG?raw=true)
+There is a watchface just for the current humidity.
 
-**YouTube Subscriber**
+![Preview Indoor Humidity](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0724.JPG?raw=true)
+
+## YouTube
+
+The ESP8266 get its information directly from YouTube it's self. Sometimes, it doesn't show any value after startup but I'm working on it.
+
+**Subscriber**
+
+This watchface shows how many people are subscribed to your YouTube channel.
 
 ![Preview YouTube Subscriber](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0730.JPG?raw=true)
 
 **YouTube View**
 
+It also shows you how many total views you have already. Currently, non of my counters support numbers higher than 99.999.999. I'll change this later to something more readable like 99.99M.
+
 ![Preview YouTube View](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0738.JPG?raw=true)
 
 **YouTube Comment**
+
+This one is confusing me. The official API says something about current/new comments, but that's not true. Maybe they mean new Inbox messages but I can't test this.
 
 ![Preview YouTube Comment](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0739.jpg?raw=true)
 
