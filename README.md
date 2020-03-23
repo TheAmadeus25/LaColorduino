@@ -15,7 +15,7 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 # Preview of Watchfaces
 
 ## Clock
-It shows the current time downloaded from a NTP-Server. Currently, it shows the time in 24h. In the future I add AM/PM mode as well. Dark-Mode is supported which mean, it dims the light to the lowest value possible. It's very handy in the night. Icon isn't animated and doesn't show the current time. Maybe I update this.
+It shows the current time downloaded from a NTP-Server. Currently, it shows the time in 24h. In the future I add AM/PM mode as well. Dark-Mode is supported which mean, it lower the light to the lowest value possible. It's very handy in the night, because the icon isn't appering in dark-mode. Icon isn't animated and doesn't show the current time. Maybe I update this.
 
 ![Preview Clock](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0705.JPG?raw=true)
 
@@ -49,41 +49,55 @@ This watchface shows how many people are subscribed to your YouTube channel.
 
 ![Preview YouTube Subscriber](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0730.JPG?raw=true)
 
-**YouTube View**
+**View**
 
 It also shows you how many total views you have already. Currently, non of my counters support numbers higher than 99.999.999. I'll change this later to something more readable like 99.99M.
 
 ![Preview YouTube View](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0738.JPG?raw=true)
 
-**YouTube Comment**
+**Comment**
 
-This one is confusing me. The official API says something about current/new comments, but that's not true. Maybe they mean new Inbox messages but I can't test this.
+This one is confusing me. The official API says something about current/new comments, but that's not true. Maybe they mean new Inbox messages but I can't test this; I never get any messages 😥😋
 
 ![Preview YouTube Comment](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0739.jpg?raw=true)
 
-**YouTube Video**
+**Video**
+
+Did you know, how many videos are currently public (not uploaded)? Well now you know it.
 
 ![Preview YouTube Video](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0737.JPG?raw=true)
 
-**Twitch Follower**
+## Twitch
+
+Now, you reach the more important part of this Smartwatch. It gets its information directly from Twitch, same like YouTube before.
+
+**Follower**
+
+This counter shows you, how many people are subscribed to your Twitch channel.
 
 ![Preview Twitch Follower](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitch/IMG_0731.JPG?raw=true)
 
-**Twitch View**
+**View**
+
+This watchface tells you how many views you have in total.
 
 ![Preview Twitch View](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitch/IMG_0732.JPG?raw=true)
 
-**Twitter Follower**
+## Twitter
+
+**Follower**
 
 ![Preview Twitter Follower](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0733.JPG?raw=true)
 
-**Twitter Tweets**
+**Tweets**
 
 ![Preview Twitter Tweets](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0734.JPG?raw=true)
 
-**Twitter Last Tweet Retweet**
+**Last Tweet Retweet**
 
 ![Preview Twitter Last Tweet Retweets](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0735.JPG?raw=true)
+
+## CounterStrike: Global Offensive
 
 **CSGO Livestats**
 
