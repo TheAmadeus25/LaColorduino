@@ -69,7 +69,7 @@ Did you know, how many videos are currently public (not uploaded)? Well now you 
 
 ## Twitch
 
-Now, you reach the more important part of this Smartwatch. It gets its information directly from Twitch, same like YouTube before.
+Now, you reach the more important part of this Smartwatch. It gets its information directly from Twitch, same like YouTube before. In the future I try to add a Watchface which shows if you are currently online/streaming.
 
 **Follower**
 
@@ -85,19 +85,35 @@ This watchface tells you how many views you have in total.
 
 ## Twitter
 
+Socialmedia gets more important these days. So how about a watchface as well? It works same like Twitch and YouTube before.
+
 **Follower**
+
+How many people are following your tweets.
 
 ![Preview Twitter Follower](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0733.JPG?raw=true)
 
 **Tweets**
 
+You are tweeting more like birds in the morning? What is this in numbers?? This one will help you.
+
 ![Preview Twitter Tweets](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0734.JPG?raw=true)
 
 **Last Tweet Retweet**
 
+How often got your last tweet retweeted.
+
 ![Preview Twitter Last Tweet Retweets](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0735.JPG?raw=true)
 
+**Last Tweet Favorite**
+
+How often got your last tweet liked.
+
+![Preview Twitter Last Tweet Favorite](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0736.JPG?raw=true)
+
 ## CounterStrike: Global Offensive
+
+
 
 **CSGO Livestats**
 
