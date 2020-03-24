@@ -19,6 +19,7 @@ It shows the current time downloaded from a NTP-Server. Currently, it shows the 
 
 ![Preview Clock](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0705.JPG?raw=true)
 
+******
 ## Indoor
 Based on the BME280 sensor, it give you some information like temperature, humidity and air-pressure.
 
@@ -39,6 +40,7 @@ There is a watchface just for the current humidity.
 
 ![Preview Indoor Humidity](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0726.JPG?raw=true)
 
+******
 ## Weather
 
 Based on openweather.com it show the current weather at your location. It change the icon as well, depending on the weather.
@@ -47,6 +49,7 @@ Based on openweather.com it show the current weather at your location. It change
 
 ![Preview Weather](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0709.JPG?raw=true)
 
+******
 ## YouTube
 
 The ESP8266 get its information directly from YouTube it's self. Sometimes, it doesn't show any value after startup but I'm working on it.
@@ -75,6 +78,7 @@ Did you know, how many videos are currently public (not uploaded)? Well now you 
 
 ![Preview YouTube Video](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/YouTube/IMG_0737.JPG?raw=true)
 
+******
 ## Twitch
 
 Now, you reach the more important part of this Smartwatch. It gets its information directly from Twitch, same like YouTube before. In the future I try to add a Watchface which shows if you are currently online/streaming.
@@ -91,6 +95,7 @@ This watchface tells you how many views you have in total.
 
 ![Preview Twitch View](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitch/IMG_0732.JPG?raw=true)
 
+******
 ## Twitter
 
 Socialmedia gets more important these days. So how about a watchface as well? It works same like Twitch and YouTube before.
@@ -119,6 +124,7 @@ How often got your last tweet liked.
 
 ![Preview Twitter Last Tweet Favorite](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0736.JPG?raw=true)
 
+******
 ## CounterStrike: Global Offensive
 
 Yes my friend, it's true! It can show you your current stats as well! It show you:
