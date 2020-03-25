@@ -15,13 +15,14 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 # Preview of Watchfaces
 
 ## Clock
-It shows the current time downloaded from a NTP-Server every few seconds. I'll try to use the clock-cycle to lower the count of requests. Currently, it shows the time in 24h. In the future I add AM/PM mode as well. **Dark-Mode** is supported which mean, it lower the light to the lowest value possible. It's very handy in the night, because the icon isn't appering in dark-mode. Icon isn't animated and doesn't show the current time. Maybe I update this.
+It shows the current time downloaded from a NTP-Server every few seconds. I'll try to use the clock-cycle to lower the count of requests. Currently, it shows the time in 24h. In the future I add AM/PM mode as well. Icon isn't animated and doesn't show the current time. Maybe I update this.
 
 ### Clock (day)
 
 ![Preview Clock Day](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0705.JPG?raw=true)
 
-### Clock (night aka dark-mode)
+### Clock (dark-mode)
+**Dark-Mode** is supported which mean, it lower the light to the lowest value possible. It's very handy in the night, because the icon isn't appering in dark-mode.
 
 ![Preview Clock Night](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0840.jpg?raw=true)
 
