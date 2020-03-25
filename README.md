@@ -17,7 +17,13 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 ## Clock
 It shows the current time downloaded from a NTP-Server every few seconds. I'll try to use the clock-cycle to lower the count of requests. Currently, it shows the time in 24h. In the future I add AM/PM mode as well. **Dark-Mode** is supported which mean, it lower the light to the lowest value possible. It's very handy in the night, because the icon isn't appering in dark-mode. Icon isn't animated and doesn't show the current time. Maybe I update this.
 
-![Preview Clock](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0705.JPG?raw=true)
+### Clock (day)
+
+![Preview Clock Day](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0705.JPG?raw=true)
+
+### Clock (night aka dark-mode)
+
+![Preview Clock Night](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0840.jpg?raw=true)
 
 ******
 ## Indoor
@@ -61,7 +67,7 @@ Based on **[openweathermap](https://openweathermap.org/)** it show the current *
 ******
 ## YouTube
 
-The ESP8266 get its information directly from **YouTube** it's self. Sometimes, it doesn't show any value after startup but I'm working on it.
+The ESP8266 get its information directly from **YouTube** it's self. Sometimes, it doesn't show any value after startup but I'm working on it. **[Library from witnessmenow aka Brian Lough found here](https://github.com/witnessmenow/arduino-youtube-api)**.
 
 ### Subscriber
 
@@ -90,7 +96,7 @@ Did you know, how many videos are currently public (not uploaded)? Well, now you
 ******
 ## Twitch
 
-Now, you reach the more important part of this Smartwatch. It gets its information directly from **Twitch**, same like YouTube before. In the future I try to add a Watchface which shows if you are currently online/streaming. I'm pretty sure, it looks great on camera while streaming!
+Now, you reach the more important part of this Smartwatch. It gets its information directly from **Twitch**, same like YouTube before. In the future I try to add a Watchface which shows if you are currently online/streaming. I'm pretty sure, it looks great on camera while streaming! **[Library from witnessmenow aka Brian Lough found here](https://github.com/witnessmenow/arduino_twitch_api)**.
 
 ### Follower
 
@@ -107,7 +113,7 @@ This watchface tells you how many **views** you have in total.
 ******
 ## Twitter
 
-Socialmedia gets more important these days. So how about a watchface as well? It works same like Twitch and YouTube before.
+Socialmedia gets more important these days. So how about a watchface as well? It works same like Twitch and YouTube before. **[Library from witnessmenow aka Brian Lough found here](https://github.com/witnessmenow/arduino-twitter-api)**
 
 ### Follower
 
@@ -134,9 +140,9 @@ How often got your **last tweet liked**.
 ![Preview Twitter Last Tweet Favorite](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0736.JPG?raw=true)
 
 ******
-## CounterStrike: Global Offensive
+## CounterStrike: Global Offensive 
 
-Yes my friend, it's true! It can show you your **current stats** as well! It show you:
+Yes my friend, it's true! It can show you your **current stats** as well! I just modified the **[official API from Valve](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration)** a little. It shows you:
 * Kill
 * Assist
 * Death
@@ -189,7 +195,7 @@ You can change the delimiter of this watchface into one of the following char:
   * [ ] Moon Phase
   * [ ] Wind
 * [ ] Indoor
-  * [ ] (Air Quality, if I/you buy a CCS811 or similar)
+  * [ ] Air Quality _(if I/you buy a CCS811 or similar)_
 * [ ] Github
   * [ ] Subscription (or something)
 * [ ] Webinterface (to read data or change settings via web under the condition OTA is still working)
