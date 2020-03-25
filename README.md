@@ -5,7 +5,7 @@
 
 **[Sneak-Peak with comment in GER and ENG](http://bit.ly/UWGSmartwatch1)**
 
-I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 NodeMCU for the connection to the Internet. It's build for everyday use like showing your subscribers on **YouTube**, follower on **Twitter**, clicks on **Twitch** or the **weather** at the moment. Even live-stats of **CounterStrike: Global Offensive** it's supported! There is (in the future) everything for everybody and everything is self-made! Maybe we can create something very big for the world?
+I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make use of an ESP8266 NodeMCU for the connection to the Internet. It's build for everyday use like showing your subscribers on **[YouTube](https://github.com/TheAmadeus25/LaColorduino#youtube)**, follower on **[Twitter](https://github.com/TheAmadeus25/LaColorduino#twitter)**, clicks on **[Twitch](https://github.com/TheAmadeus25/LaColorduino#twitch)** or the **[Weather](https://github.com/TheAmadeus25/LaColorduino#weather)** at the moment. Even live-stats of **[CounterStrike: Global Offensive](https://github.com/TheAmadeus25/LaColorduino#counterstrike-global-offensive)** it's supported! What do you want more? Wait, don't say it loud, it also has a **[dark-mode](https://github.com/TheAmadeus25/LaColorduino#clock-dark-mode)**. In the future, there is  everything for everybody and everything is self-made! Maybe we can create something very big for the world?
 
 ❔ Interested? Well, read the **[Wiki](https://github.com/TheAmadeus25/LaColorduino/wiki)** and you will get Happy, yay.
 
@@ -24,7 +24,7 @@ It shows the current time downloaded from a NTP-Server every few seconds. I'll t
 ### Clock (dark-mode)
 **Dark-Mode** is supported which mean, it lower the light to the lowest value possible. It's very handy in the night, because the icon isn't appering in dark-mode.
 
-![Preview Clock Night](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0840.jpg?raw=true)
+![Preview Clock Night](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0841.jpg?raw=true)
 
 ******
 ## Indoor
