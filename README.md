@@ -22,7 +22,7 @@ It shows the current time downloaded from a NTP-Server every few seconds. I'll t
 ![Preview Clock Day](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0705.JPG?raw=true)
 
 ### Clock (dark-mode)
-**Dark-Mode** is supported which mean, it lower the light to the lowest value possible. It's very handy in the night, because the icon isn't appering in dark-mode.
+**Dark-Mode** is supported which mean, it lower the light to the lowest value possible. It's very handy at night, because the icon doesn't appear and it stays at clock. _(It still refreshes information in background all the time, so it can act very fast if needed.)_
 
 ![Preview Clock Night](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Clock/IMG_0841.jpg?raw=true)
 
@@ -164,7 +164,12 @@ You can change the delimiter of this watchface into one of the following char:
 * hyphen
 * asterix
 
+### Space Delimiter
+
 ![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0780.JPG?raw=true)
+
+### Colon Delimiter
+
 ![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0778.JPG?raw=true)
 
 ### Bomb Exploded
@@ -175,9 +180,43 @@ You can change the delimiter of this watchface into one of the following char:
 
 ![Preview CSGO Bomb Defused](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0777.JPG?raw=true)
 
+******
+## Basics
+
+### WiFi
+
+![Preview WiFi](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/1.JPG?raw=true)
+
+### Update-over-Air (OTA)
 
 ******
+## Font
+### Numbers
 
+![Preview Number 0](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Numbers/0ss.png?raw=true)
+![Preview Number 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Numbers/1ss.png?raw=true)
+![Preview Number 2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Numbers/2ss.png?raw=true)
+![Preview Number 3](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Numbers/3ss.png?raw=true)
+![Preview Number 4](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Numbers/4ss.png?raw=true)
+![Preview Number 5](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Numbers/5ss.png?raw=true)
+![Preview Number 6](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Numbers/6ss.png?raw=true)
+![Preview Number 7](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Numbers/7ss.png?raw=true)
+![Preview Number 8](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Numbers/8ss.png?raw=true)
+![Preview Number 9](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Numbers/9ss.png?raw=true)
+
+### Letters
+
+### Special Character
+
+******
+## Icon
+
+### Symbolics
+
+### Weather
+
+
+******
 ## I plan to add more things like
 * [ ] Facebook Fan count
 * [X] YouTube
