@@ -41,7 +41,7 @@ It show the current temperature in **Celsius** _(°C)_, **Fahrenheit** _(°F)_ a
 
 ![Preview Indoor Temperature 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0724.JPG?raw=true)
 
-![Preview Indoor Temperature 2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0839.jpg?raw=true)
+![Preview Indoor Temperature 2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0852.jpg?raw=true)
 
 ### Indoor Humidity
 
