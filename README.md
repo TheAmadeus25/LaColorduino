@@ -198,11 +198,11 @@ This one is just for the ESP8266 itself. It's not possible to update the Colordu
 
 ### Progress
 
-![Preview OTA 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/OTA/IMG_0861.JPG?raw=true)
+![Preview OTA 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/OTA/IMG_0934.jpg?raw=true)
 
 ### Succeeded
 
-![Preview OTA 2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/OTA/IMG_0879.png?raw=true)
+![Preview OTA 2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/OTA/IMG_0938.jpg?raw=true)
 
 ******
 ## Font
