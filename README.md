@@ -43,6 +43,8 @@ It show the current temperature in **Celsius** _(°C)_, **Fahrenheit** _(°F)_ a
 
 ![Preview Indoor Temperature 2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0852.jpg?raw=true)
 
+![Preview Indoor Temperature 3](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0933.jpg?raw=true)
+
 ### Indoor Humidity
 
 There is a watchface just for the current **humidity**.
@@ -58,6 +60,9 @@ Based on **[openweathermap](https://openweathermap.org/)** it show the current *
 
 ![Preview Weather Clear Sky](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0709.JPG?raw=true)
 
+### Clear Sky (night)
+
+![Preview Weather Clear Sky2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0885.jpg?raw=true)
 
 ### Broken Clouds (day and night)
 
@@ -183,11 +188,21 @@ You can change the delimiter of this watchface into one of the following char:
 ******
 ## Basics
 
-### WiFi
+### Connecting to the Internet
 
-![Preview WiFi](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/1.JPG?raw=true)
+![Preview WiFi](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/IMG_0912.png?raw=true)
 
-### Update-over-Air (OTA)
+## Update-over-Air (OTA)
+
+This one is just for the ESP8266 itself. It's not possible to update the Colorduino in this build over the air. The Icon is animated and rotating while receiving data. Based on its colour it shows you the current state (progress, succeeded, failed). Someday, if this project is finished, I make this process obsolete. Everything should be configured on a web browser. It doesn't mean I'll remove this feature, maybe it got a bugfix or an update. OTA would be very handy.
+
+### Progress
+
+![Preview OTA 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/OTA/IMG_0861.JPG?raw=true)
+
+### Succeeded
+
+![Preview OTA 2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/OTA/IMG_0879.png?raw=true)
 
 ******
 ## Font
