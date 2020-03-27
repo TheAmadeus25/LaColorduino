@@ -169,13 +169,17 @@ You can change the delimiter of this watchface into one of the following char:
 * hyphen
 * asterix
 
-### Space Delimiter
+### Space Delimiter (Setting 0)
 
 ![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0780.JPG?raw=true)
 
-### Colon Delimiter
+### Colon Delimiter (Setting 4)
 
 ![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0778.JPG?raw=true)
+
+### Hyphen Delimiter (Setting 5)
+
+![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0939.jpg?raw=true)
 
 ### Bomb Exploded
 
