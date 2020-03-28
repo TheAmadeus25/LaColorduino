@@ -14,17 +14,23 @@
   │ String_toArray()                                                                 ┃
   │ Print_Line()                                                                     ┃
   │ Print_Array()                                                                    ┃
-  │ IsZero()                                                                         ┃
   │ Print_Integer()                                                                  ┃
   │ Print_Float()                                                                    ┃
   │ Print_Temperatur()                                                               ┃
   │ Print_Pressure()                                                                 ┃
   │ Print_OTA()                                                                      ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.4 - ALPHA                    Date: 22.Apr.2019                      ┃
+  │ Version: 0.0.5 - ALPHA                    Date: 26.Dec.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
   │ + Print_Percent                                                                  ┃
   │ + Print_Clock                                                                    ┃
+  │ + Bugfix Clock                                                                   ┃
+  │ + Print_Stats_3_Bar  // 3 Value + (progress)bar // Optimized for CSGO            ┃
+  │ + Print_Stats_3      // without (progress)bar   // Will be optimized             ┃
+  │ + Print_Progressbar                                                              ┃
+  │ - IsZero                                                                         ┃
+  │ + Update for Color                                                               ┃
+  │ + StringToColorVal() for Letter and Numbers Switch-Case Statement                ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -33,13 +39,16 @@ void Clear_Number (short x, short y, bool light) {
   GFX_VLine(0 + x, 7 - y, 3 - y, 0, 0, 0);
   GFX_VLine(1 + x, 7 - y, 3 - y, 0, 0, 0);
   GFX_VLine(2 + x, 7 - y, 3 - y, 0, 0, 0);
+
   return;
 }
 //----------------------------------------------------------------------------
-void Spacer(short x, short y) {
+void Spacer(short x, short y, short OffsetSize) {
   if (Position_Check() ) {
-    GFX_VLine(3 + x, 7 - y, 3 - y, 0, 0, 0);
+    GFX_VLine(OffsetSize + x, 7 - y, OffsetSize - y, 0, 0, 0);
   }
+
+  return;
 }
 //----------------------------------------------------------------------------
 bool Position_Check() {
@@ -51,13 +60,15 @@ bool Position_Check() {
     Checked = false;
   }
   Cursor_Pos++;
-  //Cursor_Pos++;
+  
   return Checked;
 }
 //----------------------------------------------------------------------------
 void String_toArray(String Input) {
   Input.toUpperCase();
   Input.toCharArray(Temp_Array, 64);
+
+  return;
 }
 //----------------------------------------------------------------------------
 void Print_Line(short x, short y, bool light) {
@@ -65,23 +76,51 @@ void Print_Line(short x, short y, bool light) {
   return;
 }
 //----------------------------------------------------------------------------
-short Print_Array(short x, short y, bool light, char Symbol) {
+short Print_Array(short x, short y, bool light, char Symbol, String Colors) {
   short Oversize = 0;
 
   if ( Symbol >= 48 && Symbol <= 57 ) {
-    Number(x, y, light, (int)Symbol - 48);
+    Number(x, y, light, (int)Symbol - 48, Colors);
   } else {
-    Letter(x, y, light, Symbol);
+    Letter(x, y, light, Symbol, Colors);
   }
 
   return Oversize;
 }
 //----------------------------------------------------------------------------
-short IsZero(int Value, int Position) {
+void Print_Delimiter(short x, short y, bool light, long Value, String Colors) {
+  switch (Value) {
+    case 0:   Letter(Cursor_Pos, y, light, ' ', Colors);  break;
+    case 1:   Letter(Cursor_Pos, y, light, '/', Colors);  break;
+    case 2:   Letter(Cursor_Pos, y, light, '.', Colors);  break;
+    case 3:   Letter(Cursor_Pos, y, light, '|', Colors);  break;
+    case 4:   Letter(Cursor_Pos, y, light, ':', Colors);  break;
+    case 5:   Letter(Cursor_Pos, y, light, '-', Colors);  break;
+    case 6:   Letter(Cursor_Pos, y, light, '*', Colors);  break;
+    default:  break;
+  }
 
+  return;
 }
 //----------------------------------------------------------------------------
-void Print_Integer(short x, short y, bool light, long Value) {
+void Print_Progressbar(short x, short y, bool Color, long Low_Val, long High_Val, long Cur_Val, String Colors) {
+
+  return;
+}
+//----------------------------------------------------------------------------
+short StringToColorVal(String Value) {
+  if (Value == "White")  return 0;
+  if (Value == "Red")    return 1;
+  if (Value == "Yellow") return 2;
+  if (Value == "Green")  return 3;
+  if (Value == "Aqua")   return 4;
+  if (Value == "Blue")   return 5;
+  if (Value == "Purple") return 6;
+  
+  return 0;
+}
+//----------------------------------------------------------------------------
+void Print_Integer(short x, short y, bool light, long Value, String Colors) {
   short Print_Position = 0;
   short First_Zero = 0;
   int   Digit[9];
@@ -97,24 +136,26 @@ void Print_Integer(short x, short y, bool light, long Value) {
   Digit[7] =  Value % 10;
 
   while (Print_Position < 7 && Digit[Print_Position] == 0) {
-    Letter(Cursor_Pos + 1, y, light, ' ');
+    Letter(Cursor_Pos + 1, y, light, ' ', Colors);
     Print_Position++;
   }
 
   if (Value < 0) {
     Cursor_Pos = Cursor_Pos - 4;
-    Letter(Cursor_Pos + 1, y, light, '-');
+    Letter(Cursor_Pos + 1, y, light, '-', Colors);
   }
 
   while (Print_Position <= 7) {
-    Number(Cursor_Pos + 1, y, light, Digit[Print_Position]);
+    Number(Cursor_Pos + 1, y, light, Digit[Print_Position], Colors);
     Print_Position++;
   }
 
   Colorduino.FlipPage();
+
+  return;
 }
 //----------------------------------------------------------------------------
-void Print_Float(short x, short y, bool light, float Value) {
+void Print_Float(short x, short y, bool light, float Value, String Colors) {
   // https://linustechtips.com/main/topic/909558-how-to-split-a-floating-number-into-4-individual-digits-arduino/
 
   short Print_Position = 0;
@@ -134,30 +175,92 @@ void Print_Float(short x, short y, bool light, float Value) {
   Digit[6] = Temp_Value % 10;
   //Serial.println(Digit[7]);
 
+  Spacer(x, y, 0);
+
   while (Print_Position < 7 && Digit[Print_Position] == 0) {
-    Letter(Cursor_Pos + 1, y, light, ' ');
+    Letter(Cursor_Pos + 1, y, light, ' ', Colors);
     Print_Position++;
   }
 
   if (Value < 0) {
     Cursor_Pos = Cursor_Pos - 4;
-    Letter(Cursor_Pos + 1, y, light, '-');
+    Letter(Cursor_Pos + 1, y, light, '-', Colors);
   }
 
   while (Print_Position <= 5) {
-    Number(Cursor_Pos + 1, y, light, Digit[Print_Position]);
+    Number(Cursor_Pos + 1, y, light, Digit[Print_Position], Colors);
     Print_Position++;
   }
 
-  Letter(Cursor_Pos, y, light, '.');
-  Number(Cursor_Pos + 1, y, light, Digit[6]);
+  Letter(Cursor_Pos, y, light, '.', Colors);
+  Number(Cursor_Pos + 1, y, light, Digit[6], Colors);
 
   Colorduino.FlipPage();
 
   return;
 }
 //----------------------------------------------------------------------------
-void Print_Temperatur(short x, short y, bool light, float Value, short Unit) {
+void Print_Speed(short x, short y, bool light, float Value, String Colors, short Unit) {
+  // https://linustechtips.com/main/topic/909558-how-to-split-a-floating-number-into-4-individual-digits-arduino/
+
+  short Print_Position = 0;
+  short First_Zero = 0;
+  int   Digit[9];
+  long  Temp_Value = Value * 10;
+
+  //Digit[0] = ((int)Value / 10000000) % 10;
+  //Digit[0] = ((int)Value / 1000000) % 10;
+  Digit[0] = ((int)Value / 100000) % 10;
+  Digit[1] = ((int)Value / 10000) % 10;
+  Digit[2] = ((int)Value / 1000) % 10;
+  Digit[3] = ((int)Value / 100) % 10;
+  Digit[4] = ((int)Value / 10) % 10;
+  Digit[5] =  (int)Value % 10;
+  //Digit[7] = ((int)Value * 10) % 10;
+  Digit[6] = Temp_Value % 10;
+  //Serial.println(Digit[7]);
+
+  Spacer(x, y, 0);
+
+  while (Print_Position < 7 && Digit[Print_Position] == 0) {
+    Letter(Cursor_Pos + 1, y, light, ' ', Colors);
+    Print_Position++;
+  }
+
+  while (Print_Position <= 5) {
+    Number(Cursor_Pos + 1, y, light, Digit[Print_Position], Colors);
+    Print_Position++;
+  }
+
+  Letter(Cursor_Pos, y, light, '.', Colors);
+  Number(Cursor_Pos + 1, y, light, Digit[6], Colors);
+  
+  switch (Unit) {
+    case 0:  Letter(Cursor_Pos, y, light, 'k', Colors);
+             Letter(Cursor_Pos, y, light, 'm', Colors);
+             Letter(Cursor_Pos, y, light, '/', Colors);
+             Letter(Cursor_Pos, y, light, 'h', Colors);
+             break;
+    case 1:  Letter(Cursor_Pos, y, light, 'm', Colors);
+             Letter(Cursor_Pos, y, light, '/', Colors);
+             Letter(Cursor_Pos, y, light, 's', Colors);
+             break;
+    case 2:  Letter(Cursor_Pos, y, light, 'm', Colors);
+             Letter(Cursor_Pos, y, light, '/', Colors);
+             Letter(Cursor_Pos, y, light, 'h', Colors);
+             break;
+    case 3:  Letter(Cursor_Pos, y, light, 'f', Colors);
+             Letter(Cursor_Pos, y, light, 't', Colors);
+             Letter(Cursor_Pos, y, light, '/', Colors);
+             Letter(Cursor_Pos, y, light, 's', Colors);
+             break;
+
+  Colorduino.FlipPage();
+
+  return;
+}
+//----------------------------------------------------------------------------
+void Print_Temperatur(short x, short y, bool light, float Value, short Unit, String Colors) {
   // https://linustechtips.com/main/topic/909558-how-to-split-a-floating-number-into-4-individual-digits-arduino/
 
   short Print_Position = 3;
@@ -178,55 +281,57 @@ void Print_Temperatur(short x, short y, bool light, float Value, short Unit) {
   Digit[6] = Temp_Value % 10;
   //Serial.println(Digit[7]);
 
-  Letter(Cursor_Pos, y, light, ' ');
-  Spacer(x, y);
-  Spacer(x, y);
+  Spacer(x, y, 0);
+  Spacer(x, y, 1);
+  Spacer(x, y, 2);
+  Letter(Cursor_Pos, y, light, ' ', Colors);
+  
 
   while (Print_Position < 5 /*7*/ && Digit[Print_Position] == 0) {
-    Letter(Cursor_Pos, y, light, ' ');
+    Letter(Cursor_Pos, y, light, ' ', Colors);
     Print_Position++;
   }
 
   if (Value < 0) {
     Cursor_Pos = Cursor_Pos - 4;
-    Letter(Cursor_Pos, y, light, '-');
+    Letter(Cursor_Pos, y, light, '-', Colors);
   }
 
   while (Print_Position <= 5) {
-    Number(Cursor_Pos, y, light, Digit[Print_Position]);
+    Number(Cursor_Pos, y, light, Digit[Print_Position], Colors);
     Print_Position++;
   }
 
-  Letter(Cursor_Pos, y, light, '.');
+  Letter(Cursor_Pos, y, light, '.', Colors);
   //Cursor_Pos++; //---
-  Number(Cursor_Pos, y, light, Digit[6]);
+  Number(Cursor_Pos, y, light, Digit[6], Colors);
 
   switch (Unit) {
     case 5:
-      Letter(Cursor_Pos, y, light, '°');
-      Letter(Cursor_Pos, y, light, 'C');
+      Letter(Cursor_Pos, y, light, '°', Colors);
+      Letter(Cursor_Pos, y, light, 'C', Colors);
       break;
 
     case 6:
-      Letter(Cursor_Pos, y, light, '°');
-      Letter(Cursor_Pos, y, light, 'F');
+      Letter(Cursor_Pos, y, light, '°', Colors);
+      Letter(Cursor_Pos, y, light, 'F', Colors);
       break;
 
     case 7:
-      Letter(Cursor_Pos, y, light, ' ');
-      Letter(Cursor_Pos, y, light, 'K');
+      Letter(Cursor_Pos, y, light, ' ', Colors);
+      Letter(Cursor_Pos, y, light, 'K', Colors);
       break;
   }
 
-  //Letter(Cursor_Pos, y, light, '°');
-  //Letter(Cursor_Pos, y, light, Unit);
+  //Letter(Cursor_Pos, y, light, '°', Colors);
+  //Letter(Cursor_Pos, y, light, Unit, Colors);
 
   Colorduino.FlipPage();
 
   return;
 }
 //----------------------------------------------------------------------------
-void Print_Pressure(short x, short y, bool light, float Value, short Unit) {
+void Print_Pressure(short x, short y, bool light, float Value, short Unit, String Colors) {
   // https://linustechtips.com/main/topic/909558-how-to-split-a-floating-number-into-4-individual-digits-arduino/
 
   short Print_Position = 3;
@@ -247,42 +352,42 @@ void Print_Pressure(short x, short y, bool light, float Value, short Unit) {
   Digit[6] = Temp_Value % 10;
   //Serial.println(Digit[7]);
 
-  Letter(Cursor_Pos, y, light, ' ');
-  Spacer(x, y);
-  Spacer(x, y);
+  Letter(Cursor_Pos, y, light, ' ', Colors);
+  //#Spacer(x, y);
+  //#Spacer(x, y);
 
   while (Print_Position < 5 /*7*/ && Digit[Print_Position] == 0) {
-    Letter(Cursor_Pos, y, light, ' ');
+    Letter(Cursor_Pos, y, light, ' ', Colors);
     Print_Position++;
   }
 
   if (Value < 0) {
     Cursor_Pos = Cursor_Pos - 4;
-    Letter(Cursor_Pos, y, light, '-');
+    Letter(Cursor_Pos, y, light, '-', Colors);
   }
 
   while (Print_Position <= 5) {
-    Number(Cursor_Pos, y, light, Digit[Print_Position]);
+    Number(Cursor_Pos, y, light, Digit[Print_Position], Colors);
     Print_Position++;
   }
 
-  Letter(Cursor_Pos, y, light, '.');
+  Letter(Cursor_Pos, y, light, '.', Colors);
   //Cursor_Pos++; //---
-  Number(Cursor_Pos, y, light, Digit[6]);
+  Number(Cursor_Pos, y, light, Digit[6], Colors);
 
   //Letter(Cursor_Pos, y, light, 'h');
-  Letter(Cursor_Pos, y, light, 'H');
-  Letter(Cursor_Pos, y, light, 'P');
+  Letter(Cursor_Pos, y, light, 'H', Colors);
+  Letter(Cursor_Pos, y, light, 'P', Colors);
 
-  //Letter(Cursor_Pos, y, light, '°');
-  //Letter(Cursor_Pos, y, light, Unit);
+  //Letter(Cursor_Pos, y, light, '°', Colors);
+  //Letter(Cursor_Pos, y, light, Unit, Colors);
 
   Colorduino.FlipPage();
 
   return;
 }
 //----------------------------------------------------------------------------
-void Print_OTA(short x, short y, bool light, float Value, char Unit) {
+void Print_OTA(short x, short y, bool light, float Value, char Unit, String Colors) {
   // https://linustechtips.com/main/topic/909558-how-to-split-a-floating-number-into-4-individual-digits-arduino/
 
   short Print_Position = 3;
@@ -300,37 +405,38 @@ void Print_OTA(short x, short y, bool light, float Value, char Unit) {
   Digit[6] = Temp_Value % 10;
   //Serial.println(Digit[7]);
 
-  Letter(Cursor_Pos, y, light, ' ');
-  Spacer(x, y);
-  Spacer(x, y);
+  Spacer(x, y, 0);
+  Letter(Cursor_Pos, y, light, ' ', Colors);
+  Letter(Cursor_Pos, y, light, ' ', Colors);
+  
 
   while (Print_Position < 5 /*7*/ && Digit[Print_Position] == 0) {
-    Letter(Cursor_Pos, y, light, ' ');
+    Letter(Cursor_Pos, y, light, ' ', Colors);
     Print_Position++;
   }
 
   if (Value < 0) {
     Cursor_Pos = Cursor_Pos - 4;
-    Letter(Cursor_Pos, y, light, '-');
+    Letter(Cursor_Pos, y, light, '-', Colors);
   }
 
   while (Print_Position <= 5) {
-    Number(Cursor_Pos, y, light, Digit[Print_Position]);
+    Number(Cursor_Pos, y, light, Digit[Print_Position], Colors);
     Print_Position++;
   }
 
-  Letter(Cursor_Pos, y, light, '.');
+  Letter(Cursor_Pos, y, light, '.', Colors);
   //Cursor_Pos++; //---
-  Number(Cursor_Pos, y, light, Digit[6]);
-  Letter(Cursor_Pos, y, light, ' ');
-  Letter(Cursor_Pos, y, light, Unit);
+  Number(Cursor_Pos, y, light, Digit[6], Colors);
+  //#Letter(Cursor_Pos, y, light, ' ', Colors);
+  Letter(Cursor_Pos, y, light, Unit, Colors);
 
   Colorduino.FlipPage();
 
   return;
 }
 //----------------------------------------------------------------------------
-void Print_Percent(short x, short y, bool light, long Value) {
+void Print_Percent(short x, short y, bool light, long Value, String Colors) {
   short Print_Position = 0;  //PRINT INT!
   short First_Zero = 0;
   int   Digit[9];
@@ -340,34 +446,36 @@ void Print_Percent(short x, short y, bool light, long Value) {
   Digit[1] = ((int)Value / 10) % 10;
   Digit[2] =  Value % 10;
   
-  Letter(Cursor_Pos, y, light, ' ');
-  Letter(Cursor_Pos, y, light, ' ');
-  Letter(Cursor_Pos, y, light, ' ');
-  Spacer(x, y);
-  Spacer(x, y);
-  Spacer(x, y);
-  
+  Spacer(x, y, 0);
+  Spacer(x, y, 1);
+  Spacer(x, y, 2);
+  Letter(Cursor_Pos, y, light, ' ', Colors);
+  Letter(Cursor_Pos, y, light, ' ', Colors);
+  Letter(Cursor_Pos, y, light, ' ', Colors);
+
   while (Print_Position < 2 && Digit[Print_Position] == 0) {  // Clear first Zero's
-    Letter(Cursor_Pos, y, light, ' ');                        // Replace with SPACE
+    Letter(Cursor_Pos, y, light, ' ', Colors);                 // Replace with SPACE
     Print_Position++;                                         // Move to next digit
   }
-  
+
   if (Value < 0) {
     Cursor_Pos = Cursor_Pos - 4;
-    Letter(Cursor_Pos, y, light, '-');
+    Letter(Cursor_Pos, y, light, '-', Colors);
   }
 
   while (Print_Position <= 2) {
-    Number(Cursor_Pos, y, light, Digit[Print_Position]);
+    Number(Cursor_Pos, y, light, Digit[Print_Position], Colors);
     Print_Position++;
   }
-  
-  Letter(Cursor_Pos, y, light, '%');
-  
+
+  Letter(Cursor_Pos, y, light, '%', Colors);
+
   Colorduino.FlipPage();
+
+  return;
 }
 //----------------------------------------------------------------------------
-void Print_Clock(short x, short y, bool light, short Hour, short Minute) {
+void Print_Clock(short x, short y, bool light, short Hour, short Minute, String Colors) {
   // https://linustechtips.com/main/topic/909558-how-to-split-a-floating-number-into-4-individual-digits-arduino/
 
   short Print_Position = 0;
@@ -376,26 +484,27 @@ void Print_Clock(short x, short y, bool light, short Hour, short Minute) {
 
   Digit[0] = ((int)Hour / 10) % 10;
   Digit[1] =  (int)Hour % 10;
-
-  Letter(Cursor_Pos, y, light, ' ');  // Offset
-  Letter(Cursor_Pos, y, light, ' ');  // Offset
-  Letter(Cursor_Pos, y, light, ' ');  // Offset
-  Spacer(x, y);                       // Offset
-  Spacer(x, y);                       // Offset
+  
+  Spacer(x, y, 0);                            // Offset
+  Spacer(x, y, 1);                            // Offset
+  Spacer(x, y, 2);                            // Offset
+  Letter(Cursor_Pos, y, light, ' ', Colors);  // Offset
+  Letter(Cursor_Pos, y, light, ' ', Colors);  // Offset
+  Letter(Cursor_Pos, y, light, ' ', Colors);  // Offset
 
   while (Print_Position <= 1) {
-    Number(Cursor_Pos, y, light, Digit[Print_Position]);
+    Number(Cursor_Pos, y, light, Digit[Print_Position], Colors);
     Print_Position++;
   }
 
-  Letter(Cursor_Pos, y, light, ':');
+  Letter(Cursor_Pos, y, light, ':', Colors);
 
   Digit[0] = ((int)Minute / 10) % 10;
   Digit[1] =  (int)Minute % 10;
 
   Print_Position = 0;
   while (Print_Position <= 1) {
-    Number(Cursor_Pos, y, light, Digit[Print_Position]);
+    Number(Cursor_Pos, y, light, Digit[Print_Position], Colors);
     Print_Position++;
   }
 
@@ -404,4 +513,98 @@ void Print_Clock(short x, short y, bool light, short Hour, short Minute) {
   return;
 }
 //----------------------------------------------------------------------------
+void Print_Stats_3(short x, short y, bool light, short Val_1, short Val_2, short Val_3, short Delimiter, String Colors) {
+  short Digit[6];
 
+  Digit[0] = ( Val_1 / 10 ) % 10;
+  Digit[1] =   Val_1 % 10;
+
+  Digit[2] = ( Val_2 / 10 ) % 10;
+  Digit[3] =   Val_2 % 10;
+
+  Digit[4] = ( Val_3 / 10 ) % 10;
+  Digit[5] =   Val_3 % 10;
+
+  Spacer(x, y, 0);                       // Offset
+  
+  if (Val_1 >= 10) {
+    Number(Cursor_Pos, y, light, Digit[0], Colors);
+    Number(Cursor_Pos, y, light, Digit[1], Colors);
+  } else {
+    Letter(Cursor_Pos, y, light, ' ', Colors);
+    Number(Cursor_Pos, y, light, Digit[1], Colors);
+  }
+
+  Print_Delimiter(x, y, light, Delimiter, Colors);
+
+  if (Val_2 >= 10) {
+    Number(Cursor_Pos, y, light, Digit[2], Colors);
+    Number(Cursor_Pos, y, light, Digit[3], Colors);
+  } else {
+    Letter(Cursor_Pos, y, light, ' ', Colors);
+    Number(Cursor_Pos, y, light, Digit[3], Colors);
+  }
+
+  Print_Delimiter(x, y, light, Delimiter, Colors);
+
+  if (Val_3 >= 10) {
+    Number(Cursor_Pos, y, light, Digit[4], Colors);
+    Number(Cursor_Pos, y, light, Digit[5], Colors);
+  } else {
+    Letter(Cursor_Pos, y, light, ' ', Colors);
+    Number(Cursor_Pos, y, light, Digit[5], Colors);
+  }
+
+  Colorduino.FlipPage();
+
+  return;
+}
+//----------------------------------------------------------------------------
+void Print_Stats_3_Bar(short x, short y, bool light, short Val_1, short Val_2, short Val_3, short Val_4, short Low_Val, short High_Val, short Delimiter, String Colors) {
+  short Digit[6];
+
+  Digit[0] = ( Val_1 / 10 ) % 10;
+  Digit[1] =   Val_1 % 10;
+
+  Digit[2] = ( Val_2 / 10 ) % 10;
+  Digit[3] =   Val_2 % 10;
+
+  Digit[4] = ( Val_3 / 10 ) % 10;
+  Digit[5] =   Val_3 % 10;
+
+  Spacer(x, y, 0);                       // Offset
+
+  if (Val_1 >= 10) {
+    Number(Cursor_Pos, y, light, Digit[0], Colors);
+    Number(Cursor_Pos, y, light, Digit[1], Colors);
+  } else {
+    Letter(Cursor_Pos, y, light, ' ', Colors);
+    Number(Cursor_Pos, y, light, Digit[1], Colors);
+  }
+
+  Print_Delimiter(x, y, light, Delimiter, Colors);
+
+  if (Val_2 >= 10) {
+    Number(Cursor_Pos, y, light, Digit[2], Colors);
+    Number(Cursor_Pos, y, light, Digit[3], Colors);
+  } else {
+    Letter(Cursor_Pos, y, light, ' ', Colors);
+    Number(Cursor_Pos, y, light, Digit[3], Colors);
+  }
+
+  Print_Delimiter(x, y, light, Delimiter, Colors);
+
+  if (Val_3 >= 10) {
+    Number(Cursor_Pos, y, light, Digit[4], Colors);
+    Number(Cursor_Pos, y, light, Digit[5], Colors);
+  } else {
+    Letter(Cursor_Pos, y, light, ' ', Colors);
+    Number(Cursor_Pos, y, light, Digit[5], Colors);
+  }
+
+  //Print_Progressbar(short x, short y, bool Color, long Low_Val, long High_Val, long Val_4);
+
+  Colorduino.FlipPage();
+
+  return;
+}

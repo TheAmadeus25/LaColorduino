@@ -15,8 +15,9 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.3 - ALPHA                    Date: 27.Mar.2019                      ┃
+  │ Version: 0.0.4 - ALPHA                    Date: 26.Dec.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
+  │ + CSGO Var                                                                       ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -226,6 +227,34 @@ struct {
   byte Setting;
   bool Enable;
 } Github;
+//----------------------------------------------------------------------------
+struct {  // Counterstrike GlobalOffensive
+  short Delimiter = 0;                                      // 0=" ", 1="/", 2=".", 3="|", 4=":", 5="-", 6="*" | It's just an optical delimiter
+  byte Setting;                                             // Setting for Watchface
+  bool Enable;                                              // Watchface enable?
+  const long    refresh_delay = 5000;                       // How often checking for new Information | No need for lower value
+  unsigned long last_refresh  = 0;                          // Last time checking for new Information
+} CSGO;
+//----------------------------------------------------------------------------
+struct {  // Counterstrike GlobalOffensive Player
+  short        kills         = 0;                           // Value between 100 -> 0
+  short        assists       = 0;                           // 
+  short        deaths        = 0;                           // 
+  short        health        = 0;                           // Optimized for 100 -> 0
+  short        armor         = 0;                           // Value between 100 -> 0
+  unsigned int flashed       = 0;                           // Value between 255 -> 0
+  unsigned int burning       = 0;                           // Value between 255 -> 0
+  unsigned int round_killshs = 0;                           // Optimized for 0 -> 5
+  String       helmet        = "";                          // Value is true or false
+  unsigned int smoked        = 0;                           // Value between 255 -> 0
+  bool         defusekit     = false;                       // Value is true or undefined (wtf?)
+  String       activity      = "";                          // Menu, Playing
+} Player, Player_Last;
+//----------------------------------------------------------------------------
+struct {  // Counterstrike GlobalOffensive Team
+  String win_team;                                          // CT or T
+  String bomb;                                              // Planted, Defused, Exploded
+} Round, Round_Last;
 //----------------------------------------------------------------------------
 struct {
   bool Button_One;

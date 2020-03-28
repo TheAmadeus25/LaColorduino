@@ -15,10 +15,12 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.4 - ALPHA                    Date: 22.Apr.2019                      ┃
+  │ Version: 0.0.5 - ALPHA                    Date: 26.Dec.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
   │ + Move Variable                                                                  ┃
-  │ + Add Header Comment                                                             ┃ 
+  │ + Header Comment                                                                 ┃
+  │ + CSGO Support                                                                   ┃
+  │ + Color Update                                                                   ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -158,91 +160,156 @@ void loop() {
 
     switch (Device.Mode) {
       case  5:
-        //Symbolic_WiFi(Device.WiFi_Skin);
+        if (Unit_Pos == 4) {
+          Symbolic_Earth();
+          Colorduino.FlipPage();
+        } else {
+          Symbolic_Dot();
+          Colorduino.FlipPage();
+        }
         break;
-        
+
       case  9:
-        //OTA_Update();
-        Print_OTA(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Updating.Device, '%');
+        switch (Updating.State) {
+          case 0:  Print_OTA(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Updating.Device, '%', "White");  break;  // Update begin and progress
+          case 1:  Print_OTA(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Updating.Device, '%', "Green");  break;  // Update succseed
+          default: Print_OTA(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Updating.Device, '%', "Red");    break;  // Update failed
+        }
         break;
-        
+
       case 10:
         //Clock
-        Print_Clock(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Time.Hour, Time.Minute);
+        Print_Clock(Cursor_Pos, 1, Environment.SET_Ambientlight, Time.Hour, Time.Minute, "White");
         break;
-      
+
       case 20:
-        Print_Temperatur(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Environment.Temperatur, Environment.Temp_Unit_2);
+        Print_Temperatur(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Environment.Temperatur, Environment.Temp_Unit_2, "White");
         break;
-        
+
       case 21:
-        
+
         break;
-        
+
       case 22:
-        Print_Percent(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Humidity);
+        Print_Percent(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Humidity, "White");
         break;
-      
+
       case 30:
-        Print_Temperatur(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Temperatur, Weather.Temp_Unit_2);
+        Print_Temperatur(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Temperatur, Weather.Temp_Unit_2, "White");
         break;
-        
+
       case 31:
-        Print_Pressure(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Pressure, Weather.Temp_Unit_2);
+        Print_Pressure(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Pressure, Weather.Temp_Unit_2, "White");
         break;
-        
-      case 32: 
-        Print_Percent(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Humidity);
+
+      case 32:
+        Print_Percent(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Humidity, "White");
         break;
-        
+
       case 33:  // Darstellungsfehler
-        Print_Float(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Wind_Speed);
+        Print_Float(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Wind_Speed, "White");
         break;
-        
+
       case 40:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Video);  //---getauscht
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Video, "White");  //---getauscht
         break;
 
       case 41:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.View);
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.View, "White");
         break;
 
       case 42:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Comment);
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Comment, "White");
         break;
 
       case 43:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Subscriber); //---getauscht
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, YouTube.Subscriber, "White"); //---getauscht
         break;
-      
+
       case 50:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitch.Follower);
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitch.Follower, "White");
         break;
-      
+
       case 51:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitch.View);
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitch.View, "White");
         break;
-      
+
       case 80:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Follower);
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Follower, "White");
         break;
-      
+
       case 81:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Tweets);
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Tweets, "White");
         break;
-      
+
       case 82:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Last_Retweet);
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Last_Retweet, "White");
         break;
-      
+
       case 83:
-        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Last_Favorite);
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Twitter.Last_Favorite, "White");
         break;
-      
+
+      case 90:
+        Print_Integer(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Facebook.Friends, "White");
+        break;
+
+      case 100:
+        if (Round.bomb == "defused") {
+          Spacer(Cursor_Pos, 1, 0);                       // Offset
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'D', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'E', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'F', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'U', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'S', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'E', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'D', "Blue");
+          Colorduino.FlipPage();
+        } else if (Round.bomb == "exploded") {
+          Spacer(Cursor_Pos, 1, 0);                       // Offset
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'E', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'X', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'P', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'L', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'O', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'D', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'E', "Yellow");
+          Colorduino.FlipPage();
+        } else if (Round.win_team == "ct") {
+          Spacer(Cursor_Pos, 1, 0);                       // Offset
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'C', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'T', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'W', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'I', "Blue");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'N', "Blue");
+          Colorduino.FlipPage();
+        } else if (Round.win_team == "t") {
+          Spacer(Cursor_Pos, 1, 0);                       // Offset
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'T', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'W', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'I', "Yellow");
+          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'N', "Yellow");
+          Colorduino.FlipPage();
+        } else {
+          Print_Stats_3_Bar(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Player.kills, Player.assists, Player.deaths, Player.health, 0, 100, CSGO.Delimiter, "White");
+          //Serial.print("Round.bomb: ");      Serial.println(Round.bomb);
+          //Serial.print("Round.win_team: ");  Serial.println(Round.win_team);
+        }
+        break;
+
       default:
         break;
     }
-    
+
     //Symbolic_Weather();
     //Colorduino.FlipPage();
     IncomingComplete = false;

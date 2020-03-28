@@ -44,9 +44,14 @@
   │ Symbolic_Air()              : Show Symbolic                                      ┃
   │ Symbolic_Error()            : Show Symbolic                                      ┃
   │ Symbolic_Date()             : Show Symbolic                                      ┃
+  │ Symbolic_Earth()            : Show Symbolic                                      ┃
+  │ Symbolic_Dot()              : Show Symbolic                                      ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.3 - ALPHA                    Date: 27.Mar.2019                      ┃
+  │ Version: 0.0.5 - ALPHA                    Date: 27.Mar.2020                      ┃
   ├──────────────────────────┴─────────────────────────┤
+  │ + Update Color                                                                   ┃
+  │ + Add Symbolic Earth                                                             ┃
+  │ + Add Symbolic Dot                                                               ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -768,7 +773,7 @@ void Symbolic_Error() {
   return;
 }
 
-void Symbolic_Date( short Day) {
+void Symbolic_Date( short Day ) {
   short DigitOne, DigitTwo;
   //GFX_Fill(30, 144, 255);
   GFX_Fill(10, 50, 255);
@@ -777,17 +782,54 @@ void Symbolic_Date( short Day) {
 
   // Numbers
   if (Day < 10) {
-    Number(3, 2, true, Day);
+    Number(3, 2, true, Day, "White");
   } else {
     DigitOne = ( Day / 10 ) % 10;
     DigitTwo = Day % 10;
-    Number(1, 2, true, DigitOne);
-    Number(5, 2, true, DigitTwo);
+    Number(1, 2, true, DigitOne, "White");
+    Number(5, 2, true, DigitTwo, "White");
   }
 
 
   // Numbers
   //Number(1, 2, true, 8);
+
+  return;
+}
+
+void Symbolic_Earth() {
+  GFX_Fill(0, 0, 0);// R G B
+  
+  GFX_VLine(0, 5, 2, 0, 255, 0);
+  
+  GFX_VLine(1, 6, 3, 0, 0, 255);
+  GFX_VLine(1, 2, 1, 0, 255, 0);
+
+  GFX_VLine(2, 7, 0, 0, 0, 255);
+  Colorduino.SetPixel(2, 1, 0, 255, 0);
+  
+  GFX_VLine(3, 7, 0, 0, 0, 255);
+  Colorduino.SetPixel(3, 4, 0, 255, 0);
+  
+  GFX_VLine(4, 7, 0, 0, 0, 255);
+  GFX_VLine(4, 6, 4, 0, 255, 0);
+  
+  GFX_VLine(5, 7, 3, 0, 255, 0);
+  GFX_VLine(5, 2, 0, 0, 0, 255);
+  
+  GFX_VLine(6, 6, 3, 0, 255, 0);
+  GFX_VLine(6, 2, 1, 0, 0, 255);
+  
+  GFX_VLine(7, 5, 2, 0, 255, 0);
+
+  return;
+}
+
+void Symbolic_Dot() {
+  GFX_Fill(0, 0, 0);// R G B
+   
+  GFX_VLine(3, 4, 3, 255, 255, 255);
+  GFX_VLine(4, 4, 3, 255, 255, 255);
 
   return;
 }
