@@ -171,15 +171,19 @@ You can change the delimiter of this watchface into one of the following char:
 
 ### Space Delimiter (Setting 0)
 
-![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0780.JPG?raw=true)
+![Preview CSGO Livestats 0](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0780.JPG?raw=true)
 
 ### Colon Delimiter (Setting 4)
 
-![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0778.JPG?raw=true)
+![Preview CSGO Livestats 4](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0778.JPG?raw=true)
 
 ### Hyphen Delimiter (Setting 5)
 
-![Preview CSGO Livestats](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0939.jpg?raw=true)
+![Preview CSGO Livestats 5](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0939.jpg?raw=true)
+
+### Asterix Delimiter (Setting 6)
+
+![Preview CSGO Livestats 6](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0970.jpg?raw=true)
 
 ### Bomb Exploded
 
