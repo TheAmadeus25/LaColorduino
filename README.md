@@ -173,6 +173,18 @@ You can change the delimiter of this watchface into one of the following char:
 
 ![Preview CSGO Livestats 0](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0780.JPG?raw=true)
 
+### Slash Delimiter (Setting 1)
+
+![Preview CSGO Livestats 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0976.jpg?raw=true)
+
+### Dot Delimiter (Setting 2)
+
+![Preview CSGO Livestats 2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0977.jpg?raw=true)
+
+### Vertical Line Delimiter (Setting 3)
+
+![Preview CSGO Livestats 3](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0978.jpg?raw=true)
+
 ### Colon Delimiter (Setting 4)
 
 ![Preview CSGO Livestats 4](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0778.JPG?raw=true)
