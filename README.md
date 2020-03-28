@@ -156,18 +156,18 @@ Yes my friend, it's true! It can show you your **current stats** as well! I just
 * Who wins _(CT or T)_
 * Bomb state _(defused or exploded)(it override who win)_
 
-TBH, this watchface has a lot of problems and need additional **[script](https://github.com/TheAmadeus25/CounterStrike-GlobalOffensive-LiveStat-for-OBS-Studio/tree/master/Sourcecode)** and **[software](https://nodejs.org/de/download/)** which I also uploaded **[here](https://github.com/TheAmadeus25/CounterStrike-GlobalOffensive-LiveStat-for-OBS-Studio)**. Just follow the **[wiki](https://github.com/TheAmadeus25/CounterStrike-GlobalOffensive-LiveStat-for-OBS-Studio/wiki)**. Currently, it's not free of bugs and sometimes it just crashed the hole microcontroller. However, I'm working on it. At the moment, I'm just wondering about its input-lag. In my **[other project](https://github.com/TheAmadeus25/CounterStrike-GlobalOffensive-Ambilight-System)** it acts in less then 6ms over WiFi! Maybe I need to optimize my Smartwatch at the first place, before I start digging around.
+TBH, this watchface need additional **[script](https://github.com/TheAmadeus25/CounterStrike-GlobalOffensive-LiveStat-for-OBS-Studio/tree/master/Sourcecode)** and **[software](https://nodejs.org/de/download/)** which I also uploaded **[here](https://github.com/TheAmadeus25/CounterStrike-GlobalOffensive-LiveStat-for-OBS-Studio)**. Just follow the **[wiki](https://github.com/TheAmadeus25/CounterStrike-GlobalOffensive-LiveStat-for-OBS-Studio/wiki)**. Currently, it's input-lag is at ~6 milliseconds _(~166Hz)_ which is fast enough for such a device! It's not possible to decrease input-lag over Wi-Fi even more.
 
 ### Livestats
 
-You can change the delimiter of this watchface into one of the following char:
-* space
-* slash
-* dot
-* vertical line
-* colon
-* hyphen
-* asterix
+You can change the delimiter of this watchface into one of the following character:
+* Space
+* Slash
+* Dot
+* Vertical line
+* Colon
+* Hyphen
+* Asterix
 
 ### Space Delimiter (Setting 0)
 
@@ -214,7 +214,7 @@ You can change the delimiter of this watchface into one of the following char:
 
 ## Update-over-Air (OTA)
 
-This one is just for the ESP8266 itself. It's not possible to update the Colorduino in this build over the air. The Icon is animated and rotating while receiving data. Based on its colour it shows you the current state (progress, succeeded, failed). Someday, if this project is finished, I make this process obsolete. Everything should be configured on a web browser. It doesn't mean I'll remove this feature, maybe it got a bugfix or an update. OTA would be very handy.
+This one is just for the ESP8266 itself. It's not possible to update the Colorduino in this build over the air. The Icon is animated and rotating while receiving data. Based on its colour it shows you the current state _(progress, succeeded, failed)_. Someday, if this project is finished, I make this process obsolete. Everything should be configured on a web browser. It doesn't mean I'll remove this feature, maybe it got a bugfix or an update. OTA would be very handy.
 
 ### Progress
 
