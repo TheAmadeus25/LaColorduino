@@ -21,7 +21,7 @@ long SubscriberCount = 0;
 
 int Weather_Icon[] = {200, 300, 500, 511, 600, 701, 800, 801, 802, 803};
 
-const long    OTA_refresh_delay = 30;
+const long    OTA_refresh_delay = 20; // 30
 unsigned long OTA_last_refresh  = 0;
 short OTA_Skin = 0;
 short OTA_Color_R, OTA_Color_G, OTA_Color_B = 255;
@@ -232,6 +232,34 @@ struct {
   bool Enable;
 } Github;
 //----------------------------------------------------------------------------
+struct {  // Counterstrike GlobalOffensive
+  short Delimiter = 0;                                      // 0=" ", 1="/", 2=".", 3="|", 4=":", 5="-", 6="*" | It's just an optical delimiter
+  byte Setting;                                             // Setting for Watchface
+  bool Enable;                                              // Watchface enable?
+  const long    refresh_delay = 5000;                       // How often checking for new Information | No need for lower value
+  unsigned long last_refresh  = 0;                          // Last time checking for new Information
+} CSGO;
+//----------------------------------------------------------------------------
+struct {  // Counterstrike GlobalOffensive Player
+  short        kills         = 0;                           // Value between 100 -> 0
+  short        assists       = 0;                           // 
+  short        deaths        = 0;                           // 
+  short        health        = 0;                           // Optimized for 100 -> 0
+  short        armor         = 0;                           // Value between 100 -> 0
+  unsigned int flashed       = 0;                           // Value between 255 -> 0
+  unsigned int burning       = 0;                           // Value between 255 -> 0
+  unsigned int round_killshs = 0;                           // Optimized for 0 -> 5
+  String       helmet        = "";                          // Value is true or false
+  unsigned int smoked        = 0;                           // Value between 255 -> 0
+  bool         defusekit     = false;                       // Value is true or undefined (wtf?)
+  String       activity      = "";                          // Menu, Playing
+} Player, Player_Last;
+//----------------------------------------------------------------------------
+struct {  // Counterstrike GlobalOffensive Team
+  String win_team;                                          // CT or T
+  String bomb;                                              // Planted, Defused, Exploded
+} Round, Round_Last;
+//----------------------------------------------------------------------------
 struct {
   bool Button_One;
   bool Button_Two;
@@ -421,6 +449,14 @@ void loop() {
       
       case 83: // Twitter Last Favorite
         Symbolic_Favorite();
+        break;
+        
+      case 90:  // Facebook
+        Symbolic_Facebook();
+        break;
+        
+      case 100:
+        Symbolic_Steam_2();
         break;
 
       default:

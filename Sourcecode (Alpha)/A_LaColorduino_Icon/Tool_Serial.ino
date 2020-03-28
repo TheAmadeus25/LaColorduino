@@ -140,8 +140,26 @@ void ParseSerial() {
    case 83:
       Twitter.Last_Favorite        = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
-      break;  
-    
+      break;
+     
+   case 90:
+      Facebook.Friends             = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break; 
+      
+   case 100:
+      Player.kills                 = Serial.parseInt();
+      Player.assists               = Serial.parseInt();
+      Player.deaths                = Serial.parseInt();
+      Player.health                = Serial.parseInt();
+      Player.flashed               = Serial.parseInt();
+      Serial.readStringUntil(';');
+      Round.bomb                   = Serial.readStringUntil(';');
+      Round.win_team               = Serial.readStringUntil(';');
+      CSGO.Delimiter               = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
     default:
       break;
   }

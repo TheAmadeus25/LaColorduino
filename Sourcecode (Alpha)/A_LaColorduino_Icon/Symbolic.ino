@@ -137,16 +137,16 @@ void Symbolic_Retweet() {
 }
 
 void Symbolic_Favorite() {
-  GFX_Fill(0, 0, 0);
+  GFX_Fill(0, 0, 0);// 128, 0, 64
   
-  GFX_HLine(1, 6, 2, 128, 0, 64);
-  GFX_HLine(5, 6, 6, 128, 0, 64);
+  GFX_HLine(1, 6, 2, 255, 0, 128);
+  GFX_HLine(5, 6, 6, 255, 0, 128);
   
-  GFX_HLine(0, 5, 7, 128, 0, 64);
-  GFX_HLine(0, 4, 7, 128, 0, 64);
-  GFX_HLine(1, 3, 6, 128, 0, 64);
-  GFX_HLine(2, 2, 5, 128, 0, 64);
-  GFX_HLine(3, 1, 4, 128, 0, 64);
+  GFX_HLine(0, 5, 7, 255, 0, 128);
+  GFX_HLine(0, 4, 7, 255, 0, 128);
+  GFX_HLine(1, 3, 6, 255, 0, 128);
+  GFX_HLine(2, 2, 5, 255, 0, 128);
+  GFX_HLine(3, 1, 4, 255, 0, 128);
   
   return;  
 }
@@ -476,7 +476,7 @@ void Symbolic_Steam_2() {
 
   Colorduino.SetPixel(2, 1, 255, 255, 255);
 
-  GFX_HLine(0, 0, 7, 2, 2, 2);
+  //GFX_HLine(0, 0, 7, 2, 2, 2);
 
   return;
 }
