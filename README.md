@@ -185,7 +185,7 @@ You can change the delimiter of this watchface into one of the following char:
 
 ![Preview CSGO Livestats 6](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0970.jpg?raw=true)
 
-### Bomb Exploded
+### Bomb Exploded ([Video](https://twitter.com/TheAmadeus25/status/1243958285625065473))
 
 ![Preview CSGO Bomb Exploded](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0748.JPG?raw=true)
 
