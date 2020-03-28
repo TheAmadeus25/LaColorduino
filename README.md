@@ -68,6 +68,10 @@ Based on **[openweathermap](https://openweathermap.org/)** it show the current *
 
 ![Preview Weather Broken Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0830.jpg?raw=true)
 
+### Scattered Clouds (day and night)
+
+![Preview Weather Scattered Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0979.jpg?raw=true)
+
 **[...more photos incoming](https://openweathermap.org/weather-conditions)**
 
 ******
