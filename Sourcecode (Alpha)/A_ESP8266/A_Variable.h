@@ -223,7 +223,7 @@ struct {  // Environment
   short AirQuality;                                         // [Missing HW atm]
   byte  Setting;                                            // Setting for Watchface
   bool  Enable;                                             // Watchface enable?
-  const long    refresh_delay = 2500;                      // How often checking for new Information | No need for lower value
+  const long    refresh_delay = 2500;                       // How often checking for new Information | No need for lower value
   unsigned long last_refresh  = 0;                          // Last time checking for new Information
 } Environment;
 //----------------------------------------------------------------------------
@@ -232,6 +232,41 @@ struct {  // Github
   byte Setting;                                             // Setting for Watchface
   bool Enable;                                              // Watchface enable?
 } Github;
+//----------------------------------------------------------------------------
+struct {  // Counterstrike GlobalOffensive
+  String IP = "192.168.178.23";                             // IP of Node.js Scriptfile
+  String PORT = "65001";                                    // Port of Node.js Scriptfile
+  unsigned int localUdpPort = 65002;                        // Local port to listen on
+  char incomingPacket[255];                                 // Buffer for incoming packets
+  int  packetSize;                                          // Buffer Size
+  int  len;                                                 // Array Size for Buffer
+  bool UDP_Input = false;                                   // New Information
+  short Delimiter = 0;                                      // 0=" ", 1="/", 2=".", 3="|", 4=":", 5="-", 6="*" | It's just an optical delimiter
+  byte Setting;                                             // Setting for Watchface
+  bool Enable;                                              // Watchface enable?
+  const long    refresh_delay = 5000;                       // How often checking for new Information | No need for lower value
+  unsigned long last_refresh  = 0;                          // Last time checking for new Information
+} CSGO;
+//----------------------------------------------------------------------------
+struct {  // Counterstrike GlobalOffensive Player
+  short        kills         = 0;                           // Value between 100 -> 0
+  short        assists       = 0;                           // 
+  short        deaths        = 0;                           // 
+  short        health        = 0;                           // Optimized for 100 -> 0
+  short        armor         = 0;                           // Value between 100 -> 0
+  unsigned int flashed       = 0;                           // Value between 255 -> 0
+  unsigned int burning       = 0;                           // Value between 255 -> 0
+  unsigned int round_killshs = 0;                           // Optimized for 0 -> 5
+  String       helmet        = "";                          // Value is true or false
+  unsigned int smoked        = 0;                           // Value between 255 -> 0
+  bool         defusekit     = false;                       // Value is true or undefined (wtf?)
+  String       activity      = "";                          // Menu, Playing
+} Player, Player_Last;
+//----------------------------------------------------------------------------
+struct {  // Counterstrike GlobalOffensive Team
+  String win_team;                                          // CT or T
+  String bomb;                                              // Planted, Defused, Exploded
+} Round, Round_Last;
 //----------------------------------------------------------------------------
 struct {  // Pressed
   long Button_One;                                          // Hold|Release | Hold current Watchface | Change Feature/Watchface

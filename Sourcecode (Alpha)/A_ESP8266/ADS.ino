@@ -41,17 +41,17 @@ void InitADS1115() {
 
 void GetADS1115() {
   Environment.OldData = Environment.SET_Ambientlight;
-  
+
   //Pressed.Button_One   =         ads.readADC_SingleEnded(0);
   //Pressed.Button_Two   =         ads.readADC_SingleEnded(1);
   //Pressed.Button_Three =         ads.readADC_SingleEnded(2);
-  
+
   if ( ads.readADC_SingleEnded(0) < 10000 ) {
     Pressed.Button_One = false;
   } else {
     Pressed.Button_One = true;
   }
-  
+
   if ( ads.readADC_SingleEnded(1) < 10000 ) {
     Pressed.Button_Two = false;
   } else {
@@ -63,7 +63,7 @@ void GetADS1115() {
   } else {
     Pressed.Button_Three = true;
   }
-  
+
   Environment.RAW_Ambientlight = ads.readADC_SingleEnded(3);
 
   Environment.Ambientlight = map(Environment.RAW_Ambientlight, 0, 17600, 0, 100);
@@ -88,14 +88,14 @@ void GetADS1115() {
   }
 
   CalculateAmbientlight(Environment.OldData);
-  
-  
+
+
   return;
 }
 
 void CalculateAmbientlight(short Input) {
   bool MasterRefresh = false;
-  
+
   if (Environment.Ambientlight > Trigger) {
     if (Input == 0) {
       MasterRefresh = true;
@@ -109,6 +109,7 @@ void CalculateAmbientlight(short Input) {
     Environment.SET_Ambientlight = 0;
     Device.Mode = 10;
     Device.Set = 10;
+
   }
 
   if (MasterRefresh == true) {
@@ -120,10 +121,13 @@ void CalculateAmbientlight(short Input) {
 }
 
 void NightMode() {
-  if(Environment.SET_Ambientlight == 0){
+  if (Environment.SET_Ambientlight == 0) {
     Setting.change_refresh = millis();
+
     //Device.Mode = 10;
     //Device.Set = 10;
     //SerialOutput();
   }
+
+  return;
 }

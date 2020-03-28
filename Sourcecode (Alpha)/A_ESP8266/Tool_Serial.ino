@@ -15,9 +15,9 @@
   │                                                                                  ┃
   │                                                                                  ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.4 - ALPHA                    Date: 14.Apr.2019                      ┃
+  │ Version: 0.0.5 - ALPHA                    Date: 24.Dec.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
-  │ +                                                                                ┃
+  │ + Add CSGO Support                                                               ┃
   │                                                                                  ┃
   │                                                                                  ┃
   │                                                                                  ┃ 
@@ -175,7 +175,27 @@ void SerialOutput() {
       Serial.print(";");
       Serial.print(Environment.SET_Ambientlight);
       break;
-        
+
+    case 100: // 100;100;0;0;0;0;0;0;A;1;1;   // 100;100;11;22;33;0;0;exploded;t;1;1;
+      Serial.print(Player.kills);
+      Serial.print(";");
+      Serial.print(Player.assists);
+      Serial.print(";");
+      Serial.print(Player.deaths);
+      Serial.print(";");
+      Serial.print(Player.health);
+      Serial.print(";");
+      Serial.print(Player.flashed);
+      Serial.print(";");
+      Serial.print(Round.bomb);
+      Serial.print(";");
+      Serial.print(Round.win_team);
+      Serial.print(";");
+      Serial.print(CSGO.Delimiter);
+      Serial.print(";");
+      Serial.print("1"); // Environment.SET_Ambientlight
+      break;
+      
     default:
       break;
   }

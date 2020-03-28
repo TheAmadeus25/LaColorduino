@@ -15,11 +15,11 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.4 - ALPHA                    Date: 30.Apr.2019                      ┃
+  │ Version: 0.0.5 - ALPHA                    Date: 26.Dec.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
   │ + Add Twitter                                                                    ┃
-  │ + AddcTwitch                                                                     ┃
-  │                                                                                  ┃
+  │ + Add Twitch                                                                     ┃
+  │ + Add CSGO Livestats                                                             ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -35,6 +35,7 @@
 #include <ArduinoOTA.h>                                     // Library
 #include <FS.h>                                             // Library
 #include <ESP8266WebServer.h>                               // Library
+#include <WiFiUdp.h>                                        // Library | CSGO
 #define ESP_Button 0                                        // ESP Flash Button
 #define ESP_Led 2                                           // ESP LED
 
@@ -50,7 +51,7 @@ const bool Debug_Serial = false;                            // Debug via Serial
 
 //--- ADS1015 ---//
 #include <Adafruit_ADS1015.h>                               // Library
-Adafruit_ADS1115 ads;                                       // 
+Adafruit_ADS1115 ads;                                       //
 
 //--- BME280 ---//
 #include <Adafruit_Sensor.h>                                // Library
@@ -62,8 +63,8 @@ Adafruit_BME280 bme;                                        // I2C
 #include <YoutubeApi.h>                                     // Library
 #include <ArduinoJson.h>                                    // Library
 
-WiFiClientSecure client;                                    // 
-YoutubeApi api(API_KEY, client);                            // 
+WiFiClientSecure client;                                    //
+YoutubeApi api(API_KEY, client);                            //
 
 //--- OpenWeatherMap ---//
 #include <Time.h>                                           // Library
@@ -74,21 +75,22 @@ typedef enum wifi_s {
   W_AP = 0, W_READY, W_TRY
 } WifiStat;
 
-OWMconditions      owCC;                                    // 
-OWMfiveForecast    owF5;                                    // 
-OWMsixteenForecast owF16;                                   // 
-WifiStat           WF_status;                               // 
+OWMconditions      owCC;                                    //
+OWMfiveForecast    owF5;                                    //
+OWMsixteenForecast owF16;                                   //
+WifiStat           WF_status;                               //
 
 
 //--- Bitcoin ---//
 #include <CoinMarketCapApi.h>                               // Library
-CoinMarketCapApi api2(client);                              // 
+CoinMarketCapApi api2(client);                              //
 
 //--- NTP ---//
 #include <NTPClient.h>                                      // Library
 #include <WiFiUdp.h>                                        // Library
 
-WiFiUDP ntpUDP;                                             // 
+WiFiUDP ntpUDP;                                             //
+WiFiUDP Udp;                                                //
 
 //─────────────────────────────────────────────────────┐
 // You can specify the time server pool and the offset (in seconds, can be
@@ -106,7 +108,7 @@ TwitchApi twitch(client, TWITCH_CLIENT_ID);
 TwitterApi api3(client);
 
 
-enum Units {Celsius = 5, Fahrenheit = 6, Kelvin = 7};       // 
+enum Units {Celsius = 5, Fahrenheit = 6, Kelvin = 7};       //
 
 #include "A_Variable.h"                                     // Move Variable to it's own File
 
@@ -122,8 +124,9 @@ void setup() {
   InitWeather();                                            // @OpenWeatherMap | Configuration of WeatherAPI
   InitNTP();                                                // @NTP            | Configuration of the Time
   InitTwitter();                                            // @Twitter        | Configuration of Twitter
+  InitUDP();                                                // @CSGO_Stats     | Configuration of CSGO
 
-                                                            // Just put some numbers into all variables for start
+  // Just put some numbers into all variables for start
   digitalWrite(ESP_Led, LOW);                               // Lights-up built in LED
   GetWeather();                                             // @OpenWeatherMap | Parsing Information
   GetYouTube();                                             // @YouTube        | Parsing Information
@@ -134,7 +137,7 @@ void setup() {
   GetTwitch();                                              // @Twitch         | Parsing Information
   GetTwitter();                                             // @Twitter        | Parsing Information
   digitalWrite(ESP_Led, HIGH);                              // Lights-down built in LED
-  
+
   Setting.change_refresh = millis();                        // Reset Timer counter
   SerialOutput();                                           // @Tool_Serial    | Send Information to Colorduino
 }
@@ -142,7 +145,7 @@ void setup() {
 // ###################################################################################
 void loop() {
   ArduinoOTA.handle();                                      // Check for OTA
-  // server.handleClient();                                 
+  // server.handleClient();
   GetADS1115();                                             // @ADS            | Parsing Information
 
   if ( millis() - Setting.last_refresh > Setting.refresh_delay || digitalRead(ESP_Button) == LOW ) {            // If times up or built-in button pressed,...
@@ -150,7 +153,7 @@ void loop() {
     SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
     digitalWrite(ESP_Led, HIGH);                            // Lights-down built in LED
   }//END IF
-  
+
   if ( millis() - Weather.last_refresh > Weather.refresh_delay ) {                                              // If times up,...
     digitalWrite(ESP_Led, LOW);                             // Lights-up built in LED
     GetWeather();                                           // @OpenWeatherMap | Parsing Information
@@ -158,7 +161,7 @@ void loop() {
     SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
     digitalWrite(ESP_Led, HIGH);                            // Lights-down built in LED
   }//END IF
-  
+
   if ( millis() - YouTube.last_refresh > YouTube.refresh_delay ) {                                              // If times up,...
     digitalWrite(ESP_Led, LOW);                             // Lights-up built in LED
     GetYouTube();                                           // @YouTube        | Parsing Information
@@ -198,20 +201,34 @@ void loop() {
     SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
     digitalWrite(ESP_Led, HIGH);                            // Lights-down built in LED
   }//END IF
-  
+
+  if ( GetUDP() ) {
+    if (Device.Mode != 100) {
+      Device.Mode = 100;
+      Device.Set  = 100;
+    } else {
+      Setting.change_refresh = millis();
+    }
+
+    Weather.last_refresh = millis();
+    YouTube.last_refresh = millis();
+    Time.last_refresh    = millis();
+    Twitch.last_refresh  = millis();
+  }
+
   // <- Add new Software for new Watchfaces
 
   NightMode();
-  
+
   if ( millis() - Setting.change_refresh > Setting.change_delay || Pressed.Button_Three == true) {              // If times up or ADS button is pressed,...
-    switch(Device.Mode) {                                   // Check Watchface-Mode
-      case 10:  Device.Mode = 20; Device.Set = 20;  break;// CLOCK
-      case 20:  Device.Mode = 30; Device.Set = 30;  break;  // INDOOR TEMPERATURE 
-      //case 22:  Device.Mode = 30; Device.Set = 30;  break;
+    switch (Device.Mode) {                                  // Check Watchface-Mode
+      case 10:  Device.Mode = 20; Device.Set = 20;  break;  // CLOCK
+      case 20:  Device.Mode = 30; Device.Set = 30;  break;  // INDOOR TEMPERATURE
+      //case 21:  Device.Mode = 30; Device.Set = 30;  break;  // INDOOR PRESSURE
       case 30:  Device.Mode = 32; Device.Set = 32;  break;  //---31|31
       case 31:  Device.Mode = 32; Device.Set = 32;  break;  // WEATHER PRESSURE*
-      case 32:  Device.Mode = 40; Device.Set = 40;  break;  // WEATHER HUMIDITY*
-      //case 33:  Device.Mode = 40; Device.Set = 40;  break;// 
+      case 32:  Device.Mode = 33; Device.Set = 33;  break;  // WEATHER HUMIDITY*
+      case 33:  Device.Mode = 40; Device.Set = 40;  break;  // WEATHER WIND
       case 40:  Device.Mode = 41; Device.Set = 41;  break;  // YOUTUBE SUBSCRIBER
       case 41:  Device.Mode = 42; Device.Set = 42;  break;  // YOUTUBE VIEW
       case 42:  Device.Mode = 43; Device.Set = 43;  break;  // YOUTUBE COMMENT
@@ -221,9 +238,11 @@ void loop() {
       case 80:  Device.Mode = 81; Device.Set = 81;  break;  // TWITTER FOLLOWER
       case 81:  Device.Mode = 82; Device.Set = 82;  break;  // TWITTER TWEETS
       case 82:  Device.Mode = 83; Device.Set = 83;  break;  // TWITTER LAST_RETWEET
-      case 83:  Device.Mode = 10; Device.Set = 10;  break;  // TWITTER LAST_FAVORITE      
+      case 83:  Device.Mode = 10; Device.Set = 10;  break;  // TWITTER LAST_FAVORITE
+      case 90:  Device.Mode = 10; Device.Set = 10;  break;  // FACEBOOK ****
+      case 100: Device.Mode = 10; Device.Set = 10;  break;  // CSGO LIVESTATS
     }//END SWITCH
-    
+
     SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
     Setting.change_refresh = millis();                      // Reset Timer counter
   }//END IF

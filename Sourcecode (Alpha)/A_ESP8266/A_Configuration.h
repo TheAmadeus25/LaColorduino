@@ -15,10 +15,10 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.2 - ALPHA                    Date: 29.Apr.2019                      ┃
+  │ Version: 0.0.3 - ALPHA                    Date: 24.Nov.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
-  │ + Twitter Setting                                                                ┃
-  │ + Comments                                                                       ┃
+  │ + TimeZone                                                                       ┃
+  │ + SummerTime                                                                     ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -30,6 +30,9 @@ char password[] = "******";                       // Your network Password
 
 #define Trigger 15                                          // Ambilight Trigger in percent (1% - 100%)
                                                             // If ambilight is lower than trigger, it switch to Dark-Mode (Low-Light Clock only)
+
+#define TimeZone 1                                          // Local Timezone (UTC = 0, Berlin = 1,...)
+#define SummerTime 0                                        // Local Summertime (Normal/Winter = 0, Summer = 1)
 
 #define API_KEY "******"   // Google apps API Token
 #define CHANNEL_ID "******"               // Url of channel

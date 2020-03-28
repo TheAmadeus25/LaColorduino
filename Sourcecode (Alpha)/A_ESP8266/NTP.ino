@@ -15,14 +15,16 @@
   │                                                                                  ┃
   │                                                                                  ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.1 - ALPHA                    Date: 27.Jan.2019                      ┃
+  │ Version: 0.0.2 - ALPHA                    Date: 24.Nov.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
+  │ + TimeZone                                                                       ┃
+  │ + SummerTime                                                                     ┃
   └────────────────────────────────────────────────────┘
 */
 
 void InitNTP() {
   timeClient.begin();
-  timeClient.setTimeOffset(7200);
+  timeClient.setTimeOffset( (TimeZone * 3600) + (SummerTime * 3600) );
   
   return;
 }
