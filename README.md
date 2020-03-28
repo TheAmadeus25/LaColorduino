@@ -208,6 +208,10 @@ This one is just for the ESP8266 itself. It's not possible to update the Colordu
 
 ![Preview OTA 2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/OTA/IMG_0938.jpg?raw=true)
 
+### Failed
+
+![Preview OTA 3](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/OTA/IMG_0960.jpg?raw=true)
+
 ******
 ## Font
 ### Numbers
