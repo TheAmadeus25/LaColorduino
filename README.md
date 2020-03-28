@@ -64,6 +64,10 @@ Based on **[openweathermap](https://openweathermap.org/)** it show the current *
 
 ![Preview Weather Clear Sky2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0885.jpg?raw=true)
 
+### Few Clouds (night)
+
+![Preview Weather Few Clouds2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0980.jpg?raw=true)
+
 ### Broken Clouds (day and night)
 
 ![Preview Weather Broken Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0830.jpg?raw=true)
