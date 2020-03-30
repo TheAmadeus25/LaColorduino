@@ -177,7 +177,7 @@ void ParseSerial() {
       Environment.SET_Ambientlight = Serial.parseInt();
       break; 
       
-   case 100:
+   case 100:  // 100;100;0;0;0;0;0;0;A;1;1;   // 100;100;11;22;33;0;0;exploded;t;1;1;
       Player.kills                 = Serial.parseInt();
       Player.assists               = Serial.parseInt();
       Player.deaths                = Serial.parseInt();

@@ -60,7 +60,7 @@ bool Position_Check() {
     Checked = false;
   }
   Cursor_Pos++;
-  
+
   return Checked;
 }
 //----------------------------------------------------------------------------
@@ -103,7 +103,46 @@ void Print_Delimiter(short x, short y, bool light, long Value, String Colors) {
   return;
 }
 //----------------------------------------------------------------------------
-void Print_Progressbar(short x, short y, bool Color, long Low_Val, long High_Val, long Cur_Val, String Colors) {
+void Print_Progressbar(String Colors, long Low_Val, long High_Val, long Cur_Val, bool light) {
+  int n_red;
+  int n_green;
+  int n_blue;
+
+  unsigned long Value = map( Cur_Val, Low_Val, High_Val, 0, 31 );
+  int Cur_Pos = True_Pos;                                               // True_Pos = -((Unit_Pos - 1) * 8); // 1=0 | 2=-8 | 3=-16 | 4=-24
+
+  short SetColor = StringToColorVal(Colors);
+
+  if (light == false) {
+    switch (SetColor) {
+      case 0:   n_red = 1;  n_green = 1;  n_blue = 1; break;            // Dark White (Night-Mode)  | #010101
+      case 1:   n_red = 1;  n_green = 0;  n_blue = 0; break;            // Dark Red                 | #010000
+      case 2:   n_red = 1;  n_green = 1;  n_blue = 0; break;            // Dark Yellow              | #010100
+      case 3:   n_red = 0;  n_green = 1;  n_blue = 0; break;            // Dark Green               | #000100
+      case 4:   n_red = 0;  n_green = 1;  n_blue = 1; break;            // Dark Aqua                | #000101
+      case 5:   n_red = 0;  n_green = 0;  n_blue = 1; break;            // Dark Blue                | #000001
+      case 6:   n_red = 1;  n_green = 0;  n_blue = 1; break;            // Dark Purple              | #010001
+      default:  n_red = 1;  n_green = 1;  n_blue = 1; break;            // Dark White as default    | #010101
+    }
+  } else {
+    switch (SetColor) {
+      case 0:  n_red = 255;  n_green = 255;  n_blue = 255; break;       // Light White (Day-Mode)   | #FFFFFF
+      case 1:  n_red = 255;  n_green = 0;    n_blue = 0;   break;       // Light Red                | #FF0000
+      case 2:  n_red = 255;  n_green = 255;  n_blue = 0;   break;       // Light Yellow             | #FFFF00
+      case 3:  n_red = 0;    n_green = 255;  n_blue = 0;   break;       // Light Green              | #00FF00
+      case 4:  n_red = 0;    n_green = 255;  n_blue = 255; break;       // Light Aqua               | #00FFFF
+      case 5:  n_red = 0;    n_green = 0;    n_blue = 255; break;       // Light Blue               | #0000FF
+      case 6:  n_red = 255;  n_green = 0;    n_blue = 255; break;       // Light Purple             | #FF00FF
+      default: n_red = 255;  n_green = 255;  n_blue = 255; break;       // Light White as default   | #FFFFFF
+    }
+  }
+
+  for (int i = 0; i <= 31; i++) {
+    if (Cur_Pos >= 0 && Cur_Pos <= 7 && i <= Value && Value != 0) {
+      Colorduino.SetPixel(Cur_Pos, 0, n_red, n_green, n_blue);
+    }
+    Cur_Pos++;
+  }
 
   return;
 }
@@ -116,7 +155,7 @@ short StringToColorVal(String Value) {
   if (Value == "Aqua")   return 4;
   if (Value == "Blue")   return 5;
   if (Value == "Purple") return 6;
-  
+
   return 0;
 }
 //----------------------------------------------------------------------------
@@ -234,26 +273,27 @@ void Print_Speed(short x, short y, bool light, float Value, String Colors, short
 
   Letter(Cursor_Pos, y, light, '.', Colors);
   Number(Cursor_Pos + 1, y, light, Digit[6], Colors);
-  
+
   switch (Unit) {
     case 0:  Letter(Cursor_Pos, y, light, 'k', Colors);
-             Letter(Cursor_Pos, y, light, 'm', Colors);
-             Letter(Cursor_Pos, y, light, '/', Colors);
-             Letter(Cursor_Pos, y, light, 'h', Colors);
-             break;
+      Letter(Cursor_Pos, y, light, 'm', Colors);
+      Letter(Cursor_Pos, y, light, '/', Colors);
+      Letter(Cursor_Pos, y, light, 'h', Colors);
+      break;
     case 1:  Letter(Cursor_Pos, y, light, 'm', Colors);
-             Letter(Cursor_Pos, y, light, '/', Colors);
-             Letter(Cursor_Pos, y, light, 's', Colors);
-             break;
+      Letter(Cursor_Pos, y, light, '/', Colors);
+      Letter(Cursor_Pos, y, light, 's', Colors);
+      break;
     case 2:  Letter(Cursor_Pos, y, light, 'm', Colors);
-             Letter(Cursor_Pos, y, light, '/', Colors);
-             Letter(Cursor_Pos, y, light, 'h', Colors);
-             break;
+      Letter(Cursor_Pos, y, light, '/', Colors);
+      Letter(Cursor_Pos, y, light, 'h', Colors);
+      break;
     case 3:  Letter(Cursor_Pos, y, light, 'f', Colors);
-             Letter(Cursor_Pos, y, light, 't', Colors);
-             Letter(Cursor_Pos, y, light, '/', Colors);
-             Letter(Cursor_Pos, y, light, 's', Colors);
-             break;
+      Letter(Cursor_Pos, y, light, 't', Colors);
+      Letter(Cursor_Pos, y, light, '/', Colors);
+      Letter(Cursor_Pos, y, light, 's', Colors);
+      break;
+  }
 
   Colorduino.FlipPage();
 
@@ -285,7 +325,7 @@ void Print_Temperatur(short x, short y, bool light, float Value, short Unit, Str
   Spacer(x, y, 1);
   Spacer(x, y, 2);
   Letter(Cursor_Pos, y, light, ' ', Colors);
-  
+
 
   while (Print_Position < 5 /*7*/ && Digit[Print_Position] == 0) {
     Letter(Cursor_Pos, y, light, ' ', Colors);
@@ -408,7 +448,7 @@ void Print_OTA(short x, short y, bool light, float Value, char Unit, String Colo
   Spacer(x, y, 0);
   Letter(Cursor_Pos, y, light, ' ', Colors);
   Letter(Cursor_Pos, y, light, ' ', Colors);
-  
+
 
   while (Print_Position < 5 /*7*/ && Digit[Print_Position] == 0) {
     Letter(Cursor_Pos, y, light, ' ', Colors);
@@ -430,6 +470,8 @@ void Print_OTA(short x, short y, bool light, float Value, char Unit, String Colo
   Number(Cursor_Pos, y, light, Digit[6], Colors);
   //#Letter(Cursor_Pos, y, light, ' ', Colors);
   Letter(Cursor_Pos, y, light, Unit, Colors);
+  
+  Print_Progressbar(Colors, 0, 100, Value, light);
 
   Colorduino.FlipPage();
 
@@ -445,7 +487,7 @@ void Print_Percent(short x, short y, bool light, long Value, String Colors) {
   Digit[0] = ((int)Value / 100) % 10;
   Digit[1] = ((int)Value / 10) % 10;
   Digit[2] =  Value % 10;
-  
+
   Spacer(x, y, 0);
   Spacer(x, y, 1);
   Spacer(x, y, 2);
@@ -484,7 +526,7 @@ void Print_Clock(short x, short y, bool light, short Hour, short Minute, String 
 
   Digit[0] = ((int)Hour / 10) % 10;
   Digit[1] =  (int)Hour % 10;
-  
+
   Spacer(x, y, 0);                            // Offset
   Spacer(x, y, 1);                            // Offset
   Spacer(x, y, 2);                            // Offset
@@ -526,7 +568,7 @@ void Print_Stats_3(short x, short y, bool light, short Val_1, short Val_2, short
   Digit[5] =   Val_3 % 10;
 
   Spacer(x, y, 0);                       // Offset
-  
+
   if (Val_1 >= 10) {
     Number(Cursor_Pos, y, light, Digit[0], Colors);
     Number(Cursor_Pos, y, light, Digit[1], Colors);
@@ -602,7 +644,7 @@ void Print_Stats_3_Bar(short x, short y, bool light, short Val_1, short Val_2, s
     Number(Cursor_Pos, y, light, Digit[5], Colors);
   }
 
-  //Print_Progressbar(short x, short y, bool Color, long Low_Val, long High_Val, long Val_4);
+  Print_Progressbar("White", Low_Val, High_Val, Val_4, light);
 
   Colorduino.FlipPage();
 

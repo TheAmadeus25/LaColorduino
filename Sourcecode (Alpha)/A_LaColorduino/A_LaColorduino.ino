@@ -277,9 +277,8 @@ void loop() {
           Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'D', "Yellow");
           Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'E', "Yellow");
           Colorduino.FlipPage();
-        } else if (Round.win_team == "ct") {
+        } else if (Round.win_team == "CT") {
           Spacer(Cursor_Pos, 1, 0);                       // Offset
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Blue");
           Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Blue");
           Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'C', "Blue");
           Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'T', "Blue");
@@ -288,9 +287,8 @@ void loop() {
           Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'I', "Blue");
           Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'N', "Blue");
           Colorduino.FlipPage();
-        } else if (Round.win_team == "t") {
+        } else if (Round.win_team == "T") {
           Spacer(Cursor_Pos, 1, 0);                       // Offset
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
           Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
           Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
           Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'T', "Yellow");
@@ -301,8 +299,6 @@ void loop() {
           Colorduino.FlipPage();
         } else {
           Print_Stats_3_Bar(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Player.kills, Player.assists, Player.deaths, Player.health, 0, 100, CSGO.Delimiter, "White");
-          //Serial.print("Round.bomb: ");      Serial.println(Round.bomb);
-          //Serial.print("Round.win_team: ");  Serial.println(Round.win_team);
         }
         break;
 
