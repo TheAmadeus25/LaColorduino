@@ -28,11 +28,12 @@
 char ssid[] = "******";                                        // Your network SSID (name)
 char password[] = "******";                       // Your network Password
 
+
 #define Trigger 15                                          // Ambilight Trigger in percent (1% - 100%)
                                                             // If ambilight is lower than trigger, it switch to Dark-Mode (Low-Light Clock only)
 
 #define TimeZone 1                                          // Local Timezone (UTC = 0, Berlin = 1,...)
-#define SummerTime 0                                        // Local Summertime (Normal/Winter = 0, Summer = 1)
+#define SummerTime 1                                        // Local Summertime (Normal/Winter = 0, Summer = 1)
 
 #define API_KEY "******"   // Google apps API Token
 #define CHANNEL_ID "******"               // Url of channel

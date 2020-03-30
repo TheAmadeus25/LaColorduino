@@ -241,7 +241,7 @@ struct {  // Counterstrike GlobalOffensive
   int  packetSize;                                          // Buffer Size
   int  len;                                                 // Array Size for Buffer
   bool UDP_Input = false;                                   // New Information
-  short Delimiter = 0;                                      // 0=" ", 1="/", 2=".", 3="|", 4=":", 5="-", 6="*" | It's just an optical delimiter
+  short Delimiter = 6;                                      // 0=" ", 1="/", 2=".", 3="|", 4=":", 5="-", 6="*" | It's just an optical delimiter
   byte Setting;                                             // Setting for Watchface
   bool Enable;                                              // Watchface enable?
   const long    refresh_delay = 5000;                       // How often checking for new Information | No need for lower value

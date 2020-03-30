@@ -28,7 +28,9 @@ long rssi = 0;
 void InitESP() {
   pinMode(ESP_Button, INPUT);
   pinMode(ESP_Led, OUTPUT);
+  pinMode(ESP_Led2, OUTPUT);
   digitalWrite(ESP_Led, HIGH);
+  digitalWrite(ESP_Led2, HIGH);
 
   return;
 }

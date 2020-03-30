@@ -49,6 +49,7 @@ void InitOTA() {
 
   ArduinoOTA.onEnd([]() {
     digitalWrite(ESP_Led, HIGH);
+    digitalWrite(ESP_Led2, HIGH);
     //Serial.println("\nEnd");
     Updating.State = 1;
     SerialOutput();
@@ -63,6 +64,7 @@ void InitOTA() {
     SerialOutput();
     
     digitalWrite(ESP_Led, LOW);
+    digitalWrite(ESP_Led2, LOW);
     //Serial.printf("%u%%\r", (progress / (total / 100)));
   });
 

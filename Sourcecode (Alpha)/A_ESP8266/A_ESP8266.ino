@@ -15,7 +15,7 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.5 - ALPHA                    Date: 26.Dec.2019                      ┃
+  │ Version: 0.0.6 - ALPHA                    Date: 28.Mar.2020                      ┃
   ├──────────────────────────┴─────────────────────────┤
   │ + Add Twitter                                                                    ┃
   │ + Add Twitch                                                                     ┃
@@ -37,7 +37,8 @@
 #include <ESP8266WebServer.h>                               // Library
 #include <WiFiUdp.h>                                        // Library | CSGO
 #define ESP_Button 0                                        // ESP Flash Button
-#define ESP_Led 2                                           // ESP LED
+#define ESP_Led   2                                         // Built-In Blue LED on ESP8266 1 (D4) ~
+#define ESP_Led2 16                                         // Built-In Blue LED on NodeMCU 2 (D0)
 
 const bool Debug_Serial = false;                            // Debug via Serial
 
@@ -128,14 +129,16 @@ void setup() {
 
   // Just put some numbers into all variables for start
   digitalWrite(ESP_Led, LOW);                               // Lights-up built in LED
-  GetWeather();                                             // @OpenWeatherMap | Parsing Information
-  GetYouTube();                                             // @YouTube        | Parsing Information
-  GetBME280();                                              // @BME280         | Parsing Information
-  GetADS1115();                                             // @ADS            | Parsing Information
-  GetBitcoin();                                             // @Bitcoin        | Parsing Information
-  GetNTP();                                                 // @NTP            | Parsing Information
-  GetTwitch();                                              // @Twitch         | Parsing Information
-  GetTwitter();                                             // @Twitter        | Parsing Information
+  //for (short LoginBoot = 0; LoginBoot <= 1; LoginBoot++) {  // Some operation need two request for working
+    GetWeather();                                           // @OpenWeatherMap | Parsing Information
+    GetYouTube();                                           // @YouTube        | Parsing Information
+    GetBME280();                                            // @BME280         | Parsing Information
+    GetADS1115();                                           // @ADS            | Parsing Information
+    GetBitcoin();                                           // @Bitcoin        | Parsing Information
+    GetNTP();                                               // @NTP            | Parsing Information
+    GetTwitch();                                            // @Twitch         | Parsing Information
+    GetTwitter();                                           // @Twitter        | Parsing Information
+  //}
   digitalWrite(ESP_Led, HIGH);                              // Lights-down built in LED
 
   Setting.change_refresh = millis();                        // Reset Timer counter
@@ -203,6 +206,7 @@ void loop() {
   }//END IF
 
   if ( GetUDP() ) {
+    digitalWrite(ESP_Led2, LOW);                            // Lights-up built in LED
     if (Device.Mode != 100) {
       Device.Mode = 100;
       Device.Set  = 100;
@@ -210,10 +214,14 @@ void loop() {
       Setting.change_refresh = millis();
     }
 
-    Weather.last_refresh = millis();
-    YouTube.last_refresh = millis();
-    Time.last_refresh    = millis();
-    Twitch.last_refresh  = millis();
+    Weather.last_refresh = millis() /* + ( Weather.refresh_delay - 10000 )*/ ;
+    YouTube.last_refresh = millis() /* + ( YouTube.refresh_delay - 10000 )*/ ;
+    Time.last_refresh    = millis() /* + ( Time.refresh_delay    - 10000 )*/ ;
+    Twitch.last_refresh  = millis() /* + ( Twitch.refresh_delay  - 10000 )*/ ;
+    Twitter.last_refresh = millis() /* + ( Twitter.refresh_delay - 10000 )*/ ;
+
+    SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
+    digitalWrite(ESP_Led2, HIGH);                           // Lights-down built in LED
   }
 
   // <- Add new Software for new Watchfaces
@@ -227,8 +235,8 @@ void loop() {
       //case 21:  Device.Mode = 30; Device.Set = 30;  break;  // INDOOR PRESSURE
       case 30:  Device.Mode = 32; Device.Set = 32;  break;  //---31|31
       case 31:  Device.Mode = 32; Device.Set = 32;  break;  // WEATHER PRESSURE*
-      case 32:  Device.Mode = 33; Device.Set = 33;  break;  // WEATHER HUMIDITY*
-      case 33:  Device.Mode = 40; Device.Set = 40;  break;  // WEATHER WIND
+      case 32:  Device.Mode = 40; Device.Set = 40;  break;  // WEATHER HUMIDITY*
+      //case 33:  Device.Mode = 40; Device.Set = 40;  break;  // WEATHER WIND
       case 40:  Device.Mode = 41; Device.Set = 41;  break;  // YOUTUBE SUBSCRIBER
       case 41:  Device.Mode = 42; Device.Set = 42;  break;  // YOUTUBE VIEW
       case 42:  Device.Mode = 43; Device.Set = 43;  break;  // YOUTUBE COMMENT
