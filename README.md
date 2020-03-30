@@ -45,6 +45,8 @@ It show the current temperature in **Celsius** _(°C)_, **Fahrenheit** _(°F)_ a
 
 ![Preview Indoor Temperature 3](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0933.jpg?raw=true)
 
+**...more photos incoming**
+
 ### Indoor Humidity
 
 There is a watchface just for the current **humidity**.
@@ -64,17 +66,25 @@ Based on **[openweathermap](https://openweathermap.org/)** it show the current *
 
 ![Preview Weather Clear Sky2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0885.jpg?raw=true)
 
+### Few Clouds (day)
+
+![Preview Weather Few Clouds1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_1013.jpg?raw=true)
+
 ### Few Clouds (night)
 
 ![Preview Weather Few Clouds2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0980.jpg?raw=true)
+
+### Scattered Clouds (day and night)
+
+![Preview Weather Scattered Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0979.jpg?raw=true)
 
 ### Broken Clouds (day and night)
 
 ![Preview Weather Broken Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0830.jpg?raw=true)
 
-### Scattered Clouds (day and night)
+### Rain (day)
 
-![Preview Weather Scattered Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0979.jpg?raw=true)
+![Preview Weather Rain 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0995.jpg?raw=true)
 
 **[...more photos incoming](https://openweathermap.org/weather-conditions)**
 
@@ -213,6 +223,8 @@ You can change the delimiter of this watchface into one of the following charact
 
 ![Preview CSGO Bomb Defused](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0777.JPG?raw=true)
 
+**...more videos incoming**
+
 ******
 ## Basics
 
@@ -235,6 +247,8 @@ This one is just for the ESP8266 itself. It's not possible to update the Colordu
 ### Failed
 
 ![Preview OTA 3](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/OTA/IMG_0960.jpg?raw=true)
+
+**...new photos incoming**
 
 ******
 ## Font
@@ -262,6 +276,7 @@ This one is just for the ESP8266 itself. It's not possible to update the Colordu
 
 ### Weather
 
+**...more photos incoming**
 
 ******
 ## I plan to add more things like
