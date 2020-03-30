@@ -80,7 +80,7 @@ Based on **[openweathermap](https://openweathermap.org/)** it show the current *
 
 ### Broken Clouds (day and night)
 
-![Preview Weather Broken Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0830.jpg?raw=true)
+![Preview Weather Broken Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_1032.png?raw=true)
 
 ### Rain (day)
 
