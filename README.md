@@ -170,7 +170,7 @@ Yes my friend, it's true! It can show you your **current stats** as well! I just
 * Kill
 * Assist
 * Death
-* Health _(as progressbar)(working on it)_
+* Health _(as progressbar)_
 * Who wins _(CT or T)_
 * Bomb state _(defused or exploded)(it override who win)_
 
@@ -215,13 +215,17 @@ You can change the delimiter of this watchface into one of the following charact
 
 ![Preview CSGO Livestats 6](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0970.jpg?raw=true)
 
-### Bomb Exploded ([Video](https://twitter.com/TheAmadeus25/status/1243958285625065473))
+### Bomb Exploded ([Video](https://twitter.com/TheAmadeus25/status/1244611876392230912))
 
 ![Preview CSGO Bomb Exploded](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0748.JPG?raw=true)
 
-### Bomb Defused
+### Bomb Defused ([Video](https://twitter.com/TheAmadeus25/status/1244611705881198597))
 
 ![Preview CSGO Bomb Defused](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_0777.JPG?raw=true)
+
+### CT Wins ([Video](https://twitter.com/TheAmadeus25/status/1244611519905660928))
+
+
 
 **...more videos incoming**
 
@@ -236,7 +240,7 @@ You can change the delimiter of this watchface into one of the following charact
 
 This one is just for the ESP8266 itself. It's not possible to update the Colorduino in this build over the air. The Icon is animated and rotating while receiving data. Based on its colour it shows you the current state _(progress, succeeded, failed)_. Someday, if this project is finished, I make this process obsolete. Everything should be configured on a web browser. It doesn't mean I'll remove this feature, maybe it got a bugfix or an update. OTA would be very handy.
 
-### Progress
+### Progress ([Video](https://twitter.com/TheAmadeus25/status/1244610207793254401))
 
 ![Preview OTA 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/OTA/IMG_0934.jpg?raw=true)
 
@@ -268,6 +272,38 @@ This one is just for the ESP8266 itself. It's not possible to update the Colordu
 ### Letters
 
 ### Special Character
+
+![Preview Colon](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Colonss.png?raw=true)
+![Preview Semi Colon](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Semi%20Colonss.png?raw=true)
+![Preview Plus](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Plusss.png?raw=true)
+![Preview Hyphen](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Hyphenss.png?raw=true)
+![Preview Asterix](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Asterixss.png?raw=true)
+![Preview Dot](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Dotss.png?raw=true)
+![Preview Comma](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Commass.png?raw=true)
+![Preview Underline](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Underliness.png?raw=true)
+![Preview Hash](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Hashss.png?raw=true)
+![Preview Vertical Line](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Vertical%20Liness.png?raw=true)
+![Preview Degree](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Degreess.png?raw=true)
+![Preview µ](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/µss.png?raw=true)
+![Preview Slash](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Slashss.png?raw=true)
+![Preview Exclamation Mark](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Exclamation%20Markss.png?raw=true)
+![Preview Percent Sign](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Percent%20Signss.png?raw=true)
+![Preview Round Bracket open](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Round%20Bracket%20openss.png?raw=true)
+![Preview Round Bracket closed](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Round%20Bracket%20closedss.png?raw=true)
+![Preview Lower Than](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Lower%20Thanss.png?raw=true)
+![Preview Higher Than](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Higher%20Thanss.png?raw=true)
+![Preview Equal](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Equalss.png?raw=true)
+![Preview Question Mark](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Question%20Markss.png?raw=true)
+![Preview At](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Atss.png?raw=true)
+![Preview Square Bracket open](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Square%20Bracket%20openss.png?raw=true)
+![Preview Square Bracket closed](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Square%20Bracket%20closedss.png?raw=true)
+![Preview Curly Bracket open](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Curly%20Bracket%20openss.png?raw=true)
+![Preview Curly Bracket closed](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Curly%20Bracket%20closedss.png?raw=true)
+![Preview Circumflex](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Circumflexss.png?raw=true)
+![Preview Grave Accent](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Grave%20Accentss.png?raw=true)
+![Preview Tilde](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Tildess.png?raw=true)
+![Preview Space](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Spacess.png?raw=true)
+![Preview Missing](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Special%20Character/Errorss.png?raw=true)
 
 ******
 ## Icon
@@ -327,21 +363,8 @@ This one is just for the ESP8266 itself. It's not possible to update the Colordu
   * We need at least 3.3V/5V for ESP8266 and 6.5V to 7.5V for RGB Matrix, at least 1A+.
 * Messing Spacer _(for mounting)_
 
-## Character Set supported
-* [X] A-Z
+## Character Set missing
 * [ ] a-z ~(it will convert to uppercase)~
-* [X] 0-9 (decimal)
-* [X] Semi-/colon
-* [X] Simply Math operation
-* [X] Punctuation
-* [X] Number sign
-* [X] Brackets
-* [X] Underscore
-* [X] Guillemets
-* [X] Question mark
-* [X] Space
-* [X] At-Sign
-* [X] Tilde
 * [ ] And-Sign
 * [ ] Dollar
 * [ ] Ä, Ö, Ü, É, etc.
