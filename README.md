@@ -86,6 +86,10 @@ Based on **[openweathermap](https://openweathermap.org/)** it show the current *
 
 ![Preview Weather Rain 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0995.jpg?raw=true)
 
+### Wind Speed (km/h)
+
+![Preview Weather Wind](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_1136.jpg?raw=true)
+
 **[...more photos incoming](https://openweathermap.org/weather-conditions)**
 
 ******
