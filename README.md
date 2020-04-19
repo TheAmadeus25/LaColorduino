@@ -212,6 +212,31 @@ How often got your **last tweet liked**.
 ![Preview Facebook Fan](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Facebook/Facebook.jpg?raw=true)
 
 ******
+## Powermeter Watchface ([Video](https://imgur.com/gallery/6YIdLtq))
+
+You need extra hardware to make this run _(ESP with Built-in button + INA226)_. I'll uploade the sourcecode for the second device later. However, this measuring works completly over WiFi! The **Slave ESP** is measuring the **Voltage**, **Current** and calculate the **Power**. It transmit this Information **over Wi-Fi** to the Social-Gamer-Smartwatch. **[UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol)** helps a lot for this use case! If you want to switch between all units, just press the button on the **Slave ESP** and it will change on the Smartwatch, as well. It's very easy and you can use your own measuring instead of **INA226**! 
+
+### Voltage
+
+![Preview Voltage](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Power/Voltage.jpg?raw=true)
+
+### Current
+
+![Preview Current](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Power/Current.jpg?raw=true)
+
+### Power
+
+![Preview Power](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Power/Power.jpg?raw=true)
+
+### Slave Device Unit
+
+![Preview Slave Device](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Multimeter%20Device/Slave.jpg?raw=true)
+
+### Multimeter Adapter
+
+![Preview Multimeter Adapter](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Multimeter%20Device/Multimeter.jpg?raw=true)
+
+******
 ## CounterStrike: Global Offensive 
 
 Yes my friend, it's true! It can show you your **current stats** as well! I just modified the **[official API from Valve](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration)** a little. It shows you:
@@ -276,24 +301,6 @@ You can change the delimiter of this watchface into one of the following charact
 **...more videos incoming**
 
 ******
-
-## Powermeter Watchface
-
-You need extra hardware to make this run. I'll uploade the sourcecode for the second device later.
-
-### Voltage
-
-![Preview Voltage](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Power/Voltage.jpg?raw=true)
-
-### Current
-
-![Preview Current](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Power/Current.jpg?raw=true)
-
-### Power
-
-![Preview Power](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Power/Power.jpg?raw=true)
-
-******
 ## Basics
 
 ### Connecting to WiFi/MiFi Device
@@ -324,7 +331,7 @@ You need extra hardware to make this run. I'll uploade the sourcecode for the se
 
 ![Preview Internet Failed](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/Foto%2018.04.20,%2022%2052%2023.jpg?raw=true)
 
-## Update-over-Air (OTA)
+## Update-over-Air (OTA) 
 
 This one is just for the ESP8266 itself. It's not possible to update the Colorduino in this build over the air. The Icon is animated and rotating while receiving data. Based on its colour it shows you the current state _(progress, succeeded, failed)_. Someday, if this project is finished, I make this process obsolete. Everything should be configured on a web browser. It doesn't mean I'll remove this feature, maybe it got a bugfix or an update. OTA would be very handy.
 
