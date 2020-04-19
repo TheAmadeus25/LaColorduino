@@ -45,6 +45,8 @@ It show the current temperature in **Celsius** _(°C)_, **Fahrenheit** _(°F)_ a
 
 ![Preview Indoor Temperature 3](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/IMG_0933.jpg?raw=true)
 
+![Preview Indoor Temperature 4](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Indoor/Foto%2018.04.20,%2023%2010%2054.jpg?raw=true)
+
 **...more photos incoming**
 
 ### Indoor Humidity
@@ -56,41 +58,75 @@ There is a watchface just for the current **humidity**.
 ******
 ## Weather
 
-Based on **[openweathermap](https://openweathermap.org/)** it show the current **weather** at your location. It change the icon as well, depending on the weather.
+Based on **[openweathermap](https://openweathermap.org/)** it show the current **weather** at your location. It change the icon as well, depending on the weather. **[Here](https://openweathermap.org/weather-conditions)** is a list which is more accurate. I did an update of all weather symbols due lack of space (reducing around 8%). However, this should match better to this Social-Gamer-Smartwatch.
 
-### Clear Sky (day)
+### Thunderstorm
 
-![Preview Weather Clear Sky](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0709.JPG?raw=true)
+![Preview Weather Thunderstorm](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Thunderstorm.jpg?raw=true)
 
-### Clear Sky (night)
+### Drizzle
 
-![Preview Weather Clear Sky2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0885.jpg?raw=true)
-
-### Few Clouds (day)
-
-![Preview Weather Few Clouds1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_1013.jpg?raw=true)
-
-### Few Clouds (night)
-
-![Preview Weather Few Clouds2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0980.jpg?raw=true)
-
-### Scattered Clouds (day and night)
-
-![Preview Weather Scattered Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0979.jpg?raw=true)
-
-### Broken Clouds (day and night)
-
-![Preview Weather Broken Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_1032.png?raw=true)
+![Preview Weather Drizzle](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Drizzle.jpg?raw=true)
 
 ### Rain (day)
 
-![Preview Weather Rain 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_0995.jpg?raw=true)
+![Preview Weather Rain Day](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Rain%20Day.jpg?raw=true)
+
+### Rain (night)
+
+![Preview Weather Rain Night](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Rain%20Night.jpg?raw=true)
+
+### Snow 1
+
+![Preview Weather Snow 1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Snow%201.jpg?raw=true)
+
+### Snow 2
+
+![Preview Weather Snow 2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Snow%202.jpg?raw=true)
+
+### Atmosphere, Fog etc.
+
+![Preview Weather Atmosphere](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Fog.jpg?raw=true)
+
+### Clear Sky (day)
+
+![Preview Weather Clear Sky](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Clear%20Day.jpg?raw=true)
+
+### Clear Sky (night)
+
+![Preview Weather Clear Sky2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Clear%20Night.jpg?raw=true)
+
+### Few Clouds (day)
+
+![Preview Weather Few Clouds1](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Few%20Clouds%20Day.jpg?raw=true)
+
+### Few Clouds (night)
+
+![Preview Weather Few Clouds2](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Few%20Clouds%20Night.jpg?raw=true)
+
+### Scattered Clouds
+
+![Preview Weather Scattered Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Scattered%20Clouds.jpg?raw=true)
+
+### Broken Clouds (Will changed in the future)
+
+![Preview Weather Broken Clouds](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Scattered%20Clouds.jpg?raw=true)
+
+### 5 Day Forecast example (Currently not available due problems)
+
+![Preview Weather Forecast](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Forecast%205%20Day.jpg?raw=true)
 
 ### Wind Speed (km/h)
 
 ![Preview Weather Wind](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/IMG_1136.jpg?raw=true)
 
-**[...more photos incoming](https://openweathermap.org/weather-conditions)**
+### Sunrise (Currently not available due problems)
+
+![Preview Sunrise](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Sunrise.jpg?raw=true)
+
+### Sunset (Currently not available due problems)
+
+![Preview Sunset](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Weather/Sunset.jpg?raw=true)
 
 ******
 ## YouTube
@@ -168,6 +204,14 @@ How often got your **last tweet liked**.
 ![Preview Twitter Last Tweet Favorite](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Twitter/IMG_0736.JPG?raw=true)
 
 ******
+
+## Facebook (Currently not available due problems)
+
+### Fan Counter
+
+![Preview Facebook Fan](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Facebook/Facebook.jpg?raw=true)
+
+******
 ## CounterStrike: Global Offensive 
 
 Yes my friend, it's true! It can show you your **current stats** as well! I just modified the **[official API from Valve](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration)** a little. It shows you:
@@ -229,16 +273,56 @@ You can change the delimiter of this watchface into one of the following charact
 
 ### CT Wins ([Video](https://twitter.com/TheAmadeus25/status/1244611519905660928))
 
-
-
 **...more videos incoming**
+
+******
+
+## Powermeter Watchface
+
+You need extra hardware to make this run. I'll uploade the sourcecode for the second device later.
+
+### Voltage
+
+![Preview Voltage](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Power/Voltage.jpg?raw=true)
+
+### Current
+
+![Preview Current](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Power/Current.jpg?raw=true)
+
+### Power
+
+![Preview Power](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/Power/Power.jpg?raw=true)
 
 ******
 ## Basics
 
-### Connecting to the Internet
+### Connecting to WiFi/MiFi Device
 
-![Preview WiFi](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/IMG_0912.png?raw=true)
+![Preview WiFi](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/Foto%2018.04.20,%2022%2046%2013.jpg?raw=true)
+
+### Connecting to WiFi/MiFi Device Success
+
+![Preview WiFi Success](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/Foto%2018.04.20,%2022%2052%2048.jpg?raw=true)
+
+### No WiFi/MiFi Device available / Wrong SSID
+
+![Preview WiFi Wrong SSID](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/Foto%2018.04.20,%2022%2046%2056.jpg?raw=true)
+
+### Wrong WiFi/MiFi Password
+
+![Preview WiFi Wrong Password](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/Foto%2018.04.20,%2022%2047%2020.jpg?raw=true)
+
+### Testing Internet Connection
+
+![Preview Internet](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/IMG_0912.png?raw=true)
+
+### Testing Internet Connection Failed
+
+![Preview Internet Failed](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/Foto%2018.04.20,%2022%2052%2003.jpg?raw=true)
+
+### Testing Internet Connection Succeed
+
+![Preview Internet Failed](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/WiFi/Foto%2018.04.20,%2022%2052%2023.jpg?raw=true)
 
 ## Update-over-Air (OTA)
 
