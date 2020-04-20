@@ -15,17 +15,17 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.5 - ALPHA                    Date: 26.Dec.2019                      ┃
+  │ Version: 0.0.6 - ALPHA                    Date: 11.Apr.2020                      ┃
   ├──────────────────────────┴─────────────────────────┤
-  │ + Move Variable                                                                  ┃
-  │ + Header Comment                                                                 ┃
-  │ + CSGO Support                                                                   ┃
-  │ + Color Update                                                                   ┃
+  │ + Shorting/Optimize Space                                                        ┃
+  │ - Moving CSGO into its own function                                              ┃
+  │                                                                                  ┃
+  │                                                                                  ┃
   └────────────────────────────────────────────────────┘
 */
 
 #include <Colorduino.h>
-#include <ColorTools.h>
+//#include <ColorTools.h>
 
 // ### Choose your Position for each Colorduino ###
 // Count from left to right
@@ -36,15 +36,9 @@
 short True_Pos = -((Unit_Pos - 1) * 8);
 short Cursor_Pos = True_Pos;
 
-#define StringSpace 255
-char IncomingString[StringSpace];
 bool IncomingComplete = false;
 char Temp_Array[64];
 char Separator = ';';
-
-long SubscriberCount = 0;
-
-int Weather_Icon[] = {200, 300, 500, 511, 600, 701, 800, 801, 802, 803};
 
 #include "A_Variable.h"
 
@@ -86,25 +80,8 @@ void setup() {
 
   Colorduino.SetWhiteBal(whiteBalVal);
   InitSerial();
-  //Serial.println(Cursor_Pos);
-
-  String TestString = "aB234";
-
-  String_toArray(TestString);
-
-  TestString.toUpperCase();
-  TestString.toCharArray(Temp_Array, 64);
-
-
-  //Symbolic_Twitch();
-  //Symbolic_Twitch_Count();
-  //Symbolic_Clock();
-  //Symbolic_Like();
-  //Symbolic_Facebook();
-  //Symbolic_Twitter();
+  
   //Symbolic_Temperature(9);
-  //Symbolic_YouTube_Sub();
-  //Symbolic_YouTube_Comment();
   //Symbolic_YouTube_WatchTime();
   //Symbolic_YouTube_View();
   //Symbolic_YouTube_View_2();
@@ -136,15 +113,6 @@ void setup() {
   //Letter(1, 1, true, 'E');
   //Letter(5, 1, true, 'B');
 
-  //Cursor_Pos += 1;
-
-
-  //Print_Array(0, 0, true, Temp_Array[3]);
-  //Print_Float(0, 0, true, 20.5);
-
-
-  //Symbolic_Error();
-  //GFX_Fill(255, 255, 255);
   Colorduino.FlipPage();
   //delay(100);
 }
@@ -159,14 +127,61 @@ void loop() {
     Cursor_Pos = True_Pos;
 
     switch (Device.Mode) {
+      case  0:
+        Symbolic_Blank();
+        break;
+
       case  5:
-        if (Unit_Pos == 4) {
-          Symbolic_Earth();
-          Colorduino.FlipPage();
-        } else {
-          Symbolic_Dot();
-          Colorduino.FlipPage();
-        }
+        switch (Unit_Pos) {
+          case 1:
+            if ( (Device.WiFi_Code == 0 || Device.WiFi_Code == 5) && (Device.WiFi_Skin == 0 || Device.WiFi_Skin == 4 || Device.WiFi_Skin == 8) ) {  //
+              Symbolic_Dot(1);
+            } else {
+              Symbolic_Dot(0);
+            }//END DOT
+
+            if ( Device.WiFi_Code == 1 || Device.WiFi_Code == 3 || Device.WiFi_Code == 4 || Device.WiFi_Code == 6 || Device.WiFi_Code == 7) {
+              Symbolic_Line();
+            } else if (Device.WiFi_Code == 2) {
+              Symbolic_Line_Error();
+            }//END LINE
+            break;//END CASE 1
+
+          case 2:
+            if ( (Device.WiFi_Code == 0 || Device.WiFi_Code == 5) && (Device.WiFi_Skin == 1 || Device.WiFi_Skin == 3 || Device.WiFi_Skin == 5 || Device.WiFi_Skin == 7 || Device.WiFi_Skin == 9 || Device.WiFi_Skin == 11) ) {
+              Symbolic_Dot(1);
+            } else {
+              Symbolic_Dot(0);
+            }//END DOT
+
+            if ( (Device.WiFi_Code >= 1 && Device.WiFi_Code <= 4) || Device.WiFi_Code == 6 || Device.WiFi_Code == 7) {
+              Symbolic_Line();
+            }
+            break;//END CASE 2
+
+          case 3:
+            if ( (Device.WiFi_Code == 0 || Device.WiFi_Code == 5) && (Device.WiFi_Skin == 2 || Device.WiFi_Skin == 6 || Device.WiFi_Skin == 10) ) {
+              Symbolic_Dot(1);
+            } else {
+              Symbolic_Dot(0);
+            }//END DOT
+
+            if ( Device.WiFi_Code == 2 /*|| Device.WiFi_Code == 3*/ || Device.WiFi_Code == 4 || Device.WiFi_Code == 7) {
+              Symbolic_Line();
+            } else if (Device.WiFi_Code == 1 || Device.WiFi_Code == 6) {
+              Symbolic_Line_Error();
+            }//END LINE
+            break;//END CASE 3
+
+          case 4:
+            if (Device.WiFi_Code >= 0 && Device.WiFi_Code < 5) {
+              Symbolic_Router();
+            } else {
+              Symbolic_Earth();
+            }
+        }//END SWITCH POS
+
+        Colorduino.FlipPage();
         break;
 
       case  9:
@@ -206,8 +221,21 @@ void loop() {
         Print_Percent(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Humidity, "White");
         break;
 
-      case 33:  // Darstellungsfehler
-        Print_Float(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Wind_Speed, "White");
+      case 33:
+        //Print_Float(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Wind_Speed, "White");
+        Print_Speed(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Weather.Wind_Speed, "White", Weather.Wind_Speed_Unit);
+        break;
+        
+      case 34:
+        Print_Forecast();
+        break;
+        
+      case 35:
+        Print_Clock(Cursor_Pos, 1, Environment.SET_Ambientlight, Weather.SunriseHour, Weather.SunriseMinute, "White");
+        break;
+        
+      case 36:
+        Print_Clock(Cursor_Pos, 1, Environment.SET_Ambientlight, Weather.SunsetHour, Weather.SunsetMinute, "White");
         break;
 
       case 40:
@@ -255,63 +283,19 @@ void loop() {
         break;
 
       case 100:
-        if (Round.bomb == "defused") {
-          Spacer(Cursor_Pos, 1, 0);                       // Offset
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'D', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'E', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'F', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'U', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'S', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'E', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'D', "Blue");
-          Colorduino.FlipPage();
-        } else if (Round.bomb == "exploded") {
-          Spacer(Cursor_Pos, 1, 0);                       // Offset
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'E', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'X', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'P', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'L', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'O', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'D', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'E', "Yellow");
-          Colorduino.FlipPage();
-        } else if (Round.win_team == "CT") {
-          Spacer(Cursor_Pos, 1, 0);                       // Offset
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'C', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'T', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'W', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'I', "Blue");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'N', "Blue");
-          Colorduino.FlipPage();
-        } else if (Round.win_team == "T") {
-          Spacer(Cursor_Pos, 1, 0);                       // Offset
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'T', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, ' ', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'W', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'I', "Yellow");
-          Letter(Cursor_Pos, 1, Environment.SET_Ambientlight, 'N', "Yellow");
-          Colorduino.FlipPage();
-        } else {
-          Print_Stats_3_Bar(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Player.kills, Player.assists, Player.deaths, Player.health, 0, 100, CSGO.Delimiter, "White");
-        }
+        Print_CSGO();
+        break;
+
+      case 110:
+        Print_Power(Cursor_Pos + 1, 1, Environment.SET_Ambientlight, Power.Transmitting, Power.Unit, "White");
         break;
 
       default:
         break;
     }
 
-    //Symbolic_Weather();
-    //Colorduino.FlipPage();
     IncomingComplete = false;
   }
-
-
 
 
   /*
@@ -356,8 +340,6 @@ void loop() {
               delay(100);
             }
           }
-
-
 
       for (short ICON = 0; ICON < 10; ICON++) {
         Symbolic_Weather(Weather_Icon[ICON], true);

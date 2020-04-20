@@ -15,9 +15,9 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.4 - ALPHA                    Date: 26.Dec.2019                      ┃
+  │ Version: 0.0.5 - ALPHA                    Date: 11.Apr.2020                      ┃
   ├──────────────────────────┴─────────────────────────┤
-  │ + CSGO Var                                                                       ┃
+  │ - Removing unused var                                                            ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -101,7 +101,7 @@ struct {  // Twitch
   unsigned long View;                                       // All-Time View
 } Twitch;
 //----------------------------------------------------------------------------
-struct {
+/*struct {
   float EUR_to_USD;
   float EUR_to_GBP;
   float EUR_to_JPY;
@@ -126,25 +126,7 @@ struct {
 
   const long    refresh_delay = 600000;
   unsigned long last_refresh  = 0;
-} Currency;
-//----------------------------------------------------------------------------
-struct {
-  String  ID;
-  String Name;
-  String Symbol;
-  int    Rank;
-  double Value_to_USD;
-  double Value;
-  long   Supply_Available;
-  long   Supply_Max;
-  double Change_1h;
-  double Change_24h;
-  double Change_7d;
-  long   Last_Update;
-
-  const long    refresh_delay = 600000;
-  unsigned long last_refresh  = 0;
-} Bitcoin, Ethereum, Dogecoin;
+} Currency;*/
 //----------------------------------------------------------------------------
 struct {
   short Mail;
@@ -167,8 +149,6 @@ struct {
 } Spotify;
 //----------------------------------------------------------------------------
 struct {
-  float  Longtitude;
-  float  Latitude;
   String ID;
   String Icon;
   String Main;
@@ -184,24 +164,27 @@ struct {
   float  Visibility;
   char   Vis_Unit;
   float  Wind_Speed;      // m/s
+  short  Wind_Speed_Unit;
   short  Wind_Direction;  // Kommt aus Himmelsrichtung
   char   Cardinal;
   String Condition;
   String Condition_Value;
-  String Sunrise;         // Ohne Zeitzone und ohne Sommerzeit
-  String Sunset;          // Ohne Zeitzone und ohne Sommerzeit
+  short  SunriseHour;         // Ohne Zeitzone und ohne Sommerzeit
+  short  SunriseMinute;
+  short  SunsetHour;          // Ohne Zeitzone und ohne Sommerzeit
+  short  SunsetMinute;
+  String Forecast[6];
   byte   Setting;
   bool   Enable;
   const long    refresh_delay = 600000;
   unsigned long last_refresh  = 0;
 } Weather;
 //----------------------------------------------------------------------------
-struct {
-  float Volts;
-  float Amps;
-  float Watts;
-  byte  Setting;
-  bool  Enable;
+struct {  // Power
+  float Transmitting;                                       // Value receveid                                       
+  short Unit;                                               // 0 = Volt, 1 = Ampere, 2 = Watt                                               
+  byte  Setting;                                            // Setting for Watchface
+  bool  Enable;                                             // Watchface enable?
 } Power;
 //----------------------------------------------------------------------------
 struct {
@@ -221,12 +204,6 @@ struct {
   byte  Setting;
   bool  Enable;
 } Environment;
-//----------------------------------------------------------------------------
-struct {
-  unsigned long Subscription;
-  byte Setting;
-  bool Enable;
-} Github;
 //----------------------------------------------------------------------------
 struct {  // Counterstrike GlobalOffensive
   short Delimiter = 0;                                      // 0=" ", 1="/", 2=".", 3="|", 4=":", 5="-", 6="*" | It's just an optical delimiter
@@ -249,28 +226,12 @@ struct {  // Counterstrike GlobalOffensive Player
   unsigned int smoked        = 0;                           // Value between 255 -> 0
   bool         defusekit     = false;                       // Value is true or undefined (wtf?)
   String       activity      = "";                          // Menu, Playing
-} Player, Player_Last;
+} Player;
 //----------------------------------------------------------------------------
 struct {  // Counterstrike GlobalOffensive Team
   String win_team;                                          // CT or T
   String bomb;                                              // Planted, Defused, Exploded
-} Round, Round_Last;
-//----------------------------------------------------------------------------
-struct {
-  bool Button_One;
-  bool Button_Two;
-  bool Button_Three;
-  byte Setting;
-  bool Enable;
-} Pressed;
-//----------------------------------------------------------------------------
-struct {
-  short Device;
-  short Colorduino;
-  short Communication;
-  byte Setting;
-  bool Enable;
-} Err;
+} Round;
 //----------------------------------------------------------------------------
 struct {
   float Device;
@@ -279,18 +240,18 @@ struct {
   short State = 0;
 } Updating;
 //----------------------------------------------------------------------------
-struct {
-  short rssi;
-  byte Setting;
-  bool Enable;
-  int  Mode  = 12;
-  int  State = 0;
-  int  Set   = 12;
-  short WiFi_Skin = 0;
+struct {  // Device
+  short rssi;                                               // Received Signal Strength Indicator for WiFi
+  byte  Setting;                                             // Setting for Watchface
+  bool  Enable;                                              // Watchface enable?
+  int   Mode  = 12;                                          // 
+  int   State = 0;                                           // 
+  int   Set   = 12;                                          // Start Watchface
+  short WiFi_Skin = 0;                                      //
+  short WiFi_Code = 0;                                      // Current WiFi status
+  bool  WiFi_Connection = false;                             // Connected with WiFi
+  bool  WiFi_Internet = false;                               // Connected to the Internet
 } Device;
 //----------------------------------------------------------------------------
-//############################################################################
-//############################################################################
-//############################################################################
 
 #endif

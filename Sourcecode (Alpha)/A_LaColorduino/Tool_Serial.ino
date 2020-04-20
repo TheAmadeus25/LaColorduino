@@ -54,9 +54,13 @@ void ParseSerial() {
   Serial.readStringUntil(';');
 
   switch (Device.Set) {
+    case 0:
+      break;
+    
     case 5:
-      // 5;5;1;1;
+      // 5;5;1;1;1;
       Device.WiFi_Skin             = Serial.parseInt();
+      Device.WiFi_Code             = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
 
       //Symbolic_WiFi(Device.WiFi_Skin);
@@ -117,8 +121,30 @@ void ParseSerial() {
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
 
-    case 33:
+    case 33: // 33;33;6.7;0;1;
       Weather.Wind_Speed           = Serial.parseFloat();
+      Weather.Wind_Speed_Unit      = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 34:  // 34;34;02n;02n;02n;02n;02n;1;
+      Weather.Forecast[0]          = Serial.readStringUntil(';');
+      Weather.Forecast[1]          = Serial.readStringUntil(';');
+      Weather.Forecast[2]          = Serial.readStringUntil(';');
+      Weather.Forecast[3]          = Serial.readStringUntil(';');
+      Weather.Forecast[4]          = Serial.readStringUntil(';');
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 35:  // 35;35;7;56;1
+      Weather.SunriseHour          = Serial.parseInt();
+      Weather.SunriseMinute        = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 36:  // 36;36;22;48;1
+      Weather.SunsetHour           = Serial.parseInt();
+      Weather.SunsetMinute         = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
 
@@ -187,6 +213,12 @@ void ParseSerial() {
       Round.bomb                   = Serial.readStringUntil(';');
       Round.win_team               = Serial.readStringUntil(';');
       CSGO.Delimiter               = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+
+    case 110:  // 110;110;1;1;1;
+      Power.Transmitting           = Serial.parseFloat();
+      Power.Unit                   = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
 

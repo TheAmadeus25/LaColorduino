@@ -267,7 +267,6 @@ void Number(short x, short y, bool light, int Number, String Colors) {
       Spacer(x, y, 3);
 
       break;
-
   }
   return;
 }
