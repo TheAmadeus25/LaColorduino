@@ -28,7 +28,6 @@
 char ssid[] = "******";                                        // Your network SSID (name)
 char password[] = "******";                       // Your network Password
 
-
 #define Trigger 15                                          // Ambilight Trigger in percent (1% - 100%)
                                                             // If ambilight is lower than trigger, it switch to Dark-Mode (Low-Light Clock only)
 

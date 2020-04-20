@@ -22,7 +22,6 @@
 
 void InitUDP() {
   Udp.begin(CSGO.localUdpPort);
-  //Serial.printf("Now listening at IP %s, UDP port %d\n", WiFi.localIP().toString().c_str(), localUdpPort);
   
   return;
 }

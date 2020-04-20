@@ -46,6 +46,17 @@ void GetADS1115() {
   //Pressed.Button_Two   =         ads.readADC_SingleEnded(1);
   //Pressed.Button_Three =         ads.readADC_SingleEnded(2);
 
+  /*
+    if ( ads.readADC_SingleEnded(0) < 10000 ) {
+    if (Pressed.canBtnPress[0]) {
+      Pressed.canBtnPress[0] = false;
+    }
+    } else if( !Pressed.canBtnPress[0] ) {
+    Pressed.canBtnPress[0] = true;
+    }
+  */
+
+
   if ( ads.readADC_SingleEnded(0) < 10000 ) {
     Pressed.Button_One = false;
   } else {
@@ -106,10 +117,13 @@ void CalculateAmbientlight(short Input) {
     if (Input == 1) {
       MasterRefresh = true;
     }
-    Environment.SET_Ambientlight = 0;
-    Device.Mode = 10;
-    Device.Set = 10;
-
+    
+    if (Device.Mode == 100 || Device.Mode == 110) {// ##############
+      Environment.SET_Ambientlight = 1;
+    } else {
+      Environment.SET_Ambientlight = 0;
+      Device.Mode = 10;
+    }
   }
 
   if (MasterRefresh == true) {
@@ -122,6 +136,7 @@ void CalculateAmbientlight(short Input) {
 
 void NightMode() {
   if (Environment.SET_Ambientlight == 0) {
+    
     Setting.change_refresh = millis();
 
     //Device.Mode = 10;

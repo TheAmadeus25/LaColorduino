@@ -15,10 +15,10 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.1 - ALPHA                    Date: 14.Apr.2019                      ┃
+  │ Version: 0.0.2 - ALPHA                    Date: 01.Apr.2020                      ┃
   ├──────────────────────────┴─────────────────────────┤
-  │ + Variable File                                                                  ┃
-  │ + Comment                                                                        ┃
+  │ + Add new Variable                                                               ┃
+  │ + Preparing for Wireless Multimeter Watchface                                    ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -172,38 +172,50 @@ struct {  // Spotify
 } Spotify;
 //----------------------------------------------------------------------------
 struct {  // Weather
-  float  Longtitude;                                        // Longtitude for Town
-  float  Latitude;                                          // Latitude for Town
-  String ID;                                                // Location specified ID
-  String Icon;                                              // Weather Icon | https://openweathermap.org/weather-conditions
-  String Main;                                              // Current weather as string (Clouds, etc.)
-  String Description;                                       // Current weather as string (broken clouds, etc.)
-  float  Temperatur;                                        // Current Temperature
-  short  Temp_Unit;                                         // Unit of Temperature
-  int    Wind;                                              // 
-  int    Humidity;                                          // Current Humidity
-  int    Pressure;                                          // Current Pressure
-  int    Day_Min;                                           // Max Temperautre
-  int    Day_Max;                                           // Min Temperature
-  float  Visibility;                                        // 
-  char   Vis_Unit;                                          // 
-  float  Wind_Speed;                                        // Wind speed in m/s
-  short  Wind_Direction;                                    // Wind coming from
-  char   Cardinal;                                          // 
-  String Condition;                                         // Same as Icon | Don't know the real difference between them
-  String Condition_Value;                                   // 
-  String Sunrise;                                           // Ohne Zeitzone und ohne Sommerzeit
-  String Sunset;                                            // Ohne Zeitzone und ohne Sommerzeit
-  byte   Setting;                                           // Setting for Watchface
-  bool   Enable;                                            // Watchface enable?
-  const long    refresh_delay = 600000;                     // How often checking for new Information | Don't lower this value!
-  unsigned long last_refresh  = 0;                          // Last time checking for new Information
+  float  Longtitude;
+  float  Latitude;
+  String ID;
+  String Icon;
+  String Main;
+  String Description;
+  float  Temperatur;
+  String Temp_Unit;
+  short  Temp_Unit_2;
+  int    Wind;
+  int    Humidity;
+  int    Pressure;
+  int    Day_Min;
+  int    Day_Max;
+  float  Visibility;
+  char   Vis_Unit;
+  float  Wind_Speed;      // m/s
+  short  Wind_Speed_Unit;
+  short  Wind_Direction;  // Kommt aus Himmelsrichtung
+  char   Cardinal;
+  String Condition;
+  String Condition_Value;
+  short  SunriseHour;         // Ohne Zeitzone und ohne Sommerzeit
+  short  SunriseMinute;
+  short  SunsetHour;          // Ohne Zeitzone und ohne Sommerzeit
+  short  SunsetMinute;
+  String Forecast[6];
+  byte   Setting;
+  bool   Enable;
+  const long    refresh_delay = 600000;
+  unsigned long last_refresh  = 0;
 } Weather;
 //----------------------------------------------------------------------------
 struct {  // Power
   float Volts;                                              // Show current Voltage | Planning a wireless Multi-Meter with ESP + INA226
   float Amps;                                               // Show current Current | Planning a wireless Multi-Meter with ESP + INA226
   float Watts;                                              // Show current Power   | Planning a wireless Multi-Meter with ESP + INA226
+  float Transmitting;                                       
+  short Unit;                                               
+  unsigned int localUdpPort = 65003;                        // Local port to listen on
+  char incomingPacket[255];                                 // Buffer for incoming packets
+  int  packetSize;                                          // Buffer Size
+  int  len;                                                 // Array Size for Buffer
+  bool UDP_Input = false;                                   // New Information
   byte  Setting;                                            // Setting for Watchface
   bool  Enable;                                             // Watchface enable?
 } Power;
@@ -272,6 +284,7 @@ struct {  // Pressed
   long Button_One;                                          // Hold|Release | Hold current Watchface | Change Feature/Watchface
   long Button_Two;                                          // Prev | Go to last Watchface
   long Button_Three;                                        // Next | Go to next Watchface
+  bool canBtnPress[3];
   byte Setting;                                             // Setting for Watchface
   bool Enable;                                              // Watchface enable?
 } Pressed;
@@ -298,7 +311,10 @@ struct {  // Device
   int  Mode  = 30;                                          // 
   int  State = 0;                                           // 
   int  Set   = 30;                                          // Start Watchface
-  short WiFi_Skin = 0;                                      // 
+  short WiFi_Skin = 0;                                      //
+  short WiFi_Code = 0;                                      // Current WiFi status
+  bool WiFi_Connection = false;                             // Connected with WiFi
+  bool WiFi_Internet = false;                               // Connected to the Internet
 } Device;
 //----------------------------------------------------------------------------
 

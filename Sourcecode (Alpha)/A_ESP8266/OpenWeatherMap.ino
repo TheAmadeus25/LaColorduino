@@ -49,30 +49,34 @@ void GetWeather() {
   Weather.Wind_Direction  = (ow_cond->w_deg).toFloat();
   Weather.Condition       = (ow_cond->cond);
   Weather.Condition_Value = (ow_cond->cond_value);
-  Weather.Sunrise         = (ow_cond->sunrise);
-  Weather.Sunset          = (ow_cond->sunset);
+  //Weather.SunriseHour     = (ow_cond->sunrise);
+  //Weather.SunriseMinute   = (ow_cond->sunrise).toInt();
+  //Weather.Sunset          = (ow_cond->sunset);
 
-  /*
+  
     OWM_fiveForecast *ow_fcast5 = new OWM_fiveForecast[40];
-    byte entries = owF5.updateForecast(ow_fcast5, 5, ow_key, "de", "Koeln", "metric");
-    Serial.print("Entries: "); Serial.println(entries+1);
+    byte entries = owF5.updateForecast(ow_fcast5, 5, ow_key, COUNTRY_ID, TOWN_ID, Setting.Global_Unit);
+    //Serial.print("Entries: "); Serial.println(entries+1);
     for (byte i = 0; i <= entries; ++i) {
-    Serial.print(dateTime(ow_fcast5[i].dt) + ": icon: ");
-    Serial.print(ow_fcast5[i].icon + ", temp.: [" + ow_fcast5[i].t_min + ", " + ow_fcast5[i].t_max + "], press.: " + ow_fcast5[i].pressure);
-    Serial.println(", descr.: " + ow_fcast5[i].description + ":: " + ow_fcast5[i].cond + " " + ow_fcast5[i].cond_value);
+      yield();
+      //Serial.print(dateTime(ow_fcast5[i].dt) + ": icon: ");
+      //Serial.print(ow_fcast5[i].icon + ", temp.: [" + ow_fcast5[i].t_min + ", " + ow_fcast5[i].t_max + "], press.: " + ow_fcast5[i].pressure);
+      //Serial.println(", descr.: " + ow_fcast5[i].description + ":: " + ow_fcast5[i].cond + " " + ow_fcast5[i].cond_value);
+
+      Weather.Forecast[i] = (ow_fcast5[i].icon);
     }
 
-
+    /*
     for (byte i = 0; i <= entries; ++i) {
-    Forecast[i].Icon            = (ow_fcast5[i].icon);
-    Forecast[i].Pressure        = (ow_fcast5[i].pressure).toInt();
-    Forecast[i].Description     = (ow_fcast5[i].description);
-    Forecast[i].Condition       = (ow_fcast5[i].cond);
-    Forecast[i].Condition_Value = (ow_fcast5[i].cond_value);
-    }
+      Forecast[i].Icon            = (ow_fcast5[i].icon);
+      Forecast[i].Pressure        = (ow_fcast5[i].pressure).toInt();
+      Forecast[i].Description     = (ow_fcast5[i].description);
+      Forecast[i].Condition       = (ow_fcast5[i].cond);
+      Forecast[i].Condition_Value = (ow_fcast5[i].cond_value);
+    }*/
 
     delete[] ow_fcast5;
-  */
+  
 
   if (Debug_Serial == true) {
     Serial.println("\n----------------------------------");
@@ -143,10 +147,14 @@ void GetWeather() {
     Serial.println(dateTime(ow_cond->sunset));
 
     Serial.print("Sunrise (EPOCH): ");
-    Serial.println(Weather.Sunrise);
+    Serial.println(Weather.SunriseHour);
+    Serial.println(":");
+    Serial.println(Weather.SunriseMinute);
 
     Serial.print("Sunset  (EPOCH): ");
-    Serial.println(Weather.Sunset);
+    Serial.println(Weather.SunsetHour);
+    Serial.println(":");
+    Serial.println(Weather.SunsetMinute);
   }
   /*
     for (byte i = 0; i <= entries; ++i) {

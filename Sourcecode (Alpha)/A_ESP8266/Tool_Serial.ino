@@ -17,7 +17,7 @@
   ├──────────────────────────┬─────────────────────────┤
   │ Version: 0.0.5 - ALPHA                    Date: 24.Dec.2019                      ┃
   ├──────────────────────────┴─────────────────────────┤
-  │ + Add CSGO Support                                                               ┃
+  │ + Preparing for Wireless Multimeter Watchface                                    ┃
   │                                                                                  ┃
   │                                                                                  ┃
   │                                                                                  ┃ 
@@ -36,8 +36,13 @@ void SerialOutput() {
   Serial.print(";");
 
   switch (Device.Set) {
+    case 0:
+      break;
+      
     case 5:
       Serial.print(Device.WiFi_Skin);
+      Serial.print(";");
+      Serial.print(Device.WiFi_Code);
       Serial.print(";");
       Serial.print("1");      //Ambientlight
       break;
@@ -110,8 +115,41 @@ void SerialOutput() {
       Serial.print(Environment.SET_Ambientlight);
       break;
 
-    case 33:
-      Serial.print(Weather.Wind_Speed);
+    case 33:  // 33;33;6.7;1;
+      Serial.print(Weather.Wind_Speed * 3.6);
+      Serial.print(";");
+      //Serial.print(Weather.Wind_Speed_Unit);
+      Serial.print("0");
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 34:
+      Serial.print(Weather.Forecast[0]);
+      Serial.print(";");
+      Serial.print(Weather.Forecast[1]);
+      Serial.print(";");
+      Serial.print(Weather.Forecast[2]);
+      Serial.print(";");
+      Serial.print(Weather.Forecast[3]);
+      Serial.print(";");
+      Serial.print(Weather.Forecast[4]);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 35:
+      Serial.print(Weather.SunriseHour);
+      Serial.print(";");
+      Serial.print(Weather.SunriseMinute);
+      Serial.print(";");
+      Serial.print(Environment.SET_Ambientlight);
+      break;
+
+    case 36:
+      Serial.print(Weather.SunsetHour);
+      Serial.print(";");
+      Serial.print(Weather.SunsetMinute);
       Serial.print(";");
       Serial.print(Environment.SET_Ambientlight);
       break;
@@ -192,6 +230,14 @@ void SerialOutput() {
       Serial.print(Round.win_team);
       Serial.print(";");
       Serial.print(CSGO.Delimiter);
+      Serial.print(";");
+      Serial.print("1"); // Environment.SET_Ambientlight
+      break;
+
+    case 110:
+      Serial.print(Power.Transmitting);
+      Serial.print(";");
+      Serial.print(Power.Unit);
       Serial.print(";");
       Serial.print("1"); // Environment.SET_Ambientlight
       break;

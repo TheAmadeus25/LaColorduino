@@ -15,11 +15,12 @@
   │ everybody and everything is selfmade! Go check my Github page, sometimes. Maybe  ┃
   │ there is something new.                                                          ┃
   ├──────────────────────────┬─────────────────────────┤
-  │ Version: 0.0.6 - ALPHA                    Date: 28.Mar.2020                      ┃
+  │ Version: 0.0.7 - ALPHA                    Date: 01.Apr.2020                      ┃
   ├──────────────────────────┴─────────────────────────┤
-  │ + Add Twitter                                                                    ┃
-  │ + Add Twitch                                                                     ┃
-  │ + Add CSGO Livestats                                                             ┃
+  │ + Add Algorithm for Animation and WiFi and Internet connection/status            ┃
+  │ + Add Test Internet connection                                                   ┃
+  │ + Add Case 0 for blank screen                                                    ┃
+  │ + Add Case 110 for WiFi Multimeter (future)                                      ┃
   └────────────────────────────────────────────────────┘
 */
 
@@ -91,7 +92,8 @@ CoinMarketCapApi api2(client);                              //
 #include <WiFiUdp.h>                                        // Library
 
 WiFiUDP ntpUDP;                                             //
-WiFiUDP Udp;                                                //
+WiFiUDP Udp;                                                // UPD for CSGO
+WiFiUDP Udp2;                                               // UPD for Multimeter
 
 //─────────────────────────────────────────────────────┐
 // You can specify the time server pool and the offset (in seconds, can be
@@ -107,7 +109,6 @@ TwitchApi twitch(client, TWITCH_CLIENT_ID);
 //--- Titter ---//
 #include <TwitterApi.h>
 TwitterApi api3(client);
-
 
 enum Units {Celsius = 5, Fahrenheit = 6, Kelvin = 7};       //
 
@@ -126,6 +127,7 @@ void setup() {
   InitNTP();                                                // @NTP            | Configuration of the Time
   InitTwitter();                                            // @Twitter        | Configuration of Twitter
   InitUDP();                                                // @CSGO_Stats     | Configuration of CSGO
+  InitUDP2();
 
   // Just put some numbers into all variables for start
   digitalWrite(ESP_Led, LOW);                               // Lights-up built in LED
@@ -224,19 +226,42 @@ void loop() {
     digitalWrite(ESP_Led2, HIGH);                           // Lights-down built in LED
   }
 
+  if ( GetUDP2() ) {
+    digitalWrite(ESP_Led2, LOW);                            // Lights-up built in LED
+    if (Device.Mode != 110) {
+      Device.Mode = 110;
+      Device.Set  = 110;
+    } else {
+      Setting.change_refresh = millis();
+    }
+
+    Weather.last_refresh = millis() /* + ( Weather.refresh_delay - 10000 )*/ ;
+    YouTube.last_refresh = millis() /* + ( YouTube.refresh_delay - 10000 )*/ ;
+    Time.last_refresh    = millis() /* + ( Time.refresh_delay    - 10000 )*/ ;
+    Twitch.last_refresh  = millis() /* + ( Twitch.refresh_delay  - 10000 )*/ ;
+    Twitter.last_refresh = millis() /* + ( Twitter.refresh_delay - 10000 )*/ ;
+
+    SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
+    digitalWrite(ESP_Led2, HIGH);                           // Lights-down built in LED
+  }
+
   // <- Add new Software for new Watchfaces
 
   NightMode();
 
   if ( millis() - Setting.change_refresh > Setting.change_delay || Pressed.Button_Three == true) {              // If times up or ADS button is pressed,...
     switch (Device.Mode) {                                  // Check Watchface-Mode
+      case  0:  Device.Mode = 10; Device.Set = 10;  break;  // BLANK SCREEN
       case 10:  Device.Mode = 20; Device.Set = 20;  break;  // CLOCK
       case 20:  Device.Mode = 30; Device.Set = 30;  break;  // INDOOR TEMPERATURE
       //case 21:  Device.Mode = 30; Device.Set = 30;  break;  // INDOOR PRESSURE
-      case 30:  Device.Mode = 32; Device.Set = 32;  break;  //---31|31
+      case 30:  Device.Mode = 32; Device.Set = 32;  break;  // WEATHER TEMPERATUR
       case 31:  Device.Mode = 32; Device.Set = 32;  break;  // WEATHER PRESSURE*
-      case 32:  Device.Mode = 40; Device.Set = 40;  break;  // WEATHER HUMIDITY*
-      //case 33:  Device.Mode = 40; Device.Set = 40;  break;  // WEATHER WIND
+      case 32:  Device.Mode = 33; Device.Set = 33;  break;  // WEATHER HUMIDITY*
+      case 33:  Device.Mode = 40; Device.Set = 40;  break;  // WEATHER WIND
+      //case 34:  Device.Mode = 40; Device.Set = 40;  break;  // WEATHER 5 DAY FORECAST*******
+      case 35:  Device.Mode = 36; Device.Set = 36;  break;  // SUNRISE
+      case 36:  Device.Mode = 40; Device.Set = 40;  break;  // SUNSET
       case 40:  Device.Mode = 41; Device.Set = 41;  break;  // YOUTUBE SUBSCRIBER
       case 41:  Device.Mode = 42; Device.Set = 42;  break;  // YOUTUBE VIEW
       case 42:  Device.Mode = 43; Device.Set = 43;  break;  // YOUTUBE COMMENT
@@ -247,10 +272,11 @@ void loop() {
       case 81:  Device.Mode = 82; Device.Set = 82;  break;  // TWITTER TWEETS
       case 82:  Device.Mode = 83; Device.Set = 83;  break;  // TWITTER LAST_RETWEET
       case 83:  Device.Mode = 10; Device.Set = 10;  break;  // TWITTER LAST_FAVORITE
-      case 90:  Device.Mode = 10; Device.Set = 10;  break;  // FACEBOOK ****
+      case 90:  Device.Mode = 10; Device.Set = 10;  break;  // FACEBOOK (future)
       case 100: Device.Mode = 10; Device.Set = 10;  break;  // CSGO LIVESTATS
+      case 110: Device.Mode = 10; Device.Set = 10;  break;  // WIFI MULTIMETER (future)
     }//END SWITCH
-
+    
     SerialOutput();                                         // @Tool_Serial    | Send Information to Colorduino
     Setting.change_refresh = millis();                      // Reset Timer counter
   }//END IF
