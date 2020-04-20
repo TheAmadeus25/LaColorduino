@@ -32,9 +32,13 @@ void ParseSerial() {
   Serial.readStringUntil(';');
 
   switch (Device.Set) {
+    case 0:
+      break;
+    
     case 5:
-    // 5;5;1;1;
+    // 5;5;0;0;1;  // Erste 0 für Animation | Zweite von 0-6 oder 7
       Device.WiFi_Skin             = Serial.parseInt();
+      Device.WiFi_Code             = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       
       Symbolic_WiFi(Device.WiFi_Skin);
@@ -87,8 +91,30 @@ void ParseSerial() {
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
       
-    case 33:
+    case 33: // 33;33;6.7;0;1;
       Weather.Wind_Speed           = Serial.parseFloat();
+      Weather.Wind_Speed_Unit      = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 34:
+      Weather.Forecast[0]          = Serial.readStringUntil(';');
+      Weather.Forecast[1]          = Serial.readStringUntil(';');
+      Weather.Forecast[2]          = Serial.readStringUntil(';');
+      Weather.Forecast[3]          = Serial.readStringUntil(';');
+      Weather.Forecast[4]          = Serial.readStringUntil(';');
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+    
+    case 35:
+      Weather.SunriseHour          = Serial.parseInt();
+      Weather.SunriseMinute        = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+      
+    case 36:
+      Weather.SunsetHour           = Serial.parseInt();
+      Weather.SunsetMinute         = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
     
@@ -132,17 +158,17 @@ void ParseSerial() {
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
       
-    case 82:
+    case 82:  // 82;82;1;1;
       Twitter.Last_Retweet         = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
       
-   case 83:
+   case 83:  // 83;83;1;1;
       Twitter.Last_Favorite        = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
      
-   case 90:
+   case 90:  // 90;90;1;1;
       Facebook.Friends             = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break; 
@@ -157,6 +183,12 @@ void ParseSerial() {
       Round.bomb                   = Serial.readStringUntil(';');
       Round.win_team               = Serial.readStringUntil(';');
       CSGO.Delimiter               = Serial.parseInt();
+      Environment.SET_Ambientlight = Serial.parseInt();
+      break;
+
+   case 110:  // 110;110;1;1;1;
+      Power.Transmitting           = Serial.parseFloat();
+      Power.Unit                   = Serial.parseInt();
       Environment.SET_Ambientlight = Serial.parseInt();
       break;
       

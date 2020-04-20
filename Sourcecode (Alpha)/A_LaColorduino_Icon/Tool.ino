@@ -35,53 +35,8 @@ void Print_Line(short x, short y, bool light) {
   return;
 }
 //----------------------------------------------------------------------------
-short Print_Array(short x, short y, bool light, char Symbol) {
-  short Oversize = 0;
-
-  if ( Symbol >= 48 && Symbol <= 57 ) {
-    Number(x, y, light, (int)Symbol - 48);
-  } else {
-    Letter(x, y, light, Symbol);
-  }
-
-  return Oversize;
-}
-//----------------------------------------------------------------------------
 short IsZero(int Value, int Position) {
 
-}
-//----------------------------------------------------------------------------
-void Print_Integer(short x, short y, bool light, long Value) {
-  short Print_Position = 0;
-  short First_Zero = 0;
-  int   Digit[9];
-  long  Temp_Value = Value;
-
-  Digit[0] = (Value / 10000000) % 10;
-  Digit[1] = (Value / 1000000) % 10;
-  Digit[2] = (Value / 100000) % 10;
-  Digit[3] = (Value / 10000) % 10;
-  Digit[4] = (Value / 1000) % 10;
-  Digit[5] = (Value / 100) % 10;
-  Digit[6] = (Value / 10) % 10;
-  Digit[7] =  Value % 10;
-
-  while (Print_Position < 7 && Digit[Print_Position] == 0) {
-    Letter(Cursor_Pos + 1, y, light, ' ');
-    Print_Position++;
-  }
-
-  if (Value < 0) {
-    Cursor_Pos = Cursor_Pos - 4;
-    Letter(Cursor_Pos + 1, y, light, '-');
-  }
-
-  while (Print_Position <= 7) {
-    Number(Cursor_Pos + 1, y, light, Digit[Print_Position]);
-    Print_Position++;
-  }
-
-  Colorduino.FlipPage();
 }
 //----------------------------------------------------------------------------
 void Print_Float(short x, short y, bool light, float Value) {
@@ -135,22 +90,12 @@ void Print_Float(short x, short y, bool light, float Value) {
   Digit[6] = Temp_Value % 10;
   //Serial.println(Digit[7]);
 
-  while (Print_Position < 7 && Digit[Print_Position] == 0) {
-    Letter(Cursor_Pos + 1, y, light, ' ');
-    Print_Position++;
-  }
-  
-  if (Value < 0) {
-    Cursor_Pos = Cursor_Pos - 4;
-    Letter(Cursor_Pos + 1, y, light, '-');
-  }
 
   while (Print_Position <= 5) {
     Number(Cursor_Pos + 1, y, light, Digit[Print_Position]);
     Print_Position++;
   }
   
-  Letter(Cursor_Pos, y, light, '.');
   Number(Cursor_Pos + 1, y, light, Digit[6]);
   
   Colorduino.FlipPage();  

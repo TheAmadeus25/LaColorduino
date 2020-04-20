@@ -131,7 +131,6 @@ struct {
   unsigned long last_refresh  = 0;
 } Currency;
 //----------------------------------------------------------------------------
-
 struct {
   String  ID;
   String Name;
@@ -188,24 +187,30 @@ struct {
   float  Visibility;
   char   Vis_Unit;
   float  Wind_Speed;      // m/s
+  short  Wind_Speed_Unit;
   short  Wind_Direction;  // Kommt aus Himmelsrichtung
   char   Cardinal;
   String Condition;
   String Condition_Value;
-  String Sunrise;         // Ohne Zeitzone und ohne Sommerzeit
-  String Sunset;          // Ohne Zeitzone und ohne Sommerzeit
+  short  SunriseHour;         // Ohne Zeitzone und ohne Sommerzeit
+  short  SunriseMinute;
+  short  SunsetHour;          // Ohne Zeitzone und ohne Sommerzeit
+  short  SunsetMinute;
+  String Forecast[6];
   byte   Setting;
   bool   Enable;
   const long    refresh_delay = 600000;
   unsigned long last_refresh  = 0;
 } Weather;
 //----------------------------------------------------------------------------
-struct {
-  float Volts;
-  float Amps;
-  float Watts;
-  byte  Setting;
-  bool  Enable;
+struct {  // Power
+  float Volts;                                              // Show current Voltage | Planning a wireless Multi-Meter with ESP + INA226
+  float Amps;                                               // Show current Current | Planning a wireless Multi-Meter with ESP + INA226
+  float Watts;                                              // Show current Power   | Planning a wireless Multi-Meter with ESP + INA226
+  float Transmitting;                                       
+  short Unit;                                               
+  byte  Setting;                                            // Setting for Watchface
+  bool  Enable;                                             // Watchface enable?
 } Power;
 //----------------------------------------------------------------------------
 struct {
@@ -283,14 +288,17 @@ struct {
   short State = 0;
 } Updating;
 //----------------------------------------------------------------------------
-struct {
-  short rssi;
-  byte Setting;
-  bool Enable;
-  int  Mode  = 12;
-  int  State = 0;
-  int  Set   = 12;
-  short WiFi_Skin = 0;
+struct {  // Device
+  short rssi;                                               // Received Signal Strength Indicator for WiFi
+  byte Setting;                                             // Setting for Watchface
+  bool Enable;                                              // Watchface enable?
+  int  Mode  = 12;                                          // 
+  int  State = 0;                                           // 
+  int  Set   = 12;                                          // Start Watchface
+  short WiFi_Skin = 0;                                      //
+  short WiFi_Code = 0;                                      // Current WiFi status
+  bool WiFi_Connection = false;                             // Connected with WiFi
+  bool WiFi_Internet = false;                               // Connected to the Internet
 } Device;
 //----------------------------------------------------------------------------
 //############################################################################
@@ -376,8 +384,16 @@ void loop() {
     Cursor_Pos = True_Pos;
 
     switch (Device.Mode) {
+      case  0:
+        Symbolic_Blank();
+        break;
+      
       case  5:
-        Symbolic_WiFi(Device.WiFi_Skin);
+        if (Device.WiFi_Code != 7) {
+          Symbolic_WiFi(Device.WiFi_Skin);
+        } else {
+          Symbolic_Check();
+        }
         break;
 
       case  9:
@@ -396,7 +412,7 @@ void loop() {
         break;
 
       case 30:
-        Symbolic_Weather();
+        Symbolic_Weather(Weather.Icon);
         break;
       
       case 31:
@@ -409,6 +425,18 @@ void loop() {
         
       case 33:
         Symbolic_Wind();
+        break;
+        
+      case 34:
+        Symbolic_Weather(Weather.Forecast[0]);
+        break;
+      
+      case 35:
+        Symbolic_Sun(1);
+        break;
+        
+      case 36:
+        Symbolic_Sun(0);
         break;
 
       case 40:
@@ -455,8 +483,12 @@ void loop() {
         Symbolic_Facebook();
         break;
         
-      case 100:
+      case 100: // CSGO Livestats
         Symbolic_Steam_2();
+        break;
+
+      case 110: // Wireless Multimeter
+        Symbolic_Power();
         break;
 
       default:
