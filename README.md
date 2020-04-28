@@ -298,6 +298,8 @@ You can change the delimiter of this watchface into one of the following charact
 
 ### CT Wins ([Video](https://twitter.com/TheAmadeus25/status/1244611519905660928))
 
+![Preview CSGO CT Wins](https://github.com/TheAmadeus25/LaColorduino/blob/master/Photos/CounterStrike/IMG_1820.jpg?raw=true)
+
 **...more videos incoming**
 
 ******
