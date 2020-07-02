@@ -11,6 +11,8 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 
 😥 However, the Wiki isn't completed, yet. That's a hole bunch of work and I change almost everytime something about this project.
 
+⚠ It seems, that something has changed inside the API's. Sometimes the clock works without any problems, sometimes it doesn't show a valid number. Due COVID-19 I don't have much time. I'm working around 60h per week, cos lack of workers.
+
 ******
 # Preview of Watchfaces
 
