@@ -11,7 +11,14 @@ I build my own clone of LaMetric smartwatch but with 5 Colorduino. It will make 
 
 😥 However, the Wiki isn't completed, yet. That's a hole bunch of work and I change almost everytime something about this project.
 
-⚠ It seems, that something has changed inside the API's. Sometimes the clock works without any problems, sometimes it doesn't show a valid number. Due COVID-19 I don't have much time. I'm working around 60h per week, cos lack of workers.
+⚠ I have started to upgrade this project for ESP32-S2, the successor board, as I am quite unhappy with the core program of the ESP8266. However, I will still need a lot of time, as I am reprogramming the whole source code from scratch as well as dropping some libraries. The focus of this programming will be on the following aspects:
+- Performance
+- Stability
+- Fail-safe
+- Fully automated
+- User friendliness
+
+You can see the current programming progress **[here](https://github.com/TheAmadeus25/LaColorduino/projects)**.
 
 ******
 # Preview of Watchfaces
